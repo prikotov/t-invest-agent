@@ -8,7 +8,7 @@
 
 | Фаза | Название | Статус | Приоритет |
 |------|----------|--------|-----------|
-| 1 | MVP: Анализ портфеля | TODO | CRITICAL |
+| 1 | MVP: Анализ портфеля | ✅ DONE | CRITICAL |
 | 2 | Рецепты и мониторинг | TODO | HIGH |
 | 3 | Память и персонализация | TODO | MEDIUM |
 
@@ -32,15 +32,13 @@
 
 ### 1.2 Базовый промпт для анализа портфеля
 
-- [ ] Создать `prompts/portfolio-analysis.md`
-- [ ] Промпт должен:
-  - Получать позиции через `skill portfolio:positions`
-  - Для каждой позиции > 5% веса:
-    - `moex security:trade-data` — цена
-    - `skill analyze:technical` — тех. картина
-    - `news news:fetch` — новости
-  - Формировать сводку с рекомендациями
-  - Завершать дисклеймером
+- [x] Создать `skills/portfolio-analysis/SKILL.md` ✓
+- [x] Skill умеет:
+  - Получать позиции через `skill portfolio:show` ✓
+  - Получать цены через `moex security:trade-data` ✓
+  - Получать новости через `news news:fetch` ✓
+  - Получать фундаменталку через `skill instruments:fundamentals` ✓
+  - Завершать дисклеймером ✓
 
 ### 1.3 Еженедельный отчёт
 
@@ -53,11 +51,11 @@
 
 ### 1.4 AGENTS.md update
 
-- [ ] Добавить правила из `docs/SYSTEM-PROMPTS.md`:
-  - Тикер-трекинг
-  - Data freshness
-  - Дисклеймер
-  - Формат ответов
+- [x] Добавить правила из `docs/SYSTEM-PROMPTS.md`: ✓
+  - [x] Тикер-трекинг ✓
+  - [x] Data freshness ✓
+  - [x] Дисклеймер ✓
+  - [x] Формат ответов ✓
 
 ---
 
@@ -165,21 +163,22 @@ t-invest-agent/
 
 Чтобы агент работал с портфелем, нужно:
 
-1. ✅ `skill portfolio:positions` — работает
+1. ✅ `skill portfolio:show` — работает
 2. ✅ `moex security:trade-data` — работает
 3. ✅ `news news:fetch` — работает
-4. ⬜ Промпт `portfolio-analysis.md`
-5. ⬜ Обновить `AGENTS.md` с правилами
+4. ✅ Skill `portfolio-analysis` — работает
+5. ✅ Обновить `AGENTS.md` с правилами — готово
 
-**Оценка времени:** 2-3 часа
+**✅ MVP завершён (2026-03-18)**
 
 ---
 
 ## Следующие шаги
 
-1. Протестировать существующие skills
-2. Создать `prompts/portfolio-analysis.md`
-3. Обновить `AGENTS.md`
-4. Протестировать анализ портфеля
+**Фаза 1 завершена.** Следующие шаги — Фаза 2:
+
+1. Cron job для проверки алертов
+2. Интеграция рецептов с мониторингом
+3. Создать `prompts/recipe-create.md`
 
 Не является инвестиционной рекомендацией.
