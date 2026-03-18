@@ -11,31 +11,24 @@
 ### Получение новостей
 ```bash
 news news:fetch
-news news:fetch --source=interfax --source=tass
-news news:fetch --search "нефть" --search "золото"
-news news:fetch --ticker SBER --ticker GAZP
-news news:fetch --category "Экономика"
-news news:fetch --limit=10 --format=json
+news news:fetch --ticker SBER
+news news:fetch --ticker SBER --ticker LKOH
 ```
 
 ### Кэширование
 ```bash
-news news:cache                    # Загрузить и кэшировать
-news news:cache --source=interfax  # Только Interfax
-news news:cache --clear=30         # Очистить старше 30 дней
+news news:cache    # Загрузить и кэшировать
 ```
 
 ### Поиск по кэшу
 ```bash
 news news:search "Сбербанк"
-news news:search "нефть" --category "Экономика"
-news news:search "" --source=interfax --days=3
+news news:search "нефть"
 ```
 
 ### Информация
 ```bash
-news news:cache-stats  # Статистика кэша
-news news:sources      # Доступные источники
+news news:sources  # Доступные источники
 ```
 
 ## Типовые сценарии
@@ -48,18 +41,12 @@ news news:fetch --ticker SBER
 
 ### Новости по теме
 ```bash
-news news:fetch --search "нефть" --search "ОПЕК+"
+news news:fetch --search "нефть"
 ```
 
 ### Поиск в архиве
 ```bash
-news news:search "Сбербанк" --days=7 --category "Экономика"
-```
-
-## Форматы вывода
-```bash
-news news:fetch --format=table  # по умолчанию
-news news:fetch --format=json
+news news:search "Сбербанк"
 ```
 
 ## Интеграция
