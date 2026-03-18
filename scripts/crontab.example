@@ -1,0 +1,6 @@
+# T-Invest Agent Cron
+# Проверка ценовых алертов каждые 15 минут в торговое время
+*/15 10-18 * * 1-5 cd /home/dp/MyProjects/TInvestSkills/t-invest-agent && php scripts/monitor.php check >> var/log/monitor.log 2>&1
+
+# Утренний анализ портфеля в 10:00
+0 10 * * 1-5 cd /home/dp/MyProjects/TInvestSkills/t-invest-agent && ./vendor/bin/skill portfolio:show >> var/log/portfolio.log 2>&1
