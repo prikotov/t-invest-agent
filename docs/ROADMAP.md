@@ -276,7 +276,7 @@ calc sharpe --returns="[0.05, -0.02, 0.08]"
 **Агент:**
 ```
 1. ./vendor/bin/moex security:trade-data SBER → текущая цена
-2. ./vendor/bin/skill analyze:fundamental --ticker=SBER → P/E, дивиденды
+2. ./vendor/bin/t-invest analyze:fundamental --ticker=SBER → P/E, дивиденды
 3. ./vendor/bin/news news:fetch --ticker SBER → свежие новости
 4. Создать рецепт с рассчитанным R:R = 2.67:1
 5. Настроить мониторинг на уровень входа
@@ -288,10 +288,10 @@ calc sharpe --returns="[0.05, -0.02, 0.08]"
 
 **Агент:**
 ```
-1. ./vendor/bin/skill portfolio:report --period=week
+1. ./vendor/bin/t-invest portfolio:report --period=week
 2. Для каждой позиции > 5% веса:
    - ./vendor/bin/news news:fetch --ticker=$TICKER
-   - ./vendor/bin/skill analyze:technical --ticker=$TICKER
+   - ./vendor/bin/t-invest analyze:technical --ticker=$TICKER
 3. Проверить активные рецепты
 4. Сформировать сводку с рекомендациями
 ```
@@ -302,10 +302,10 @@ calc sharpe --returns="[0.05, -0.02, 0.08]"
 
 **Агент:**
 ```
-1. ./vendor/bin/skill screen:stocks --min-dividend=10 --max-pe=8
+1. ./vendor/bin/t-invest screen:stocks --min-dividend=10 --max-pe=8
 2. Для каждого кандидата:
    - ./vendor/bin/moex security:trade-data $TICKER
-   - ./vendor/bin/skill analyze:quick --ticker=$TICKER
+   - ./vendor/bin/t-invest analyze:quick --ticker=$TICKER
 3. Отсортировать по скорингу
 4. Показать топ-5 с обоснованием
 ```

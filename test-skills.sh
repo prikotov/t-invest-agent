@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "=== Portfolio ==="
-./vendor/bin/skill portfolio:show
+./vendor/bin/t-invest portfolio:show
 
 echo ""
 echo "=== MOEX Trade Data ==="

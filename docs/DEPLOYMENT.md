@@ -214,7 +214,7 @@ echo "   opencode"
 echo "   > Проанализируй мой портфель"
 echo ""
 echo "4. Или используйте skills напрямую:"
-echo "   docker-compose exec skills ./vendor/bin/skill portfolio:positions"
+echo "   docker-compose exec skills ./vendor/bin/t-invest portfolio:positions"
 echo ""
 ```
 
@@ -260,10 +260,10 @@ clean:
 
 # Skills shortcuts
 positions:
-	docker-compose exec skills ./vendor/bin/skill portfolio:positions
+	docker-compose exec skills ./vendor/bin/t-invest portfolio:positions
 
 report:
-	docker-compose exec skills ./vendor/bin/skill portfolio:report --period=week
+	docker-compose exec skills ./vendor/bin/t-invest portfolio:report --period=week
 
 ticker:
 	@read -p "Тикер: " ticker; \
@@ -309,7 +309,7 @@ echo ""
 echo "3. Тестирование skills..."
 
 echo "   → portfolio:positions..."
-./vendor/bin/skill portfolio:positions > /dev/null 2>&1 && echo "   ✅ OK" || echo "   ⚠️  Требуется токен"
+./vendor/bin/t-invest portfolio:positions > /dev/null 2>&1 && echo "   ✅ OK" || echo "   ⚠️  Требуется токен"
 
 echo "   → moex security:trade-data SBER..."
 ./vendor/bin/moex security:trade-data SBER > /dev/null 2>&1 && echo "   ✅ OK" || echo "   ❌ FAIL"
@@ -391,7 +391,7 @@ claude
 
 ```bash
 # Позиции портфеля
-docker-compose exec skills ./vendor/bin/skill portfolio:positions
+docker-compose exec skills ./vendor/bin/t-invest portfolio:positions
 
 # Рыночные данные
 docker-compose exec skills ./vendor/bin/moex security:trade-data SBER
@@ -400,7 +400,7 @@ docker-compose exec skills ./vendor/bin/moex security:trade-data SBER
 docker-compose exec skills ./vendor/bin/news news:fetch --ticker SBER
 
 # Технический анализ
-docker-compose exec skills ./vendor/bin/skill analyze:technical --ticker=SBER
+docker-compose exec skills ./vendor/bin/t-invest analyze:technical --ticker=SBER
 ```
 
 Или с Makefile:

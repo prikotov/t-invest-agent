@@ -216,10 +216,10 @@ function clear(): int
 
 function sync_portfolio(): int
 {
-    $skillBin = __DIR__ . '/../vendor/bin/skill';
+    $skillBin = __DIR__ . '/../vendor/bin/t-invest';
     
     if (!file_exists($skillBin)) {
-        echo "Error: skill binary not found. Run composer install.\n";
+        echo "Error: t-invest binary not found. Run composer install.\n";
         return 1;
     }
     

@@ -48,7 +48,7 @@ description: Фундаментальный анализ отдельной ак
 **Шаг 2:** Фундаментальный анализ
 
 ```bash
-./vendor/bin/skill instruments:fundamentals {TICKER}
+./vendor/bin/t-invest instruments:fundamentals {TICKER}
 ```
 
 | Опция   | Описание                    |
@@ -67,7 +67,7 @@ description: Фундаментальный анализ отдельной ак
 **Шаг 3:** Исторические данные
 
 ```bash
-./vendor/bin/skill market:candles {TICKER} --from 2024-01-01
+./vendor/bin/t-invest market:candles {TICKER} --from 2024-01-01
 ```
 
 | Опция   | Описание              |

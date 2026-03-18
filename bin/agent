@@ -66,7 +66,7 @@ class BinListCommand extends Command
 
         $io->section('Examples');
         $io->writeln('  ./vendor/bin/moex security:specification SBER');
-        $io->writeln('  ./vendor/bin/skill portfolio:analyze');
+        $io->writeln('  ./vendor/bin/t-invest portfolio:show');
         $io->writeln('  ./vendor/bin/news news:fetch --ticker SBER');
 
         return Command::SUCCESS;

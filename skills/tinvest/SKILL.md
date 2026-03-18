@@ -6,38 +6,38 @@
 
 ### Портфель
 ```bash
-skill portfolio:show              # Весь портфель
-skill portfolio:show -t SBER      # По тикеру
+./vendor/bin/t-invest portfolio:show              # Весь портфель
+./vendor/bin/t-invest portfolio:show -t SBER      # По тикеру
 ```
 Возвращает: позиции, количество, средняя цена, доходность, текущая цена
 
 ### Счета
 ```bash
-skill accounts:list
+./vendor/bin/t-invest accounts:list
 ```
 Возвращает: список счетов пользователя
 
 ### Операции
 ```bash
-skill operations:history
+./vendor/bin/t-invest operations:history
 ```
 Возвращает: история операций
 
 ### Рыночные цены
 ```bash
-skill market:prices SBER LKOH GAZP
+./vendor/bin/t-invest market:prices SBER LKOH GAZP
 ```
 Возвращает: последние цены по инструментам
 
 ### Исторические свечи
 ```bash
-skill market:candles SBER --from 2024-01-01 --to 2024-12-31
+./vendor/bin/t-invest market:candles SBER --from 2024-01-01 --to 2024-12-31
 ```
 Возвращает: OHLCV данные
 
 ### Фундаментальные показатели
 ```bash
-skill instruments:fundamentals SBER LKOH
+./vendor/bin/t-invest instruments:fundamentals SBER LKOH
 ```
 Возвращает: P/E, P/B, дивиденды и другие метрики
 
@@ -45,21 +45,21 @@ skill instruments:fundamentals SBER LKOH
 
 ### Анализ портфеля
 ```bash
-skill portfolio:show
-skill market:prices SBER LKOH GAZP
+./vendor/bin/t-invest portfolio:show
+./vendor/bin/t-invest market:prices SBER LKOH GAZP
 ```
 
 ### Анализ кандидата
 ```bash
-skill instruments:fundamentals GAZP
-skill market:candles GAZP --from 2024-01-01
+./vendor/bin/t-invest instruments:fundamentals GAZP
+./vendor/bin/t-invest market:candles GAZP --from 2024-01-01
 ```
 
 ## Интеграция
 
 Команда вызывается через vendor binary:
 ```bash
-./vendor/bin/skill portfolio:show
+./vendor/bin/t-invest portfolio:show
 ```
 
 ## Справочник API
