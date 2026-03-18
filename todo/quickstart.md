@@ -6,18 +6,18 @@
 
 ## Сейчас (30 мин)
 
-- [ ] Проверить `.env.local` — есть токен T-Invest?
-- [ ] Запустить `./vendor/bin/skill portfolio:positions`
-- [ ] Запустить `./vendor/bin/moex security:trade-data SBER`
-- [ ] Запустить `./vendor/bin/news news:fetch --ticker SBER`
+- [x] Проверить `.env.local` — есть токен T-Invest? (требуется настройка)
+- [x] Запустить `./vendor/bin/skill portfolio:positions` (требуется токен)
+- [x] Запустить `./vendor/bin/moex security:trade-data SBER` ✓
+- [x] Запустить `./vendor/bin/news news:fetch --ticker SBER` ✓
 
 ## Сегодня (2 часа)
 
-- [ ] Создать `data/` директории
-- [ ] Создать `prompts/portfolio-analysis.md`
-- [ ] Создать `prompts/ticker-analysis.md`
-- [ ] Обновить `AGENTS.md` с правилами
-- [ ] Протестировать анализ портфеля
+- [x] Создать `data/` директории ✓
+- [x] Создать `prompts/portfolio-analysis.md` ✓
+- [x] Создать `prompts/ticker-analysis.md` ✓
+- [x] Обновить `AGENTS.md` с правилами ✓
+- [ ] Протестировать анализ портфеля (требуется токен)
 
 ## На этой неделе
 
