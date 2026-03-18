@@ -17,7 +17,7 @@ t-invest-agent/
 │   ├── moex/SKILL.md      # MOEX API
 │   ├── tinvest/SKILL.md   # T-Invest API
 │   └── news/SKILL.md      # News aggregator
-├── vendor/bin/            # CLI команды
+├── vendor/bin/            # CLI бинарники
 │   ├── moex               # MOEX CLI
 │   ├── skill              # T-Invest CLI
 │   └── news               # News CLI
@@ -34,27 +34,18 @@ t-invest-agent/
 ./bin/agent skills:list  # Список навыков
 ```
 
-### CLI бинарники
+### Навыки
 
-```bash
-# MOEX - рыночные данные
-./vendor/bin/moex security:specification SBER
-./vendor/bin/moex security:trade-data SBER
-./vendor/bin/moex security:indices SBER
+Все команды описаны в `skills/*/SKILL.md`:
 
-# T-Invest - портфель
-./vendor/bin/skill portfolio:positions
-./vendor/bin/skill portfolio:analyze
-
-# News - новости
-./vendor/bin/news news:fetch --ticker SBER
-./vendor/bin/news news:search "нефть"
-```
+- `skills/tinvest/SKILL.md` — портфель, цены, операции, фундаменталка
+- `skills/moex/SKILL.md` — рыночные данные MOEX
+- `skills/news/SKILL.md` — агрегация новостей
 
 ## Для AI-агентов
 
 Инструкции для AI-агентов находятся в `AGENTS.md`. Этот файл описывает:
-- Доступные навыки и команды
+- Доступные навыки
 - Типовые сценарии работы
 - Рабочий процесс анализа
 
@@ -69,6 +60,8 @@ t-invest-agent/
 Создайте `.env.local`:
 
 ```env
-TINKOFF_TOKEN=your_token
-TINKOFF_ACCOUNT_ID=your_account_id
+TINVEST_TOKEN=t.ваш_токен
+TINVEST_ACCOUNT_ID=ваш_account_id
+TINVEST_BASE_URL=https://invest-public-api.tbank.ru/rest/
+LOG_LEVEL=info
 ```

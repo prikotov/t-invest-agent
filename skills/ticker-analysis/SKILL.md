@@ -1,6 +1,6 @@
 ---
 name: ticker-analysis
-description: Фундаментальный и технический анализ отдельной акции на MOEX.
+description: Фундаментальный анализ отдельной акции на MOEX.
 ---
 
 # Ticker Analysis
@@ -16,8 +16,8 @@ description: Фундаментальный и технический анали
 **Шаг 1:** Рыночные данные
 
 ```bash
-    ./vendor/bin/moex security:trade-data {TICKER}
-    ./vendor/bin/moex security:specification {TICKER}
+./vendor/bin/moex security:trade-data {TICKER}
+./vendor/bin/moex security:specification {TICKER}
 ```
 
 `moex security:trade-data:`
@@ -45,18 +45,15 @@ description: Фундаментальный и технический анали
 | list_level | Уровень списка  |
 | issue_size | Размер выпуска  |
 
-**Шаг 2:** Анализ
+**Шаг 2:** Фундаментальный анализ
 
 ```bash
-    ./vendor/bin/skill analyze:fundamental --ticker={TICKER}
-    ./vendor/bin/skill analyze:technical --ticker={TICKER}
+./vendor/bin/skill instruments:fundamentals {TICKER}
 ```
 
-`analyze:fundamental:`
-
-| Опция    | Описание          |
-|----------|-------------------|
-| --ticker | Тикер инструмента |
+| Опция   | Описание                    |
+|---------|-----------------------------|
+| tickers | Тикеры (позиционные, через пробел) |
 
 Поля:
 
@@ -66,33 +63,32 @@ description: Фундаментальный и технический анали
 | pb             | P/B мультипликатор     |
 | roe            | Return on Equity       |
 | dividend_yield | Дивидендная доходность |
-| fair_price     | Справедливая цена      |
-| score          | Скоринг оценки         |
 
-`analyze:technical:`
-
-| Поле       | Описание              |
-|------------|-----------------------|
-| trend      | Направление тренда    |
-| rsi        | RSI индикатор         |
-| macd       | MACD индикатор        |
-| support    | Уровень поддержки     |
-| resistance | Уровень сопротивления |
-
-**Шаг 3:** Новости
+**Шаг 3:** Исторические данные
 
 ```bash
-    ./vendor/bin/news news:fetch --ticker {TICKER}
+./vendor/bin/skill market:candles {TICKER} --from 2024-01-01
+```
+
+| Опция   | Описание              |
+|---------|-----------------------|
+| ticker  | Тикер (позиционный)   |
+| --from  | Дата начала           |
+| --to    | Дата окончания        |
+
+**Шаг 4:** Новости
+
+```bash
+./vendor/bin/news news:fetch --ticker {TICKER}
 ```
 
 | Опция    | Описание         | По умолчанию |
 |----------|------------------|--------------|
 | --ticker | Фильтр по тикеру | —            |
-| --limit  | Лимит записей    | все          |
 
 ## Результат
 
-**{TICKER}: [Trend]**
+**{TICKER}: [Оценка]**
 
 | Поле     | Описание          |
 |----------|-------------------|
@@ -100,12 +96,10 @@ description: Фундаментальный и технический анали
 | Значение | Числовое значение |
 | Оценка   | ✓/✗               |
 
-**Техническая картина:**
+**Ценовая динамика:**
 
-- Тренд: направление
-- RSI: значение
-- Поддержка: уровень
-- Сопротивление: уровень
+- Текущая: цена
+- Период: изменение
 
 **Новости:**
 

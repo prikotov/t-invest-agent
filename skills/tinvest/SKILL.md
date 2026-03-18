@@ -4,77 +4,62 @@
 
 ## Команды
 
-### Анализ портфеля
+### Портфель
 ```bash
-skill portfolio:analyze
-skill portfolio:positions
-skill portfolio:report --period=week
+skill portfolio:show              # Весь портфель
+skill portfolio:show -t SBER      # По тикеру
 ```
-Возвращает: стоимость, доходность, распределение по классам/секторам, отклонения от цели
+Возвращает: позиции, количество, средняя цена, доходность, текущая цена
 
-### Ребалансировка
+### Счета
 ```bash
-skill portfolio:rebalance:plan --target=balanced
+skill accounts:list
 ```
-Возвращает: рекомендации по покупке/продаже с обоснованием
+Возвращает: список счетов пользователя
 
-### Технический анализ
+### Операции
 ```bash
-skill analyze:technical --ticker=SBER
+skill operations:history
 ```
-Возвращает: тренд, RSI, MACD, Bollinger, сигналы
+Возвращает: история операций
 
-### Фундаментальный анализ
+### Рыночные цены
 ```bash
-skill analyze:fundamental --ticker=SBER
+skill market:prices SBER LKOH GAZP
 ```
-Возвращает: P/E, P/B, ROE, дивиденды, справедливая цена, скоринг
+Возвращает: последние цены по инструментам
 
-### Быстрый анализ
+### Исторические свечи
 ```bash
-skill analyze:quick --ticker=SBER
+skill market:candles SBER --from 2024-01-01 --to 2024-12-31
 ```
-Возвращает: сводка технического + фундаментального
+Возвращает: OHLCV данные
 
-### Скрининг акций
+### Фундаментальные показатели
 ```bash
-skill screen:stocks --min-dividend=7 --max-pe=8 --sector=financial
+skill instruments:fundamentals SBER LKOH
 ```
-Возвращает: отфильтрованный список с сигналом и скорингом
+Возвращает: P/E, P/B, дивиденды и другие метрики
 
 ## Типовые сценарии
 
-### Еженедельный мониторинг
+### Анализ портфеля
 ```bash
-skill portfolio:report --period=week
-```
-Проверить: сигналы, отклонения > 5%
-
-### Ежемесячная ребалансировка
-```bash
-skill portfolio:analyze
-skill portfolio:rebalance:plan --target=balanced
-```
-Принять решение и исполнить вручную.
-
-### Анализ кандидата для покупки
-```bash
-skill analyze:quick --ticker=GAZP
-skill analyze:fundamental --ticker=GAZP
+skill portfolio:show
+skill market:prices SBER LKOH GAZP
 ```
 
-## Форматы вывода
+### Анализ кандидата
 ```bash
-skill portfolio:analyze --format=table  # по умолчанию
-skill portfolio:analyze --format=json
-skill portfolio:analyze --format=csv
+skill instruments:fundamentals GAZP
+skill market:candles GAZP --from 2024-01-01
 ```
 
 ## Интеграция
 
 Команда вызывается через vendor binary:
 ```bash
-./vendor/bin/skill portfolio:analyze
+./vendor/bin/skill portfolio:show
 ```
 
 ## Справочник API
