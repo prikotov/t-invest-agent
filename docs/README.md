@@ -6,6 +6,7 @@
 
 | Файл | Описание |
 |------|----------|
+| [**DEPLOYMENT.md**](DEPLOYMENT.md) | 🚀 План распространения: Docker, install.sh, Quick Start |
 | [**STONKI-ANALYSIS.md**](STONKI-ANALYSIS.md) | Полный анализ возможностей Stonki AI: рецепты, мониторинг, агенты, API |
 | [**MARKET-DATA-MAPPING.md**](MARKET-DATA-MAPPING.md) | Соответствие инструментов Stonki ↔ T-Invest Agent (OHLCV, опционы, метрики) |
 | [**MULTI-AGENT-ARCHITECTURE.md**](MULTI-AGENT-ARCHITECTURE.md) | Мультиагентная архитектура: TA, News, Scanner, Memory, Social (российские соцсети) |
