@@ -16,8 +16,4 @@ echo "=== News ==="
 ./vendor/bin/news news:fetch --ticker SBER
 
 echo ""
-echo "=== Technical Analysis ==="
-./vendor/bin/skill analyze:technical --ticker=SBER
-
-echo ""
 echo "=== Done ==="
