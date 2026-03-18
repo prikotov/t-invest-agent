@@ -2,6 +2,7 @@
 /vendor/
 /var/
 .phpunit.result.cache
+.phpunit.cache/
 .idea/
 *.log
 /data/
