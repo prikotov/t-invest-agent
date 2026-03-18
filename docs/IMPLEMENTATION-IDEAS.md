@@ -487,3 +487,325 @@ Trending: дивиденды (45%), ставка ЦБ (30%)
 | Дисклеймер в ответах | 100% |
 | Uptime мониторинга | 99.9% |
 | Время создания рецепта | < 5 сек |
+
+---
+
+## 12. Backtesting — HIGH PRIORITY (NEW)
+
+### Концепция
+Тестирование торговых стратегий на исторических данных MOEX.
+
+### Что нужно реализовать
+
+#### 12.1 CLI команды
+```bash
+# Бэктест стратегии
+backtest run --strategy=dividend --start=2023-01-01 --end=2024-01-01
+backtest run --strategy=mean_reversion --ticker=SBER
+
+# Результаты
+backtest report --id=UUID
+backtest compare --ids=uuid1,uuid2
+
+# Исторические данные
+backtest fetch --ticker=SBER --start=2023-01-01 --interval=1d
+```
+
+#### 12.2 Метрики бэктеста
+- Total Return
+- Sharpe Ratio
+- Max Drawdown
+- Win Rate
+- Profit Factor
+- CAGR
+
+---
+
+## 13. Portfolio Optimization — MEDIUM PRIORITY (NEW)
+
+### Концепция
+Оптимизация портфеля по теории Марковица и другим моделям.
+
+### Что нужно реализовать
+
+#### 13.1 CLI команды
+```bash
+# Оптимизация по Шарпу
+optimize sharpe --risk-free=0.12
+
+# Минимизация риска при заданной доходности
+optimize min-risk --target-return=0.15
+
+# Efficient Frontier
+optimize frontier --points=20
+
+# Ребалансировка к оптимуму
+optimize rebalance --to=optimal
+```
+
+#### 13.2 Модели оптимизации
+- Mean-Variance (Markowitz)
+- Risk Parity
+- Black-Litterman
+- Hierarchical Risk Parity (HRP)
+
+---
+
+## 14. Risk Metrics — MEDIUM PRIORITY (NEW)
+
+### Концепция
+Расчёт метрик риска портфеля.
+
+### Что нужно реализовать
+
+#### 14.1 CLI команды
+```bash
+# VaR (Value at Risk)
+risk var --confidence=0.95 --horizon=1d
+risk var --method=historical
+risk var --method=parametric
+risk var --method=monte-carlo
+
+# CVaR (Conditional VaR / Expected Shortfall)
+risk cvar --confidence=0.95
+
+# Max Drawdown
+risk max-drawdown --period=year
+
+# Stress Test
+risk stress --scenario=2008_crisis
+risk stress --scenario=rate_hike --pct=3
+
+# Beta, Correlation
+risk beta --ticker=SBER --benchmark=IMOEX
+risk correlation --tickers=SBER,LKOH,GAZP
+```
+
+#### 14.2 Пример вывода
+```
+Portfolio Risk Metrics
+─────────────────────────────────────
+VaR (95%, 1d):      -2.3% (₽23,000)
+CVaR (95%):         -3.1% (₽31,000)
+Max Drawdown:       -15.2% (Mar 2023)
+Beta vs IMOEX:      0.85
+Volatility (ann):   18.5%
+─────────────────────────────────────
+```
+
+---
+
+## 15. Correlation Matrix — LOW PRIORITY (NEW)
+
+### Концепция
+Анализ корреляций между активами портфеля.
+
+### Что нужно реализовать
+
+#### 15.1 CLI команды
+```bash
+# Матрица корреляций
+correlation matrix --period=year
+correlation matrix --tickers=SBER,LKOH,GAZP,GMKN
+
+# Кластеризация активов
+correlation cluster --method=hierarchical
+
+# Диверсификация
+correlation diversification-score
+```
+
+---
+
+## 16. Tax Calculator — LOW PRIORITY (NEW)
+
+### Концепция
+Расчёт налоговых обязательств и tax-loss harvesting.
+
+### Что нужно реализовать
+
+#### 16.1 CLI команды
+```bash
+# Расчёт НДФЛ
+tax calculate --year=2024
+tax calculate --method=FIFO
+tax calculate --method=LIFO
+
+# Tax-loss harvesting возможности
+tax harvesting-opportunities --min-loss=10000
+
+# Дивидендный налог
+tax dividends --year=2024
+
+# Отчёт для декларации
+tax report --year=2024 --format=pdf
+```
+
+---
+
+## 17. Multi-Account — LOW PRIORITY (NEW)
+
+### Концепция
+Поддержка нескольких брокерских счетов.
+
+### Что нужно реализовать
+
+#### 17.1 CLI команды
+```bash
+# Управление счетами
+account list
+account add --name=ИИС --id=12345
+account switch --name=ИИС
+account aggregate  # Сводный портфель
+
+# Отчёты по счёту
+portfolio:report --account=ИИС
+portfolio:analyze --account=all
+```
+
+---
+
+## 18. Export Reports — MEDIUM PRIORITY (NEW)
+
+### Концепция
+Экспорт отчётов в PDF/Excel для архива.
+
+### Что нужно реализовать
+
+#### 18.1 CLI команды
+```bash
+# Экспорт
+export report --period=month --format=pdf
+export report --period=year --format=excel
+export portfolio --format=csv
+export trades --year=2024 --format=excel
+
+# Шаблоны
+export template --name=monthly_brief
+export template --name=tax_report
+```
+
+---
+
+## 19. Telegram Bot — HIGH PRIORITY (NEW)
+
+### Концепция
+Полноценный Telegram бот для интерактивного взаимодействия.
+
+### Что нужно реализовать
+
+#### 19.1 Команды бота
+```
+/start         - Начало работы
+/portfolio     - Портфель
+/alert SBER 260 - Создать алерт
+/news SBER     - Новости
+/analyze SBER  - Анализ тикера
+/recipes       - Активные рецепты
+/weekly        - Еженедельный отчёт
+```
+
+#### 19.2 Push-уведомления
+- Срабатывание алертов
+- Важные новости по позициям
+- Напоминания о scheduled отчётах
+
+---
+
+## 20. Web Dashboard — LOW PRIORITY (NEW)
+
+### Концепция
+Веб-интерфейс для мониторинга портфеля.
+
+### Что нужно реализовать
+
+#### 20.1 Стек
+- Frontend: React/Vue
+- Backend: PHP API или Node.js
+- Charts: TradingView lightweight charts
+
+#### 20.2 Функции
+- Dashboard с портфелем
+- Графики цен
+- Активные рецепты
+- История сделок
+- Настройки уведомлений
+
+---
+
+## 21. REST API — MEDIUM PRIORITY (NEW)
+
+### Концепция
+API для интеграции с другими системами.
+
+### Что нужно реализовать
+
+#### 21.1 Эндпоинты
+```
+GET  /api/portfolio           - Портфель
+GET  /api/portfolio/positions - Позиции
+GET  /api/tickers/{ticker}    - Данные тикера
+GET  /api/news?ticker=SBER    - Новости
+POST /api/recipes             - Создать рецепт
+GET  /api/recipes             - Список рецептов
+POST /api/monitors            - Создать алерт
+GET  /api/monitors            - Список алертов
+```
+
+#### 21.2 Аутентификация
+- API Key
+- JWT токены
+
+---
+
+## 22. AI Insights — MEDIUM PRIORITY (NEW)
+
+### Концепция
+Автоматические инсайты на основе паттернов в портфеле.
+
+### Что нужно реализовать
+
+#### 22.1 Типы инсайтов
+- **Sector Concentration**: "40% портфеля в нефтегазе"
+- **Dividend Gap**: "Дивидендная доходность ниже рынка"
+- **Risk Alert**: "Высокая корреляция между SBER и LKOH"
+- **Opportunity**: "SBER просел на 10%, RSI < 30"
+- **Rebalance Suggestion**: "SBER вырос до 25% веса"
+
+#### 22.2 CLI команды
+```bash
+# Сгенерировать инсайты
+insights generate
+insights generate --type=risk
+insights generate --type=opportunity
+
+# История инсайтов
+insights history --days=30
+```
+
+---
+
+## Обновлённые приоритеты
+
+### Phase 1: Foundation (2-3 недели)
+- [ ] Recipe skill
+- [ ] Monitor skill (демон)
+- [ ] Memory skill
+- [ ] Telegram Bot (уведомления)
+
+### Phase 2: Analytics (2-3 недели)
+- [ ] Calc skill
+- [ ] Risk Metrics (VaR, Drawdown)
+- [ ] Correlation Matrix
+- [ ] Backtesting (базовый)
+
+### Phase 3: Optimization (1-2 недели)
+- [ ] Portfolio Optimization (Markowitz)
+- [ ] AI Insights
+- [ ] Export Reports
+
+### Phase 4: Integration (опционально)
+- [ ] REST API
+- [ ] Web Dashboard
+- [ ] Multi-account
+- [ ] Tax Calculator
