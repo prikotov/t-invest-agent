@@ -689,3 +689,323 @@ Notable: @financh: "Сбер - лучшая покупка на просадка
 | social | MEDIUM | Высокая | Telegram API, парсинг |
 | calc | MEDIUM | Низкая | - |
 | calendar | MEDIUM | Средняя | moex |
+| backtest | HIGH | Высокая | moex historical |
+| optimize | MEDIUM | Средняя | moex, calc |
+| risk | MEDIUM | Средняя | moex, calc |
+| telegram | HIGH | Средняя | monitor |
+| insights | MEDIUM | Средняя | moex, skill |
+
+---
+
+## 7. backtest — Тестирование стратегий
+
+### Назначение
+Бэктестинг торговых стратегий на исторических данных.
+
+### Команды
+
+```bash
+# Запуск бэктеста
+backtest run --strategy=dividend --start=2023-01-01 --end=2024-01-01
+backtest run --strategy=rsi_mean_reversion --ticker=SBER --params="rsi_period=14,oversold=30"
+
+# Предустановленные стратегии
+backtest run --preset=dividend_value
+backtest run --preset=momentum
+backtest run --preset=pairs_trading --tickers=SBER,LKOH
+
+# Результаты
+backtest report --id=UUID
+backtest list
+backtest compare --ids=uuid1,uuid2
+
+# Исторические данные
+backtest fetch --ticker=SBER --start=2022-01-01 --interval=1d --output=data/historical/
+```
+
+### Структура данных
+
+```json
+{
+  "id": "backtest-uuid",
+  "strategy": "dividend_value",
+  "parameters": {
+    "min_div_yield": 7,
+    "max_pe": 10,
+    "rebalance": "monthly"
+  },
+  "period": {
+    "start": "2023-01-01",
+    "end": "2024-01-01"
+  },
+  "results": {
+    "total_return": 0.25,
+    "sharpe_ratio": 1.2,
+    "max_drawdown": -0.12,
+    "win_rate": 0.58,
+    "profit_factor": 1.8,
+    "cagr": 0.22
+  },
+  "trades": [],
+  "equity_curve": []
+}
+```
+
+### Предустановленные стратегии
+
+| Стратегия | Описание |
+|-----------|----------|
+| dividend_value | Дивидендные с низким P/E |
+| momentum | Следование за трендом |
+| rsi_mean_reversion | RSI перепроданность/перекупленность |
+| pairs_trading | Парный трейдинг |
+| seasonal | Сезонные паттерны |
+
+---
+
+## 8. optimize — Оптимизация портфеля
+
+### Назначение
+Оптимизация распределения активов по различным моделям.
+
+### Команды
+
+```bash
+# Оптимизация по Шарпу (максимальный Sharpe Ratio)
+optimize sharpe --risk-free=0.12
+
+# Минимизация риска
+optimize min-risk
+
+# Заданная доходность
+optimize target-return --return=0.20
+
+# Risk Parity
+optimize risk-parity
+
+# Efficient Frontier
+optimize frontier --points=20 --output=frontier.json
+
+# Black-Litterman
+optimize black-litterman --views="SBER:0.15,LKOH:0.10"
+
+# Ребалансировка к целевому
+optimize rebalance --target=optimal --output=trades.json
+```
+
+### Пример вывода
+
+```
+Portfolio Optimization (Max Sharpe)
+─────────────────────────────────────────────
+Risk-free rate:     12%
+Expected return:    22%
+Volatility:         15%
+Sharpe Ratio:       0.67
+─────────────────────────────────────────────
+Optimal Weights:
+  SBER:    25%  (was 30%, sell 5%)
+  LKOH:    20%  (was 15%, buy 5%)
+  GAZP:    18%  (was 20%, sell 2%)
+  GMKN:    15%  (was 10%, buy 5%)
+  ROSN:    12%  (was 15%, sell 3%)
+  Cash:    10%  (was 10%)
+─────────────────────────────────────────────
+Trades required: 5
+Estimated cost:   ₽2,500 (commission)
+```
+
+---
+
+## 9. risk — Метрики риска
+
+### Назначение
+Расчёт и мониторинг метрик риска портфеля.
+
+### Команды
+
+```bash
+# VaR (Value at Risk)
+risk var --confidence=0.95 --horizon=1d
+risk var --confidence=0.99 --horizon=5d
+risk var --method=historical --period=252
+
+# CVaR (Expected Shortfall)
+risk cvar --confidence=0.95
+
+# Max Drawdown
+risk max-drawdown --period=year
+risk drawdown-history --period=year
+
+# Volatility
+risk volatility --period=30 --annualize=true
+
+# Beta
+risk beta --ticker=SBER --benchmark=IMOEX
+risk beta --portfolio --benchmark=IMOEX
+
+# Stress Testing
+risk stress --scenario=2008_crisis
+risk stress --scenario=covid_crash
+risk stress --custom="rate:+3%,oil:-20%"
+
+# Correlation
+risk correlation --tickers=SBER,LKOH,GAZP,GMKN
+risk correlation-matrix --output=correlation.csv
+
+# Полный отчёт
+risk report --format=table
+```
+
+### Пример вывода
+
+```
+Portfolio Risk Report
+─────────────────────────────────────────────
+Value at Risk (VaR)
+  95% 1d:   -2.3%  (₽23,000)
+  99% 1d:   -3.5%  (₽35,000)
+  95% 5d:   -5.1%  (₽51,000)
+
+Expected Shortfall (CVaR)
+  95%:      -3.1%  (₽31,000)
+
+Drawdown
+  Max (1y): -15.2%  (Mar 2023)
+  Current:  -2.1%
+
+Volatility
+  30d:      18.5% (annualized)
+  1y:       22.3%
+
+Beta vs IMOEX: 0.85
+─────────────────────────────────────────────
+Stress Test: rate_hike (+3%)
+  Impact:    -8.5%  (₽85,000)
+  Worst:     SBER (-12%), LKOH (-9%)
+─────────────────────────────────────────────
+```
+
+---
+
+## 10. telegram — Telegram Bot
+
+### Назначение
+Интерактивный Telegram бот для управления портфелем.
+
+### Команды (в Telegram)
+
+```
+/start              - Начало работы, регистрация
+/help               - Справка по командам
+/portfolio          - Текущий портфель
+/portfolio changes  - Изменения за день
+/alert SBER 260     - Создать ценовой алерт
+/alerts             - Список алертов
+/alerts off <id>    - Отключить алерт
+/news SBER          - Новости по тикеру
+/news               - Новости по портфелю
+/analyze SBER       - Быстрый анализ тикера
+/recipes            - Активные рецепты
+/recipe <id>        - Детали рецепта
+/weekly             - Еженедельный отчёт
+/risk               - Метрики риска
+/settings           - Настройки уведомлений
+```
+
+### Настройка бота
+
+```bash
+# CLI команды для настройки
+telegram register --token=BOT_TOKEN
+telegram set-webhook --url=https://...
+telegram test
+telegram logs --tail=100
+```
+
+### Типы уведомлений
+
+| Событие | Шаблон |
+|---------|--------|
+| Алерт сработал | 🔔 {TICKER}: {MESSAGE} |
+| Новость | 📰 {TICKER}: {HEADLINE} |
+| Рецепт обновлён | 📝 Рецепт {NAME}: {UPDATE} |
+| Scheduled отчёт | 📊 {REPORT_TYPE} готов |
+| Risk alert | ⚠️ {RISK_TYPE}: {MESSAGE} |
+
+---
+
+## 11. insights — AI-инсайты
+
+### Назначение
+Автоматическая генерация инсайтов о портфеле.
+
+### Команды
+
+```bash
+# Сгенерировать инсайты
+insights generate
+insights generate --type=risk
+insights generate --type=opportunity
+insights generate --type=performance
+
+# История
+insights history --days=30
+insights acknowledge --id=UUID
+
+# Настройки
+insights config --enable=sector_concentration
+insights config --threshold=dividend_yield:8
+```
+
+### Типы инсайтов
+
+#### Sector Concentration
+```
+⚠️ Sector Concentration
+─────────────────────────────────────
+Нефтегаз: 45% портфеля (рекомендация: < 30%)
+Риск: Высокая чувствительность к цене нефти
+─────────────────────────────────────
+```
+
+#### Dividend Gap
+```
+📉 Dividend Yield Alert
+─────────────────────────────────────
+Текущая дивидендная доходность: 8.5%
+Средняя по рынку (IMOEX): 11.2%
+Gap: -2.7%
+─────────────────────────────────────
+```
+
+#### Rebalance Suggestion
+```
+🔄 Rebalance Suggestion
+─────────────────────────────────────
+SBER вырос до 28% веса (цель: 20%)
+Рекомендация: Продать 8% (~₽80,000)
+R:R для докупки: 1:3
+─────────────────────────────────────
+```
+
+#### Opportunity
+```
+💡 Opportunity: SBER
+─────────────────────────────────────
+Просадка: -12% за месяц
+RSI: 28 (перепроданность)
+P/E: 4.2 (ниже исторического)
+Дивидендная доходность: 14%
+─────────────────────────────────────
+```
+
+#### Correlation Alert
+```
+🔗 High Correlation Alert
+─────────────────────────────────────
+SBER ↔ LKOH: 0.85 (высокая)
+Риск: Сниженная диверсификация
+Рекомендация: Рассмотреть замену
+─────────────────────────────────────
+```
