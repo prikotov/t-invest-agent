@@ -225,10 +225,36 @@ function run(?string $id): int
     
     $monitor = json_decode(file_get_contents($file), true);
     
-    echo "Running {$id}...\n";
-    echo json_encode($monitor, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n";
+    if ($monitor['type'] === 'schedule') {
+        $promptPath = resolve_prompt_path($monitor['prompt']);
+        
+        if (!$promptPath || !file_exists($promptPath)) {
+            echo "Error: prompt file not found: {$monitor['prompt']}\n";
+            return 1;
+        }
+        
+        $monitor['last_run'] = date('c');
+        file_put_contents($file, json_encode($monitor, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        
+        echo file_get_contents($promptPath) . "\n";
+        return 0;
+    }
     
+    echo json_encode($monitor, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n";
     return 0;
+}
+
+function resolve_prompt_path(string $prompt): ?string
+{
+    if (str_starts_with($prompt, '@')) {
+        return __DIR__ . '/../prompts/' . substr($prompt, 1) . '.md';
+    }
+    
+    if (str_starts_with($prompt, '/')) {
+        return $prompt;
+    }
+    
+    return __DIR__ . '/../' . $prompt;
 }
 
 function delete(?string $id): int

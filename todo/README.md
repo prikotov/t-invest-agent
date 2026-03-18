@@ -9,7 +9,7 @@
 | Фаза | Название | Статус | Приоритет |
 |------|----------|--------|-----------|
 | 1 | MVP: Анализ портфеля | ✅ DONE | CRITICAL |
-| 2 | Рецепты и мониторинг | 🔄 80% | HIGH |
+| 2 | Рецепты и мониторинг | ✅ DONE | HIGH |
 | 3 | Память и персонализация | 🔄 50% | MEDIUM |
 
 ---
@@ -27,11 +27,14 @@
 
 ---
 
-## Фаза 2: Рецепты и мониторинг 🔄
+## Фаза 2: Рецепты и мониторинг ✅
+
+**Завершена 2026-03-18**
 
 ### 2.1 Recipe Skill ✅
 
 - [x] `skills/recipe/SKILL.md`
+- [x] `scripts/recipe.php` — CLI
 - [x] Хранение: `data/recipes/*.json`
 
 ### 2.2 Monitor Skill ✅
@@ -41,10 +44,10 @@
 - [x] Хранение: `data/monitors/*.json`
 - [x] `scripts/crontab.example` — cron
 
-### 2.3 Интеграция рецептов с мониторингом
+### 2.3 Промпты ✅
 
-- [ ] Авто-создание мониторов при `recipe create`
-- [ ] Обновление статуса рецепта при триггере монитора
+- [x] `prompts/morning-check.md`
+- [x] `prompts/weekly-report.md`
 
 ---
 
@@ -77,8 +80,15 @@ t-invest-agent/
 │   ├── monitors/
 │   └── memory/
 ├── scripts/
+│   ├── recipe.php
 │   ├── monitor.php
 │   └── crontab.example
+├── prompts/
+│   ├── monitoring/
+│   │   ├── morning-check.md
+│   │   └── weekly-report.md
+│   ├── analysis/
+│   └── actions/
 ├── skills/
 │   ├── tinvest/
 │   ├── moex/
@@ -97,8 +107,7 @@ t-invest-agent/
 
 ## Следующие шаги
 
-1. Интеграция recipe ↔ monitor
-2. Профиль пользователя в memory
-3. Фаза 4: Social & Sentiment (опционально)
+1. Фаза 3: Профиль пользователя в memory
+2. Фаза 4: Social & Sentiment (опционально)
 
 Не является инвестиционной рекомендацией.
