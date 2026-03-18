@@ -20,10 +20,9 @@
 
 ### 1.1 Подключение к T-Invest API
 
-- [ ] Проверить работоспособность `skill portfolio:positions`
-- [ ] Проверить работоспособность `skill portfolio:report`
-- [ ] Протестировать `moex security:trade-data` для тикеров портфеля
-- [ ] Протестировать `news news:fetch` для тикеров
+- [x] Проверить работоспособность `skill portfolio:show` ✓
+- [x] Протестировать `moex security:trade-data` ✓
+- [x] Протестировать `news news:fetch` ✓
 
 **Файлы:**
 - `t-invest-agent/.env.local` — токен T-Invest
@@ -68,44 +67,15 @@
 
 ### 2.1 Recipe skill
 
-- [ ] Создать `skills/recipe/` структуру:
-  ```
-  skills/recipe/
-  ├── SKILL.md
-  ├── bin/recipe
-  └── src/
-      ├── create.php
-      ├── list.php
-      ├── show.php
-      └── update.php
-  ```
-- [ ] CLI команды:
-  - `recipe create --ticker=SBER --direction=LONG ...`
-  - `recipe list`
-  - `recipe show <id>`
-  - `recipe update <id> --status=ACTIVE`
-- [ ] Хранение: JSON в `data/recipes/`
+- [x] Создать `skills/recipe/` структуру ✓
+- [x] CLI команды ✓
+- [x] Хранение: JSON в `data/recipes/` ✓
 
 ### 2.2 Monitor skill
 
-- [ ] Создать `skills/monitor/` структуру:
-  ```
-  skills/monitor/
-  ├── SKILL.md
-  ├── bin/monitor
-  └── src/
-      ├── create.php
-      ├── list.php
-      ├── check.php
-      └── run.php
-  ```
-- [ ] CLI команды:
-  - `monitor create price --ticker=SBER --level=260`
-  - `monitor create schedule --cron="0 9 * * 1-5" --prompt=@morning`
-  - `monitor list`
-  - `monitor check` — проверить все алерты
-  - `monitor run <id>` — выполнить scheduled prompt
-- [ ] Хранение: JSON в `data/monitors/`
+- [x] Создать `skills/monitor/` структуру ✓
+- [x] CLI команды ✓
+- [x] Хранение: JSON в `data/monitors/` ✓
 - [ ] Cron job для проверки алертов
 
 ### 2.3 Интеграция рецептов с мониторингом
@@ -130,22 +100,9 @@
 
 ### 3.1 Memory skill
 
-- [ ] Создать `skills/memory/` структуру:
-  ```
-  skills/memory/
-  ├── SKILL.md
-  ├── bin/memory
-  └── src/
-      ├── get.php
-      ├── set.php
-      ├── update.php
-      └── clear.php
-  ```
-- [ ] CLI команды:
-  - `memory get <key>`
-  - `memory set <key> <value>`
-  - `memory update <key> <value>`
-- [ ] Хранение: JSON в `data/memory/user.json`
+- [x] Создать `skills/memory/` структуру ✓
+- [x] CLI команды ✓
+- [x] Хранение: JSON в `data/memory/user.json` ✓
 
 ### 3.2 Профиль пользователя
 
