@@ -11,6 +11,9 @@ skills:
     - t-invest-candles
     - t-invest-orderbook
     - t-invest-corporate-events
+    - news-deep
+    - social-sentiment
+    - equity-research
 
   # Full analysis - all available skills
   analysis:
