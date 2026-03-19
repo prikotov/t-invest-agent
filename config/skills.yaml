@@ -8,6 +8,7 @@ skills:
     - moex-ticker-analysis
     - calc
     - t-invest-trading-calendar
+    - t-invest-candles
 
   # Full analysis - all available skills
   analysis:
@@ -19,14 +20,25 @@ skills:
     - calc
     - t-invest-trading-calendar
     - moex-trading-calendar
+    - t-invest-candles
+    - moex-candles
 
-  # Trading mode - real-time data only
+  # Trading mode - real-time data and technical analysis
   trading:
     - tinvest
     - moex
     - calc
     - t-invest-trading-calendar
     - moex-trading-calendar
+    - t-invest-candles
+    - moex-candles
+
+  # Technical analysis - chart patterns and indicators
+  technical:
+    - t-invest-candles
+    - moex-candles
+    - calc
+    - moex-ticker-analysis
 
   # News monitoring
   news:
