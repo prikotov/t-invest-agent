@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Console\Command;
+namespace App\Console\Command\Vendor;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -10,8 +10,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand(name: 'bin:list', description: 'List available vendor binaries')]
-class BinListCommand extends Command
+#[AsCommand(name: 'vendor:binaries', description: 'List available vendor binaries')]
+class BinariesCommand extends Command
 {
     public function __construct(
         private readonly string $projectDir

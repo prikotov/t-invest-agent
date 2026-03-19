@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Console\Command;
+namespace App\Console\Command\Skill;
 
 use App\Service\SkillsManager;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -12,8 +12,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand(name: 'skills:enable', description: 'Enable specific skill(s)')]
-class SkillsEnableCommand extends Command
+#[AsCommand(name: 'skill:enable', description: 'Enable specific skill(s)')]
+class EnableCommand extends Command
 {
     public function __construct(
         private readonly SkillsManager $manager
@@ -32,7 +32,7 @@ class SkillsEnableCommand extends Command
         $skills = $input->getArgument('skills');
 
         if (empty($skills)) {
-            $io->error('Specify skill name(s): agent skills:enable <skill>');
+            $io->error('Specify skill name(s): agent skill:enable <skill>');
             return Command::FAILURE;
         }
 

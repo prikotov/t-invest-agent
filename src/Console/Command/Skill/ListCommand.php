@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Console\Command;
+namespace App\Console\Command\Skill;
 
 use App\Service\SkillsManager;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -11,8 +11,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand(name: 'skills:list', description: 'List available and enabled skills')]
-class SkillsListCommand extends Command
+#[AsCommand(name: 'skill:list', description: 'List available and enabled skills')]
+class ListCommand extends Command
 {
     public function __construct(
         private readonly SkillsManager $manager
@@ -42,7 +42,7 @@ class SkillsListCommand extends Command
 
         $io->table(['Skill', 'Status', 'Description'], $rows);
 
-        $io->writeln('Run <comment>agent skills:manage</comment> to enable/disable skills.');
+        $io->writeln('Run <comment>agent skill:manage</comment> to enable/disable skills.');
 
         return Command::SUCCESS;
     }

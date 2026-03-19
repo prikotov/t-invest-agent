@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Console\Command;
+namespace App\Console\Command\Skill;
 
 use App\Service\SkillsManager;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -13,8 +13,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand(name: 'skills:manage', description: 'Interactive skill manager')]
-class SkillsManageCommand extends Command
+#[AsCommand(name: 'skill:manage', description: 'Interactive skill manager')]
+class ManageCommand extends Command
 {
     public function __construct(
         private readonly SkillsManager $manager
