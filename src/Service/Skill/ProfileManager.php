@@ -6,14 +6,15 @@ namespace App\Service\Skill;
 
 use Symfony\Component\Yaml\Yaml;
 
-class ProfileManager
+final class ProfileManager
 {
     private ?array $config = null;
 
     public function __construct(
         private readonly string $projectDir,
         private readonly Manager $manager
-    ) {}
+    ) {
+    }
 
     public function getProfiles(): array
     {

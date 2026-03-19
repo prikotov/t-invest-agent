@@ -26,7 +26,7 @@ class RecipeSkillTest extends TestCase
     public function testCreateRecipe(): void
     {
         $output = $this->runScript('create --ticker=TEST --direction=LONG --entry=100 --target=120 --stop=95');
-        
+
         $this->assertStringContainsString('Recipe created:', $output);
         $this->assertStringContainsString('TEST', $output);
         $this->assertStringContainsString('LONG', $output);
@@ -36,8 +36,10 @@ class RecipeSkillTest extends TestCase
 
     public function testCreateWithThesis(): void
     {
-        $output = $this->runScript('create --ticker=TEST2 --direction=SHORT --entry=200 --target=180 --stop=210 --thesis="Test thesis"');
-        
+        $output = $this->runScript(
+            'create --ticker=TEST2 --direction=SHORT --entry=200 --target=180 --stop=210 --thesis="Test thesis"',
+        );
+
         $this->assertStringContainsString('Recipe created:', $output);
         $this->assertStringContainsString('Test thesis', $output);
     }
@@ -46,7 +48,7 @@ class RecipeSkillTest extends TestCase
     {
         $this->runScript('create --ticker=TEST3 --direction=LONG --entry=100 --target=120 --stop=95');
         $output = $this->runScript('list');
-        
+
         $this->assertStringContainsString('TEST3', $output);
     }
 
@@ -66,11 +68,11 @@ class RecipeSkillTest extends TestCase
     {
         $cmd = sprintf('php %s %s 2>&1', escapeshellarg($this->script), $args);
         $output = shell_exec($cmd);
-        
+
         if ($expectFailure) {
             return $output ?: '';
         }
-        
+
         return $output ?: '';
     }
 }

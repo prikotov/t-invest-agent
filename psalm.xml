@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="2"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+        <ClassMustBeFinal errorLevel="suppress"/>
+        <MissingOverrideAttribute errorLevel="suppress"/>
+        <PropertyNotSetInConstructor errorLevel="suppress">
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+        <UndefinedInterfaceMethod errorLevel="suppress"/>
+        <UndefinedDocblockClass errorLevel="suppress"/>
+        <PossiblyFalseIterator errorLevel="suppress"/>
+        <PossiblyFalseArgument errorLevel="suppress"/>
+        <ForbiddenCode errorLevel="suppress">
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </ForbiddenCode>
+        <RiskyTruthyFalsyComparison errorLevel="suppress">
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </RiskyTruthyFalsyComparison>
+        <MixedArgument errorLevel="suppress"/>
+        <MixedArrayAccess errorLevel="suppress"/>
+        <MixedAssignment errorLevel="suppress"/>
+        <MixedMethodCall errorLevel="suppress"/>
+        <MixedPropertyFetch errorLevel="suppress"/>
+        <MixedReturnStatement errorLevel="suppress"/>
+        <PossiblyNullArgument errorLevel="suppress"/>
+    </issueHandlers>
+</psalm>

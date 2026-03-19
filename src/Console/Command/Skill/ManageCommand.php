@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace App\Console\Command\Skill;
 
 use App\Service\Skill\Manager;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(name: 'skill:manage', description: 'Interactive skill manager')]
-class ManageCommand extends Command
+final class ManageCommand extends Command
 {
     public function __construct(
         private readonly Manager $manager
@@ -22,6 +24,7 @@ class ManageCommand extends Command
         parent::__construct();
     }
 
+    #[Override]
     protected function configure(): void
     {
         $this
@@ -31,6 +34,7 @@ class ManageCommand extends Command
             ->addOption('none', null, InputOption::VALUE_NONE, 'Disable all skills');
     }
 
+    #[Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -62,8 +66,13 @@ class ManageCommand extends Command
         return $this->interactive($input, $output, $io, $skills, $enabled);
     }
 
-    private function interactive(InputInterface $input, OutputInterface $output, SymfonyStyle $io, array $skills, array $enabled): int
-    {
+    private function interactive(
+        InputInterface $input,
+        OutputInterface $output,
+        SymfonyStyle $io,
+        array $skills,
+        array $enabled,
+    ): int {
         $choices = [];
         $defaults = [];
 
@@ -80,6 +89,7 @@ class ManageCommand extends Command
         $io->newLine();
 
         $helper = $this->getHelper('question');
+        assert($helper instanceof QuestionHelper);
         $question = new ChoiceQuestion('Skills:', $choices, implode(',', $defaults));
         $question->setMultiselect(true);
 
