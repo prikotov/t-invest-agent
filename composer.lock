@@ -441,12 +441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/moex-core.git",
-                "reference": "6bf6ec47a983709fc029aca9bf1d8c108edaa2a2"
+                "reference": "edb0629a408ddad8da5137dc2020540f69ba0d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/6bf6ec47a983709fc029aca9bf1d8c108edaa2a2",
-                "reference": "6bf6ec47a983709fc029aca9bf1d8c108edaa2a2",
+                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/edb0629a408ddad8da5137dc2020540f69ba0d02",
+                "reference": "edb0629a408ddad8da5137dc2020540f69ba0d02",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,7 @@
                 "source": "https://github.com/prikotov/moex-core/tree/main",
                 "issues": "https://github.com/prikotov/moex-core/issues"
             },
-            "time": "2026-03-18T14:37:15+00:00"
+            "time": "2026-03-19T02:23:50+00:00"
         },
         {
             "name": "prikotov/news-core",
