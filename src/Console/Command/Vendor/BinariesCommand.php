@@ -1,0 +1,48 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Console\Command\Vendor;
+
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
+#[AsCommand(name: 'vendor:binaries', description: 'List available vendor binaries')]
+class BinariesCommand extends Command
+{
+    public function __construct(
+        private readonly string $projectDir
+    ) {
+        parent::__construct();
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $io = new SymfonyStyle($input, $output);
+        $binDir = $this->projectDir . '/vendor/bin';
+
+        if (!is_dir($binDir)) {
+            $io->comment('No vendor/bin directory found. Run composer install first.');
+            return Command::SUCCESS;
+        }
+
+        $io->section('Available Binaries');
+
+        foreach (glob($binDir . '/*') as $binary) {
+            if (is_executable($binary)) {
+                $name = basename($binary);
+                $io->writeln(sprintf('  ./vendor/bin/<comment>%s</comment>', $name));
+            }
+        }
+
+        $io->section('Examples');
+        $io->writeln('  ./vendor/bin/moex security:specification SBER');
+        $io->writeln('  ./vendor/bin/t-invest portfolio:show');
+        $io->writeln('  ./vendor/bin/news news:fetch --ticker SBER');
+
+        return Command::SUCCESS;
+    }
+}
