@@ -1,19 +1,13 @@
 parameters:
-    log.level: '%env(LOG_LEVEL)%'
 
 services:
     _defaults:
         autowire: true
         autoconfigure: true
-        public: true
         bind:
             string $projectDir: '%kernel.project_dir%'
 
     App\:
-        resource: '../src/*'
+        resource: '../src/'
         exclude:
-            - '../src/Console/Command/*'
-
-    App\Console\Command\:
-        resource: '../src/Console/Command/*'
-        tags: ['console.command']
+            - '../src/Kernel.php'

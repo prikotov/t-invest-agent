@@ -13,10 +13,16 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand(name: 'bin:list', description: 'List available vendor binaries')]
 class BinListCommand extends Command
 {
+    public function __construct(
+        private readonly string $projectDir
+    ) {
+        parent::__construct();
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $binDir = dirname(__DIR__, 4) . '/vendor/bin';
+        $binDir = $this->projectDir . '/vendor/bin';
 
         if (!is_dir($binDir)) {
             $io->comment('No vendor/bin directory found. Run composer install first.');

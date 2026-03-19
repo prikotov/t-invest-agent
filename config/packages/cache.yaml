@@ -1,0 +1,3 @@
+framework:
+    cache:
+        directory: '%kernel.build_dir%/pools'
