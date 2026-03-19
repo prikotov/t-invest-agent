@@ -1,5 +1,5 @@
 ---
-name: ticker-analysis
+name: moex-ticker-analysis
 description: Фундаментальный анализ отдельной акции на MOEX.
 ---
 
