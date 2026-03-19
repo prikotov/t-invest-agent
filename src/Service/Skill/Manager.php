@@ -48,8 +48,72 @@ class Manager
         }
 
         $enabled = [];
-        foreach (glob($this->skillsTargetDir . '/*') as $link) {
+        foreach (scandir($this->skillsTargetDir) as $entry) {
+            if ($entry === '.' || $entry === '..') {
+                continue;
+            }
+            $link = $this->skillsTargetDir . '/' . $entry;
             if (is_link($link)) {
+                $enabled[basename($link)] = true;
+            }
+        }
+
+        return $enabled;
+    }
+
+    public function cleanupBrokenSymlinks(): int
+    {
+        if (!is_dir($this->skillsTargetDir)) {
+            return 0;
+        }
+
+        $removed = 0;
+        foreach (scandir($this->skillsTargetDir) as $entry) {
+            if ($entry === '.' || $entry === '..') {
+                continue;
+            }
+            $link = $this->skillsTargetDir . '/' . $entry;
+            if (is_link($link) && !file_exists($link)) {
+                $this->fs->remove($link);
+                $removed++;
+            }
+        }
+
+        return $removed;
+    }
+
+    public function isManagedSymlink(string $link): bool
+    {
+        if (!is_link($link)) {
+            return false;
+        }
+
+        $target = readlink($link);
+        if ($target === false) {
+            return false;
+        }
+
+        $realTarget = realpath(dirname($link) . '/' . $target);
+        if ($realTarget === false) {
+            return str_starts_with($target, '../../skills/') || str_starts_with($target, '../skills/');
+        }
+
+        return str_starts_with($realTarget, $this->skillsSourceDir);
+    }
+
+    public function getManagedEnabledSkills(): array
+    {
+        if (!is_dir($this->skillsTargetDir)) {
+            return [];
+        }
+
+        $enabled = [];
+        foreach (scandir($this->skillsTargetDir) as $entry) {
+            if ($entry === '.' || $entry === '..') {
+                continue;
+            }
+            $link = $this->skillsTargetDir . '/' . $entry;
+            if (is_link($link) && $this->isManagedSymlink($link)) {
                 $enabled[basename($link)] = true;
             }
         }
