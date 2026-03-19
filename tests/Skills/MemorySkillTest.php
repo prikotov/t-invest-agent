@@ -27,7 +27,7 @@ class MemorySkillTest extends TestCase
     public function testProfileShowsDefaults(): void
     {
         $output = $this->runScript('profile');
-        
+
         $this->assertStringContainsString('User Profile', $output);
         $this->assertStringContainsString('moderate', $output);
         $this->assertStringContainsString('long-term', $output);
@@ -37,9 +37,9 @@ class MemorySkillTest extends TestCase
     public function testSetSingleValue(): void
     {
         $output = $this->runScript('set risk_tolerance aggressive');
-        
+
         $this->assertStringContainsString('Set: risk_tolerance = aggressive', $output);
-        
+
         $output = $this->runScript('get risk_tolerance');
         $this->assertStringContainsString('aggressive', $output);
     }
@@ -48,14 +48,14 @@ class MemorySkillTest extends TestCase
     {
         $this->runScript('set max_position_pct 15');
         $output = $this->runScript('get max_position_pct');
-        
+
         $this->assertStringContainsString('15', $output);
     }
 
     public function testUpdateProfile(): void
     {
         $output = $this->runScript('update --risk=aggressive --horizon=short-term');
-        
+
         $this->assertStringContainsString('Profile updated:', $output);
         $this->assertStringContainsString('risk_tolerance = aggressive', $output);
         $this->assertStringContainsString('horizon = short-term', $output);
@@ -72,7 +72,7 @@ class MemorySkillTest extends TestCase
     {
         $this->runScript('set risk_tolerance aggressive');
         $this->assertFileExists($this->dataFile);
-        
+
         $output = $this->runScript('clear');
         $this->assertStringContainsString('Memory cleared', $output);
         $this->assertFileDoesNotExist($this->dataFile);
@@ -82,7 +82,7 @@ class MemorySkillTest extends TestCase
     {
         $cmd = sprintf('php %s %s 2>&1', escapeshellarg($this->script), $args);
         $output = shell_exec($cmd);
-        
+
         return $output ?: '';
     }
 }

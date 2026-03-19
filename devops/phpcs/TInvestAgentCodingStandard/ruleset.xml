@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="TInvestAgentCodingStandard"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <description>Custom sniffs for T-Invest Agent project.</description>
+
+    <rule ref="PSR12"/>
+    <rule ref="./Sniffs"/>
+</ruleset>

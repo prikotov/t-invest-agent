@@ -26,7 +26,7 @@ class MonitorSkillTest extends TestCase
     public function testCreatePriceMonitor(): void
     {
         $output = $this->runScript('create price --ticker=SBER --level=260 --direction=UP');
-        
+
         $this->assertStringContainsString('Monitor created:', $output);
         $this->assertStringContainsString('SBER', $output);
         $this->assertStringContainsString('price', $output);
@@ -35,7 +35,7 @@ class MonitorSkillTest extends TestCase
     public function testCreatePriceMonitorWithRecipe(): void
     {
         $output = $this->runScript('create price --ticker=GAZP --level=180 --direction=DOWN --recipe=recipe-001');
-        
+
         $this->assertStringContainsString('Monitor created:', $output);
         $this->assertStringContainsString('recipe-001', $output);
     }
@@ -43,7 +43,7 @@ class MonitorSkillTest extends TestCase
     public function testCreateScheduleMonitor(): void
     {
         $output = $this->runScript('create schedule --cron="0 9 * * 1-5" --prompt="@morning"');
-        
+
         $this->assertStringContainsString('Monitor created:', $output);
         $this->assertStringContainsString('schedule', $output);
         $this->assertStringContainsString('@morning', $output);
@@ -71,7 +71,7 @@ class MonitorSkillTest extends TestCase
     {
         $cmd = sprintf('php %s %s 2>&1', escapeshellarg($this->script), $args);
         $output = shell_exec($cmd);
-        
+
         return $output ?: '';
     }
 }
