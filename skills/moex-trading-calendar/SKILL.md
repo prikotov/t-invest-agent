@@ -1,5 +1,5 @@
 ---
-name: trading-calendar-moex
+name: moex-trading-calendar
 description: Торговый календарь через MOEX ISS API.
 ---
 

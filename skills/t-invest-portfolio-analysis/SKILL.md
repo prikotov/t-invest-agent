@@ -1,5 +1,5 @@
 ---
-name: portfolio-analysis
+name: t-invest-portfolio-analysis
 description: Анализ структуры и метрик инвестиционного портфеля T-Invest.
 ---
 

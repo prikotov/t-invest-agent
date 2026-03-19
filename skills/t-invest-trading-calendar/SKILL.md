@@ -1,5 +1,5 @@
 ---
-name: trading-calendar-tinvest
+name: t-invest-trading-calendar
 description: Торговый календарь через T-Invest API.
 ---
 

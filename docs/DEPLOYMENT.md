@@ -46,8 +46,8 @@ t-invest-agent/
 ├── Makefile                    # Удобные команды
 ├── test-skills.sh              # Проверка работоспособности
 ├── examples/
-│   ├── portfolio-analysis.md   # Пример промпта
-│   ├── ticker-analysis.md      # Пример промпта
+│   ├── t-invest-portfolio-analysis.md   # Пример промпта
+│   ├── moex-ticker-analysis.md      # Пример промпта
 │   └── weekly-report.md        # Пример промпта
 ├── AGENTS.md                   # Инструкции для AI (уже есть ✅)
 ├── skills/                     # SKILL.md файлы (уже есть ✅)
@@ -416,7 +416,7 @@ make news    # введёте тикер
 
 ## Примеры промптов
 
-### examples/portfolio-analysis.md
+### examples/t-invest-portfolio-analysis.md
 
 ```markdown
 Проанализируй мой портфель:
@@ -431,7 +431,7 @@ make news    # введёте тикер
 Завершить: "Не является инвестиционной рекомендацией."
 ```
 
-### examples/ticker-analysis.md
+### examples/moex-ticker-analysis.md
 
 ```markdown
 Проанализируй {TICKER}:
