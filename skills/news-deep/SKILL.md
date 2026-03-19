@@ -186,5 +186,6 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ## Ограничения
 
 - Прямой доступ: только Interfax и Kommersant
-- RBC, TASS, RIA — через DuckDuckGo HTML
+- RBC, TASS, RIA, PRIME — через DuckDuckGo HTML
+- TASS: webfetch возвращает пустой контент — использовать только DDG
 - Interfax — лучший архив (10+ лет, фильтр по датам)
