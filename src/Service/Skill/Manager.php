@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Service\Skill;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 
-class SkillsManager
+class Manager
 {
     private string $skillsSourceDir;
     private string $skillsTargetDir;
