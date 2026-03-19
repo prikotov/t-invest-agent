@@ -19,13 +19,13 @@
         "prikotov/moex-core": "@dev",
         "prikotov/t-invest-core": "@dev",
         "prikotov/news-core": "@dev",
-        "symfony/console": "7.3.*",
-        "symfony/dotenv": "7.3.*",
-        "symfony/filesystem": "7.3.*",
+        "symfony/console": "8.0.*",
+        "symfony/dotenv": "8.0.*",
+        "symfony/filesystem": "8.0.*",
         "symfony/flex": "^2.7.1",
-        "symfony/framework-bundle": "7.3.*",
-        "symfony/runtime": "7.3.*",
-        "symfony/yaml": "7.3.*"
+        "symfony/framework-bundle": "8.0.*",
+        "symfony/runtime": "8.0.*",
+        "symfony/yaml": "8.0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.0"
@@ -76,7 +76,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.3.*"
+            "require": "8.0.*"
         }
     },
     "bin": [
