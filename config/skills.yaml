@@ -6,6 +6,7 @@ skills:
   default:
     - portfolio-analysis
     - ticker-analysis
+    - calc
 
   # Full analysis - all available skills
   analysis:
@@ -14,11 +15,13 @@ skills:
     - news
     - portfolio-analysis
     - ticker-analysis
+    - calc
 
   # Trading mode - real-time data only
   trading:
     - tinvest
     - moex
+    - calc
 
   # News monitoring
   news:
