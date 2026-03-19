@@ -4,62 +4,77 @@
 
 ## Команды
 
-### Портфель
+### Анализ портфеля
 ```bash
-./vendor/bin/t-invest portfolio:show              # Весь портфель
-./vendor/bin/t-invest portfolio:show -t SBER      # По тикеру
+skill portfolio:analyze
+skill portfolio:positions
+skill portfolio:report --period=week
 ```
-Возвращает: позиции, количество, средняя цена, доходность, текущая цена
+Возвращает: стоимость, доходность, распределение по классам/секторам, отклонения от цели
 
-### Счета
+### Ребалансировка
 ```bash
-./vendor/bin/t-invest accounts:list
+skill portfolio:rebalance:plan --target=balanced
 ```
-Возвращает: список счетов пользователя
+Возвращает: рекомендации по покупке/продаже с обоснованием
 
-### Операции
+### Технический анализ
 ```bash
-./vendor/bin/t-invest operations:history
+skill analyze:technical --ticker=SBER
 ```
-Возвращает: история операций
+Возвращает: тренд, RSI, MACD, Bollinger, сигналы
 
-### Рыночные цены
+### Фундаментальный анализ
 ```bash
-./vendor/bin/t-invest market:prices SBER LKOH GAZP
+skill analyze:fundamental --ticker=SBER
 ```
-Возвращает: последние цены по инструментам
+Возвращает: P/E, P/B, ROE, дивиденды, справедливая цена, скоринг
 
-### Исторические свечи
+### Быстрый анализ
 ```bash
-./vendor/bin/t-invest market:candles SBER --from 2024-01-01 --to 2024-12-31
+skill analyze:quick --ticker=SBER
 ```
-Возвращает: OHLCV данные
+Возвращает: сводка технического + фундаментального
 
-### Фундаментальные показатели
+### Скрининг акций
 ```bash
-./vendor/bin/t-invest instruments:fundamentals SBER LKOH
+skill screen:stocks --min-dividend=7 --max-pe=8 --sector=financial
 ```
-Возвращает: P/E, P/B, дивиденды и другие метрики
+Возвращает: отфильтрованный список с сигналом и скорингом
 
 ## Типовые сценарии
 
-### Анализ портфеля
+### Еженедельный мониторинг
 ```bash
-./vendor/bin/t-invest portfolio:show
-./vendor/bin/t-invest market:prices SBER LKOH GAZP
+skill portfolio:report --period=week
+```
+Проверить: сигналы, отклонения > 5%
+
+### Ежемесячная ребалансировка
+```bash
+skill portfolio:analyze
+skill portfolio:rebalance:plan --target=balanced
+```
+Принять решение и исполнить вручную.
+
+### Анализ кандидата для покупки
+```bash
+skill analyze:quick --ticker=GAZP
+skill analyze:fundamental --ticker=GAZP
 ```
 
-### Анализ кандидата
+## Форматы вывода
 ```bash
-./vendor/bin/t-invest instruments:fundamentals GAZP
-./vendor/bin/t-invest market:candles GAZP --from 2024-01-01
+skill portfolio:analyze --format=table  # по умолчанию
+skill portfolio:analyze --format=json
+skill portfolio:analyze --format=csv
 ```
 
 ## Интеграция
 
 Команда вызывается через vendor binary:
 ```bash
-./vendor/bin/t-invest portfolio:show
+./vendor/bin/skill portfolio:analyze
 ```
 
 ## Справочник API

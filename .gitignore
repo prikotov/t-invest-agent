@@ -1,6 +1,7 @@
 .env.local
 /vendor/
 /var/
+/.agents/
 .phpunit.result.cache
 .phpunit.cache/
 .idea/
