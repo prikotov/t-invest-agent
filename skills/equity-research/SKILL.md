@@ -66,6 +66,7 @@ description: Профессиональная аналитика по росси
     ```
     https://duckduckgo.com/html/?q=site%3Abf.arsagera.ru+{TICKER}
     ```
+    **Важно:** DuckDuckGo может блокировать ботов капчей.
 
 **Что анализируют:**
 - Выручка и её динамика

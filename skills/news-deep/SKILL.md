@@ -27,15 +27,17 @@ description: Глубокий поиск новостей по архивам н
 |----------|-----|-------------|
 | Interfax | `https://www.interfax.ru/search/?searchtxt={query}&period={period}` | Глубокий архив, фильтр по датам |
 | Kommersant | `https://www.kommersant.ru/Search/Results?search_query={query}` | Деловые новости |
+| RIA | `https://ria.ru/search/?query={query}` | 30061+ материалов по Сбербанку |
+| PRIME | `https://1prime.ru/search/?query={query}` | Экономические новости |
 
 ### Через DuckDuckGo HTML (site:)
+
+**Важно:** DuckDuckGo блокирует ботов капчей. Поиск через DDG может не работать.
 
 | Источник | URL |
 |----------|-----|
 | RBC | `https://duckduckgo.com/html/?q=site%3Arbc.ru+{query}` |
 | TASS | `https://duckduckgo.com/html/?q=site%3Atass.ru+{query}` |
-| RIA | `https://duckduckgo.com/html/?q=site%3Aria.ru+{query}` |
-| PRIME | `https://duckduckgo.com/html/?q=site%3A1prime.ru+{query}` |
 | Любой сайт | `https://duckduckgo.com/html/?q=site%3A{domain}+{query}` |
 
 ## Как использовать
@@ -185,7 +187,8 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 
 ## Ограничения
 
-- Прямой доступ: только Interfax и Kommersant
-- RBC, RIA, PRIME — через DuckDuckGo HTML
-- TASS: webfetch и curl не работают (JavaScript-защита) — использовать только DDG
+- Прямой поиск: Interfax, Kommersant, RIA, PRIME — работают через webfetch
+- RBC: прямой поиск не работает (JS), DuckDuckGo блокирует
+- TASS: webfetch и curl не работают (JavaScript-защита)
+- DuckDuckGo HTML: блокирует ботов капчей — ненадёжно
 - Interfax — лучший архив (10+ лет, фильтр по датам)
