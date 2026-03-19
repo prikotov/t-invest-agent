@@ -18,9 +18,9 @@ php bin/agent skill:profile analysis
 
 | Профиль | Навыки |
 |---------|--------|
-| `default` | portfolio-analysis, ticker-analysis |
-| `analysis` | tinvest, moex, news, portfolio-analysis, ticker-analysis |
-| `trading` | tinvest, moex |
+| `default` | portfolio-analysis, ticker-analysis, calc, trading-calendar-tinvest |
+| `analysis` | tinvest, moex, news, portfolio-analysis, ticker-analysis, calc, trading-calendar-tinvest, trading-calendar-moex |
+| `trading` | tinvest, moex, calc, trading-calendar-tinvest, trading-calendar-moex |
 | `news` | news, ticker-analysis |
 | `minimal` | tinvest |
 

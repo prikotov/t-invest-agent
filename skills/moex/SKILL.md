@@ -25,16 +25,14 @@ moex security:aggregates SBER
 ### Индексы
 ```bash
 moex security:indices SBER
-moex index:weight SBER IMOEX
-moex index:composition IMOEX
 ```
-Возвращает: список индексов, вес в индексе, состав индекса
+Возвращает: список индексов, в которые входит бумага
 
 ## Типовые сценарии
 
 ### Оценка ликвидности
 ```bash
-moex security:aggregates SBER | grep "Рынок акций" -A5
+moex security:aggregates SBER
 ```
 | Объём в день | Ликвидность | Действие |
 |--------------|-------------|----------|
@@ -59,9 +57,9 @@ moex security:aggregates $TICKER
 
 ## Интеграция
 
-Команда вызывается через vendor binary:
+Команда вызывается через binary:
 ```bash
-./vendor/bin/moex security:specification SBER
+./bin/moex security:specification SBER
 ```
 
 ## Справочник API

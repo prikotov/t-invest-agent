@@ -4,77 +4,57 @@
 
 ## Команды
 
-### Анализ портфеля
+### Портфель
 ```bash
-skill portfolio:analyze
-skill portfolio:positions
-skill portfolio:report --period=week
+t-invest portfolio:show
+t-invest portfolio:show --ticker=SBER
 ```
-Возвращает: стоимость, доходность, распределение по классам/секторам, отклонения от цели
+Возвращает: позиции, количество, средняя цена, текущая цена, доходность
 
-### Ребалансировка
+### Счета
 ```bash
-skill portfolio:rebalance:plan --target=balanced
+t-invest accounts:list
 ```
-Возвращает: рекомендации по покупке/продаже с обоснованием
+Возвращает: список счетов с ID и статусом
 
-### Технический анализ
+### Рыночные данные
 ```bash
-skill analyze:technical --ticker=SBER
+t-invest market:prices --figi=BBG004730N88
+t-invest market:candles --figi=BBG004730N88 --from=2024-01-01 --to=2024-01-31
 ```
-Возвращает: тренд, RSI, MACD, Bollinger, сигналы
+Возвращает: текущие цены, исторические свечи
 
-### Фундаментальный анализ
+### Фундаментальные данные
 ```bash
-skill analyze:fundamental --ticker=SBER
+t-invest instruments:fundamentals --ticker=SBER
 ```
-Возвращает: P/E, P/B, ROE, дивиденды, справедливая цена, скоринг
+Возвращает: P/E, P/B, ROE, дивиденды
 
-### Быстрый анализ
+### История операций
 ```bash
-skill analyze:quick --ticker=SBER
+t-invest operations:history --from=2024-01-01 --to=2024-01-31
 ```
-Возвращает: сводка технического + фундаментального
-
-### Скрининг акций
-```bash
-skill screen:stocks --min-dividend=7 --max-pe=8 --sector=financial
-```
-Возвращает: отфильтрованный список с сигналом и скорингом
+Возвращает: список операций за период
 
 ## Типовые сценарии
 
 ### Еженедельный мониторинг
 ```bash
-skill portfolio:report --period=week
+t-invest portfolio:show
 ```
-Проверить: сигналы, отклонения > 5%
-
-### Ежемесячная ребалансировка
-```bash
-skill portfolio:analyze
-skill portfolio:rebalance:plan --target=balanced
-```
-Принять решение и исполнить вручную.
+Проверить: доходность позиций, отклонения > 5%
 
 ### Анализ кандидата для покупки
 ```bash
-skill analyze:quick --ticker=GAZP
-skill analyze:fundamental --ticker=GAZP
-```
-
-## Форматы вывода
-```bash
-skill portfolio:analyze --format=table  # по умолчанию
-skill portfolio:analyze --format=json
-skill portfolio:analyze --format=csv
+t-invest instruments:fundamentals --ticker=GAZP
+t-invest market:candles --figi=<FIGI> --from=2024-01-01
 ```
 
 ## Интеграция
 
-Команда вызывается через vendor binary:
+Команда вызывается через binary:
 ```bash
-./vendor/bin/skill portfolio:analyze
+./bin/t-invest portfolio:show
 ```
 
 ## Справочник API
