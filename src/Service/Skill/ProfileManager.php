@@ -35,6 +35,8 @@ final class ProfileManager
             return ['error' => "Profile '{$profile}' not found"];
         }
 
+        $this->manager->cleanupBrokenSymlinks();
+
         $results = ['enabled' => [], 'disabled' => [], 'errors' => []];
         $available = array_keys($this->manager->getAvailableSkills());
 
@@ -48,7 +50,7 @@ final class ProfileManager
             }
         }
 
-        $enabled = array_keys($this->manager->getEnabledSkills());
+        $enabled = array_keys($this->manager->getManagedEnabledSkills());
         foreach ($enabled as $skillName) {
             if (!in_array($skillName, $skills)) {
                 $this->manager->disable($skillName);
