@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c522d1cb63b554adce2b3d830d1a6fef",
+    "content-hash": "d68ef7cce82dfa2c0c58f0522a50432b",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -632,13 +632,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "855c2bb145ae0818b6b6c817d270b1bc9ae53d89"
+                "url": "git@github.com:prikotov/t-invest-core.git",
+                "reference": "66b286d4b417765a976633050f793321fdd03f89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/855c2bb145ae0818b6b6c817d270b1bc9ae53d89",
-                "reference": "855c2bb145ae0818b6b6c817d270b1bc9ae53d89",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/66b286d4b417765a976633050f793321fdd03f89",
+                "reference": "66b286d4b417765a976633050f793321fdd03f89",
                 "shasum": ""
             },
             "require": {
@@ -694,6 +694,12 @@
                 ],
                 "psalm": [
                     "psalm"
+                ],
+                "post-install-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
+                ],
+                "post-update-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
                 ]
             },
             "license": [
@@ -717,11 +723,7 @@
                 "t-invest",
                 "trading"
             ],
-            "support": {
-                "source": "https://github.com/prikotov/t-invest-core/tree/main",
-                "issues": "https://github.com/prikotov/t-invest-core/issues"
-            },
-            "time": "2026-03-19T08:19:35+00:00"
+            "time": "2026-03-19T11:58:11+00:00"
         },
         {
             "name": "psr/cache",
