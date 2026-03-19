@@ -80,7 +80,7 @@
         }
     },
     "bin": [
-        "bin/console"
+        "bin/agent"
     ],
     "repositories": [
         {
