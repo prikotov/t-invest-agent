@@ -10,6 +10,7 @@ skills:
     - t-invest-trading-calendar
     - t-invest-candles
     - t-invest-orderbook
+    - t-invest-corporate-events
 
   # Full analysis - all available skills
   analysis:
@@ -36,6 +37,11 @@ skills:
     - moex-candles
     - t-invest-orderbook
 
+  # Corporate events - dividends, reports, bond events
+  events:
+    - t-invest-corporate-events
+    - t-invest-portfolio-analysis
+
   # Technical analysis - chart patterns and indicators
   technical:
     - t-invest-candles
@@ -43,11 +49,13 @@ skills:
     - calc
     - moex-ticker-analysis
     - t-invest-orderbook
+    - t-invest-corporate-events
 
   # News monitoring
   news:
     - news
     - moex-ticker-analysis
+    - t-invest-corporate-events
 
   # Minimal - portfolio only
   minimal:
