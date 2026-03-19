@@ -75,6 +75,11 @@ https://smart-lab.ru/forum/LKOH/
 https://mfd.ru/forum/
 ```
 
+**Важно:** MFD блокирует запросы без User-Agent. Использовать curl:
+```bash
+curl -s -L -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0.0.0" "https://mfd.ru/forum/"
+```
+
 Популярные темы (отображаются на главной):
 - Газпром – акции (GAZP)
 - Сбербанк – акции (SBER)
@@ -253,6 +258,7 @@ https://www.banki.ru/services/responses/bank/tinkoff-bank/
 ## Ограничения
 
 - SmartLab: нет пагинации в выдаче (только первая страница)
+- MFD: блокирует ботов — нужен curl с User-Agent
 - Пульс: только через DuckDuckGo (нет прямого поиска)
 - Banki.ru: только для банков/фин. организаций
 - Настроения могут быть манипулированы
