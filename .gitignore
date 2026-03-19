@@ -1,11 +1,6 @@
-.env.local
-/vendor/
-/var/
 /.agents/
 .phpunit.result.cache
-.phpunit.cache/
 .idea/
-*.log
 /data/
 
 ###> symfony/framework-bundle ###
