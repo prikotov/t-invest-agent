@@ -1,0 +1,30 @@
+# Skills Configuration with Profiles
+# Usage: skill:profile <profile_name>
+
+skills:
+  # Default profile - working skills
+  default:
+    - portfolio-analysis
+    - ticker-analysis
+
+  # Full analysis - all available skills
+  analysis:
+    - tinvest
+    - moex
+    - news
+    - portfolio-analysis
+    - ticker-analysis
+
+  # Trading mode - real-time data only
+  trading:
+    - tinvest
+    - moex
+
+  # News monitoring
+  news:
+    - news
+    - ticker-analysis
+
+  # Minimal - portfolio only
+  minimal:
+    - tinvest

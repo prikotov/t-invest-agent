@@ -17,6 +17,7 @@
 
 ## Реализация
 
+- [skills.md](skills.md) — Управление навыками
 - [MARKET-DATA-MAPPING.md](MARKET-DATA-MAPPING.md) — Соответствие API
 - [NEW-SKILLS.md](NEW-SKILLS.md) — Новые CLI skills
 - [RECIPES-EXAMPLES.md](RECIPES-EXAMPLES.md) — Примеры рецептов
