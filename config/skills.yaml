@@ -4,20 +4,20 @@
 skills:
   # Default profile - working skills
   default:
-    - tinvest-portfolio-analysis
+    - t-invest-portfolio-analysis
     - moex-ticker-analysis
     - calc
-    - tinvest-trading-calendar
+    - t-invest-trading-calendar
 
   # Full analysis - all available skills
   analysis:
     - tinvest
     - moex
     - news
-    - tinvest-portfolio-analysis
+    - t-invest-portfolio-analysis
     - moex-ticker-analysis
     - calc
-    - tinvest-trading-calendar
+    - t-invest-trading-calendar
     - moex-trading-calendar
 
   # Trading mode - real-time data only
@@ -25,7 +25,7 @@ skills:
     - tinvest
     - moex
     - calc
-    - tinvest-trading-calendar
+    - t-invest-trading-calendar
     - moex-trading-calendar
 
   # News monitoring
