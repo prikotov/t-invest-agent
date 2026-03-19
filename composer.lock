@@ -633,12 +633,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "601346af241228b583ba14c8a66cf2be02475e30"
+                "reference": "ef0673a944019411eb7bede92b416db05cecd3e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/601346af241228b583ba14c8a66cf2be02475e30",
-                "reference": "601346af241228b583ba14c8a66cf2be02475e30",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/ef0673a944019411eb7bede92b416db05cecd3e1",
+                "reference": "ef0673a944019411eb7bede92b416db05cecd3e1",
                 "shasum": ""
             },
             "require": {
@@ -721,7 +721,7 @@
                 "source": "https://github.com/prikotov/t-invest-core/tree/main",
                 "issues": "https://github.com/prikotov/t-invest-core/issues"
             },
-            "time": "2026-03-18T14:37:16+00:00"
+            "time": "2026-03-19T02:07:22+00:00"
         },
         {
             "name": "psr/cache",
@@ -5131,6 +5131,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.9.0"
 }
