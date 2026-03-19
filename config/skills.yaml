@@ -25,6 +25,9 @@ skills:
     - t-invest-candles
     - moex-candles
     - t-invest-orderbook
+    - news-deep
+    - social-sentiment
+    - equity-research
 
   # Trading mode - real-time data and technical analysis
   trading:
@@ -54,6 +57,15 @@ skills:
   # News monitoring
   news:
     - news
+    - news-deep
+    - moex-ticker-analysis
+    - t-invest-corporate-events
+
+  # Research - deep company analysis
+  research:
+    - news-deep
+    - social-sentiment
+    - equity-research
     - moex-ticker-analysis
     - t-invest-corporate-events
 
