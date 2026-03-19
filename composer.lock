@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b610dd4dbff57f8e165ea70ac5d8a2df",
+    "content-hash": "470585c430fc05dcc6655bf443a0c342",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -440,13 +440,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prikotov/moex-core.git",
-                "reference": "edb0629a408ddad8da5137dc2020540f69ba0d02"
+                "url": "git@github.com:prikotov/moex-core.git",
+                "reference": "0c239a7b6a79bfac84ddaa4dcd0b4802ba09bfd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/edb0629a408ddad8da5137dc2020540f69ba0d02",
-                "reference": "edb0629a408ddad8da5137dc2020540f69ba0d02",
+                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/0c239a7b6a79bfac84ddaa4dcd0b4802ba09bfd0",
+                "reference": "0c239a7b6a79bfac84ddaa4dcd0b4802ba09bfd0",
                 "shasum": ""
             },
             "require": {
@@ -455,11 +455,11 @@
                 "monolog/monolog": "^3.5",
                 "php": "^8.4",
                 "psr/log": "^3.0",
-                "symfony/config": "^6.4|^7.0|^8.0",
-                "symfony/console": "^6.4|^7.0|^8.0",
-                "symfony/dependency-injection": "^6.4|^7.0|^8.0",
-                "symfony/dotenv": "^6.4|^7.0|^8.0",
-                "symfony/yaml": "^6.4|^7.0|^8.0"
+                "symfony/config": "^8.0",
+                "symfony/console": "^8.0",
+                "symfony/dependency-injection": "^8.0",
+                "symfony/dotenv": "^8.0",
+                "symfony/yaml": "^8.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
@@ -524,24 +524,20 @@
                 "securities",
                 "stocks"
             ],
-            "support": {
-                "source": "https://github.com/prikotov/moex-core/tree/main",
-                "issues": "https://github.com/prikotov/moex-core/issues"
-            },
-            "time": "2026-03-19T02:23:50+00:00"
+            "time": "2026-03-19T03:52:15+00:00"
         },
         {
             "name": "prikotov/news-core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prikotov/news-core.git",
-                "reference": "4aafd4ecd7d32849eef7f9d7caa0ec8ab5b0db55"
+                "url": "git@github.com:prikotov/news-core.git",
+                "reference": "e64647ddbfdc99878b670fa6587b1174b0e939e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/news-core/zipball/4aafd4ecd7d32849eef7f9d7caa0ec8ab5b0db55",
-                "reference": "4aafd4ecd7d32849eef7f9d7caa0ec8ab5b0db55",
+                "url": "https://api.github.com/repos/prikotov/news-core/zipball/e64647ddbfdc99878b670fa6587b1174b0e939e7",
+                "reference": "e64647ddbfdc99878b670fa6587b1174b0e939e7",
                 "shasum": ""
             },
             "require": {
@@ -551,11 +547,11 @@
                 "monolog/monolog": "^3.5",
                 "php": "^8.4",
                 "psr/log": "^3.0",
-                "symfony/config": "^6.4|^7.0|^8.0",
-                "symfony/console": "^6.4|^7.0|^8.0",
-                "symfony/dependency-injection": "^6.4|^7.0|^8.0",
-                "symfony/dotenv": "^6.4|^7.0|^8.0",
-                "symfony/yaml": "^6.4|^7.0|^8.0"
+                "symfony/config": "^8.0",
+                "symfony/console": "^8.0",
+                "symfony/dependency-injection": "^8.0",
+                "symfony/dotenv": "^8.0",
+                "symfony/yaml": "^8.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
@@ -621,24 +617,20 @@
                 "rss",
                 "tass"
             ],
-            "support": {
-                "source": "https://github.com/prikotov/news-core/tree/master",
-                "issues": "https://github.com/prikotov/news-core/issues"
-            },
-            "time": "2026-03-18T14:37:17+00:00"
+            "time": "2026-03-19T03:52:16+00:00"
         },
         {
             "name": "prikotov/t-invest-core",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "ef0673a944019411eb7bede92b416db05cecd3e1"
+                "url": "git@github.com:prikotov/t-invest-core.git",
+                "reference": "cc34c934b80dbb030f66696907e5aa41651c72f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/ef0673a944019411eb7bede92b416db05cecd3e1",
-                "reference": "ef0673a944019411eb7bede92b416db05cecd3e1",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/cc34c934b80dbb030f66696907e5aa41651c72f0",
+                "reference": "cc34c934b80dbb030f66696907e5aa41651c72f0",
                 "shasum": ""
             },
             "require": {
@@ -647,11 +639,11 @@
                 "monolog/monolog": "^3.5",
                 "php": "^8.4",
                 "psr/log": "^3.0",
-                "symfony/config": "^6.4|^7.0|^8.0",
-                "symfony/console": "^6.4|^7.0|^8.0",
-                "symfony/dependency-injection": "^6.4|^7.0|^8.0",
-                "symfony/dotenv": "^6.4|^7.0|^8.0",
-                "symfony/yaml": "^6.4|^7.0|^8.0"
+                "symfony/config": "^8.0",
+                "symfony/console": "^8.0",
+                "symfony/dependency-injection": "^8.0",
+                "symfony/dotenv": "^8.0",
+                "symfony/yaml": "^8.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
@@ -717,11 +709,7 @@
                 "t-invest",
                 "trading"
             ],
-            "support": {
-                "source": "https://github.com/prikotov/t-invest-core/tree/main",
-                "issues": "https://github.com/prikotov/t-invest-core/issues"
-            },
-            "time": "2026-03-19T02:07:22+00:00"
+            "time": "2026-03-19T03:52:14+00:00"
         },
         {
             "name": "psr/cache",
