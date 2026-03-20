@@ -18,14 +18,14 @@ description: Получение стакана (order book) через T-Invest 
 ## Как использовать
 
 ```bash
-t-invest market:orderbook <instrument> [options]
+t-invest market:orderbook <ticker> [options]
 ```
 
 Аргументы:
 
 | Аргумент | Описание |
 |----------|----------|
-| instrument | FIGI, instrumentUid или тикер |
+| ticker | Тикер акции (SBER, GAZP, LKOH и т.д.) |
 
 Опции:
 
@@ -38,8 +38,8 @@ t-invest market:orderbook <instrument> [options]
 ```bash
 t-invest market:orderbook SBER
 t-invest market:orderbook SBER --depth=10
-t-invest market:orderbook BBG004730N88 -d 50
-t-invest market:orderbook GAZP -d 5
+t-invest market:orderbook GAZP -d 50
+t-invest market:orderbook LKOH -d 5
 ```
 
 ## Результат
