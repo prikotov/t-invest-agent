@@ -1,5 +1,5 @@
 # Skills Configuration with Profiles
-# Usage: skill:profile <profile_name>
+# Usage: php bin/agent skill:profile <profile_name>
 
 skills:
   # Default profile - working skills
@@ -15,6 +15,7 @@ skills:
     - news-web
     - social-sentiment
     - equity-research
+    - dashboard
 
   # Full analysis - all available skills
   analysis:
@@ -34,6 +35,7 @@ skills:
     - calculations
     - social-sentiment
     - equity-research
+    - dashboard
 
   # Trading mode - real-time data and technical analysis
   # MOEX data has 20-min lag - use T-Invest for real-time
@@ -60,6 +62,7 @@ skills:
     - t-invest-portfolio-analysis
     - moex-candles
     - moex-ticker-analysis
+    - dashboard
 
   # News monitoring
   news:
@@ -77,6 +80,7 @@ skills:
     - t-invest-portfolio-analysis
     - moex-ticker-analysis
     - t-invest-corporate-events
+    - dashboard
 
   # Minimal - portfolio only
   minimal:
