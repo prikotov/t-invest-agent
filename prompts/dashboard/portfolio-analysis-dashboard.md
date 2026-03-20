@@ -18,6 +18,7 @@
 - **moex-ticker-analysis** — Фундаментальный анализ акций MOEX
 - **equity-research** — Профессиональная аналитика (Arsagera, ДоходЪ)
 - **social-sentiment** — Сентимент инвесторов с форумов (SmartLab, MFD, Пульс)
+- **dashboard** — HTML-шаблоны для интерактивных дашбордов с ECharts графиками (skills/dashboard/SKILL.md)
 
 ## Фаза 0: Разведка
 
