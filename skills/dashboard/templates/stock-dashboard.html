@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Phoenix</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+                                <script src="assets/vendors/simplebar/simplebar.min.js"></script>
+    <script src="assets/js/config.js"></script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="assets/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+        <link href="assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+        <link href="assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    
+  <style>.main, .content { width: 100% !important; max-width: 100% !important; margin-left: 0 !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; } body, html { overflow-x: hidden; } .navbar-top { background-color: var(--phoenix-emphasis-bg); border-bottom: 1px solid var(--phoenix-border-color); height: 4rem; padding: 0 1.5rem; display: flex !important; align-items: center; }</style>
+  </head>
+
+  <body>
+    <main class="main" id="top">
+      <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarTop">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse justify-content-end">
+            <div class="theme-control-toggle feather-icon-wait px-2">
+              <input class="form-check-input ms-0 theme-control-toggle-input" type="checkbox" data-theme-control="phoenixTheme" value="dark" id="themeControlToggle" />
+              <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Switch theme" style="height:32px;width:32px;">
+                <span class="icon" data-feather="moon"></span>
+              </label>
+              <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Switch theme" style="height:32px;width:32px;">
+                <span class="icon" data-feather="sun"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <h2 class="mb-4 text-body-emphasis">Stock Dashboard</h2>
+        <div class="swiper-theme-container w-100">
+          <div class="swiper theme-slider" data-swiper='{"spaceBetween":24,"loop":true,"centeredSlides":true,"slidesPerView":"auto","autoplay":{"delay":0},"freeMode":true,"speed":6500,"grabCursor":true}'>
+            <div class="swiper-wrapper swiper-continuous-autoplay">
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">S&amp;P 500</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-success"> +0.97%<span class="ms-1 fas fa-chevron-up"></span></div>
+                        </div>
+                        <h4 class="mb-0">$5,751.13</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-chart" data-echarts='{"data":[70,50,85,45,200,193,196,210,198,210,103,120,84,95,130,123,214,245,287,348,356,390]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">Dow 30</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-danger"> -0.5%<span class="ms-1 fas fa-chevron-down"></span></div>
+                        </div>
+                        <h4 class="mb-0">$42,080.37</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-mixed-chart" data-echarts='{"data":[-100,190,200,-200,-190,300,-110,100,-100,250,200,190,-80,50,40,200,-200,200,150,160,300,-100]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">Nasdaq</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-success"> +1.45%<span class="ms-1 fas fa-chevron-up"></span></div>
+                        </div>
+                        <h4 class="mb-0">$42,080.37</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-chart" data-echarts='{"data":[400,450,500,490,600,550,400,350,200,250,180,350,320,330,320,450,480,350,345,200,320,400]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">FTSE 100</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-danger"> -1.36%<span class="ms-1 fas fa-chevron-down"></span></div>
+                        </div>
+                        <h4 class="mb-0">$8,190.61</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-inverted-chart" data-echarts='{"data":[-500,-300,-250,-280,-150,-250,-300,-180,-145,-250,-46,-250,-90,-80,-85,-150,-250,-180,-175,-50]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">Crude Oil</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-danger"> -0.64%<span class="ms-1 fas fa-chevron-down"></span></div>
+                        </div>
+                        <h4 class="mb-0">$6,705.13</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-inverted-chart" data-echarts='{"data":[-600,-500,-450,-480,-450,-350,-400,-680,-145,-650,-546,-450,-590,-380,-585,-250,-550,-680,-375,-250]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">Russell</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-success"> +9.09%<span class="ms-1 fas fa-chevron-up"></span></div>
+                        </div>
+                        <h4 class="mb-0">$2,275.88</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-chart" data-echarts='{"data":[500,450,600,690,700,550,400,350,200,250,180,350,320,330,320,450,480,450,445,300,420,600]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">VIX</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-danger"> -9.99%<span class="ms-1 fas fa-chevron-down"></span></div>
+                        </div>
+                        <h4 class="mb-0">$24.28</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-inverted-chart" data-echarts='{"data":[-600,-500,-450,-480,-450,-350,-400,-680,-145,-650,-546,-450,-590,-380,-585,-250,-550,-680,-375,-250]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide stock-overview-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-between-center gap-2 gap-lg-3">
+                      <div class="flex-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <h5 class="mb-0 text-body-tertiary text-nowrap">DAX</h5>
+                          <div class="badge badge-phoenix fs-10 d-flex align-items-center badge-phoenix-success"> +1.56%<span class="ms-1 fas fa-chevron-up"></span></div>
+                        </div>
+                        <h4 class="mb-0">$22,676.41</h4>
+                      </div>
+                      <div class="overview-echart echart-stock-overview-chart" data-echarts='{"data":[500,450,600,690,700,550,400,350,200,250,180,350,320,330,320,450,480,450,445,300,420,600]}'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 py-5 border-top mt-4">
+          <h3 class="mb-4 text-body-emphasis">Top Stock</h3>
+          <div class="row gx-5">
+            <div class="col-12 col-xl-5 col-xxl-4 mb-4 mb-xl-0 top-stock-card-container">
+              <div class="search-box w-100 mb-3 pe-xl-3">
+                <form class="position-relative"><input class="form-control search-input search" type="search" placeholder="Enter Company or Symbol name" aria-label="Search" />
+                  <span class="fas fa-search search-box-icon"></span>
+                </form>
+              </div>
+              <div class="scrollbar top-stock-tab w-100 pe-xl-3">
+                <ul class="nav gap-3 gap-xl-2 flex-nowrap flex-xl-column" id="companyTab" role="tablist">
+                  <li class="nav-item"><a class="nav-link card company-card active" id="tab-apple" href="#apple-tab" data-bs-toggle="tab" aria-current="page" aria-controls="apple-tab" aria-selected="true" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="d-dark-none img-fluid" src="assets/img/brand3/apple.png" alt="brand" /><img class="d-light-none img-fluid" src="assets/img/brand3/light_apple_logo.svg" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">Apple Inc</h6>
+                              <h4 class="mb-0"> $225.77</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">AAPL</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +4.08(1.84%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-tesla" href="#tesla-tab" data-bs-toggle="tab" aria-current="page" aria-controls="tesla-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="d-dark-none img-fluid" src="assets/img/brand3/tesla.png" alt="brand" /><img class="d-light-none img-fluid" src="assets/img/brand3/dark_tesla.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">Tesla Inc</h6>
+                              <h4 class="mb-0"> $240.83</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">TSLA</h6>
+                              <h6 class="fw-semibold lh-sm text-danger"> -1.47(0.6%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-nvidia" href="#nvidia-tab" data-bs-toggle="tab" aria-current="page" aria-controls="nvidia-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="img-fluid" src="assets/img/brand3/nvidia.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">NVIDIA corp</h6>
+                              <h4 class="mb-0"> $132.89</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">NVDA</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +5.17(4.05%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-alphabet" href="#alphabet-tab" data-bs-toggle="tab" aria-current="page" aria-controls="alphabet-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="img-fluid" src="assets/img/brand3/google.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">Alphabet Inc</h6>
+                              <h4 class="mb-0"> $165.7</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">GOOG</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +1.31(0.8%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-amd" href="#amd-tab" data-bs-toggle="tab" aria-current="page" aria-controls="amd-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="d-dark-none img-fluid" src="assets/img/brand3/amd.png" alt="brand" /><img class="d-light-none img-fluid" src="assets/img/brand3/dark_amd.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">AMD Inc.</h6>
+                              <h4 class="mb-0"> $172.8</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">AMD</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +1.83(1.07%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-microsoft" href="#microsoft-tab" data-bs-toggle="tab" aria-current="page" aria-controls="microsoft-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="img-fluid" src="assets/img/brand3/microsoft.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">Microsoft corp</h6>
+                              <h4 class="mb-0"> $414.71</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">MSFT</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +5.17(1.26%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                  <li class="nav-item"><a class="nav-link card company-card" id="tab-intel" href="#intel-tab" data-bs-toggle="tab" aria-current="page" aria-controls="intel-tab" aria-selected="false" role="tab">
+                      <div class="card-body p-0">
+                        <div class="d-flex gap-3 gap-xl-2 gap-xxl-3 align-items-center"><img class="d-dark-none img-fluid" src="assets/img/brand3/intel.png" alt="brand" /><img class="d-light-none img-fluid" src="assets/img/brand3/dark_intel.png" alt="brand" />
+                          <div class="d-flex gap-3 flex-between-center flex-1">
+                            <div>
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-nowrap">Intel</h6>
+                              <h4 class="mb-0"> $23.32</h4>
+                            </div>
+                            <div class="text-end">
+                              <h6 class="fw-semibold text-body-secondary mb-2 lh-sm text-uppercase">INTEL</h6>
+                              <h6 class="fw-semibold lh-sm text-success"> +0.94(4.2%)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-xl-7 col-xxl-8 ps-xl-0 flex-1">
+              <div class="tab-content" id="topStocksTabContent">
+                <div class="tab-pane fade active show" id="apple-tab" role="tabpanel" aria-labelledby="tab-apple">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">AAPL</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $225.77<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 1.84%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-0" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-0" href="#tab-chart-0" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-0" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-0" href="#tab-optionChain-0" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-0" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-0" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-0">
+                    <div class="tab-pane fade show active" id="tab-chart-0" role="tabpanel" aria-labelledby="chart-tab-0">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-apple-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-0" aria-labelledby="option-chain-tab-0">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tesla-tab" role="tabpanel" aria-labelledby="tab-tesla">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">TSLA</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $240.83<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-danger"> 0.6%<span class="ms-1 fas fa-chevron-down"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-1" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-1" href="#tab-chart-1" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-1" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-1" href="#tab-optionChain-1" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-1" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-1" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-1">
+                    <div class="tab-pane fade show active" id="tab-chart-1" role="tabpanel" aria-labelledby="chart-tab-1">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-tesla-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-1" aria-labelledby="option-chain-tab-1">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nvidia-tab" role="tabpanel" aria-labelledby="tab-nvidia">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">NVDA</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $132.89<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 4.05%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-2" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-2" href="#tab-chart-2" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-2" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-2" href="#tab-optionChain-2" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-2" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-2" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-2">
+                    <div class="tab-pane fade show active" id="tab-chart-2" role="tabpanel" aria-labelledby="chart-tab-2">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-nvidia-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-2" aria-labelledby="option-chain-tab-2">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="alphabet-tab" role="tabpanel" aria-labelledby="tab-alphabet">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">GOOG</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $165.7<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 0.8%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-3" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-3" href="#tab-chart-3" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-3" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-3" href="#tab-optionChain-3" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-3" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-3" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-3">
+                    <div class="tab-pane fade show active" id="tab-chart-3" role="tabpanel" aria-labelledby="chart-tab-3">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-alphabet-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-3" aria-labelledby="option-chain-tab-3">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="amd-tab" role="tabpanel" aria-labelledby="tab-amd">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">AMD</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $172.8<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 1.07%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-4" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-4" href="#tab-chart-4" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-4" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-4" href="#tab-optionChain-4" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-4" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-4" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-4">
+                    <div class="tab-pane fade show active" id="tab-chart-4" role="tabpanel" aria-labelledby="chart-tab-4">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-amd-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-4" aria-labelledby="option-chain-tab-4">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="microsoft-tab" role="tabpanel" aria-labelledby="tab-microsoft">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">MSFT</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $414.71<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 1.26%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-5" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-5" href="#tab-chart-5" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-5" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-5" href="#tab-optionChain-5" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-5" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-5" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-5">
+                    <div class="tab-pane fade show active" id="tab-chart-5" role="tabpanel" aria-labelledby="chart-tab-5">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-microsoft-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-5" aria-labelledby="option-chain-tab-5">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="intel-tab" role="tabpanel" aria-labelledby="tab-intel">
+                  <div class="row justify-content-between g-3 mb-5">
+                    <div class="col-auto">
+                      <h4 class="text-body-tertiary mb-2 lh-sm">INTEL</h4>
+                      <h3 class="text-body-highlight d-flex gap-2 flex-between-center lh-sm mb-0"> $23.32<span class="badge badge-phoenix fs-10 d-flex flex-between-center badge-phoenix-success"> 4.2%<span class="ms-1 fas fa-chevron-up"></span></span></h3>
+                    </div>
+                    <div class="col-auto">
+                      <div class="d-flex align-items-center gap-2"><a class="btn btn-sm btn-phoenix-primary" href="../apps/stock/stock-details.html">View full stock details<span class="ms-2 fas fa-up-right-from-square"></span></a><button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-clock"> </span></button>
+                        <button class="btn btn-sm btn-phoenix-secondary"> <span class="fas fa-eye"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-underline optionChainTableHeader mb-4 gap-0" id="companyStatesTab-6" role="tablist">
+                    <li class="nav-item"> <a class="nav-link pt-0 active pe-2" id="chart-tab-6" href="#tab-chart-6" data-bs-toggle="tab" role="tab" aria-controls="tab-chart-6" aria-selected="true">Chart</a></li>
+                    <li class="nav-item"> <a class="nav-link pt-0 px-3" id="option-chain-tab-6" href="#tab-optionChain-6" data-bs-toggle="tab" role="tab" aria-controls="tab-optionChain-6" aria-selected="false">Option Chain</a></li>
+                    <li class="nav-item flex-1"> <a class="nav-link disabled h-100" id="empty-div-6" href="#!" data-bs-toggle="tab" role="tab" aria-selected="false"></a></li>
+                  </ul>
+                  <div class="tab-content" id="companyStatesTabContent-6">
+                    <div class="tab-pane fade show active" id="tab-chart-6" role="tabpanel" aria-labelledby="chart-tab-6">
+                      <div class="scrollbar mb-4">
+                        <div class="btn-group stock-btn-group btn-group-sm text-nowrap" role="group" aria-label="top-stock-chart-filter"><button class="btn btn-phoenix-secondary fw-bolder active">1 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ay</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 D<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ays</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">3 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">6 M<span class="d-none d-sm-inline d-xl-none d-xxl-inline">onths</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">1 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ear</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">5 Y<span class="d-none d-sm-inline d-xl-none d-xxl-inline">ears</span></button>
+                          <button class="btn btn-phoenix-secondary fw-bolder">Max</button>
+                        </div>
+                      </div>
+                      <div class="top-stock-chart"> <canvas id="top-stock-intel-chart" style="width: 100%; min-height: 36.5rem; max-height: 36.5rem;"></canvas></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" id="tab-optionChain-6" aria-labelledby="option-chain-tab-6">
+                      <div class="swiper-theme-container optionChainTableHeader nav nav-underline">
+                        <div class="swiper theme-slider" data-swiper='{"loop":true,"slidesPerView":5,"breakpoints":{"0":{"slidesPerView":1.5},"560":{"slidesPerView":2.5},"768":{"slidesPerView":3.5},"1200":{"slidesPerView":3},"1560":{"slidesPerView":4},"1800":{"slidesPerView":5}},"grabCursor":true,"navigation":true}'>
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100 active"><span class="fs-8">May 17, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(4 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">May 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(11 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 01, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(18 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 08, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(25 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 15, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(32 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 24, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(41 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jun 31, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(48 Days)</span></button></div>
+                            <div class="swiper-slide nav-item"><button class="nav-link text-center text-nowrap w-100"><span class="fs-8">Jul 07, 24 </span><span class="text-body-tertiary fs-9 fw-semibold">(56 Days)</span></button></div>
+                          </div>
+                          <div class="swiper-nav">
+                            <div class="swiper-button-next"> <span class="fas fa-chevron-right nav-icon"></span></div>
+                            <div class="swiper-button-prev"><span class="fas fa-chevron-left nav-icon"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive scrollbar">
+                        <table class="table text-center mb-0">
+                          <thead>
+                            <tr>
+                              <th colspan="5">Calls</th>
+                              <th class="bg-body-highlight border-x border-translucent">Strike Price </th>
+                              <th colspan="5">Puts</th>
+                            </tr>
+                            <tr class="fs-10 text-uppercase">
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                              <th class="bg-body-highlight border-x border-translucent" style="min-width: 7.5rem;">IV 19.4%</th>
+                              <th style="min-width: 6.688rem;">BID</th>
+                              <th style="min-width: 6.688rem;">ASK </th>
+                              <th style="min-width: 6.688rem;">last </th>
+                              <th style="min-width: 6.688rem;">delta </th>
+                              <th style="min-width: 6.688rem;">gamma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">12.50</td>
+                              <td class="text-info-dark lh-sm">12.75</td>
+                              <td class="lh-sm">12.30</td>
+                              <td class="lh-sm">0.977</td>
+                              <td class="lh-sm">0.008</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">174</td>
+                              <td class="text-info-dark lh-sm">0.06 </td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="lh-sm">0.06 </td>
+                              <td class="lh-sm">-0.023 </td>
+                              <td class="lh-sm">0.008 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">10.15</td>
+                              <td class="text-info-dark lh-sm">10.25</td>
+                              <td class="lh-sm">10.25</td>
+                              <td class="lh-sm">0.964</td>
+                              <td class="lh-sm">0.014</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">5</td>
+                              <td class="text-info-dark lh-sm">0.07 </td>
+                              <td class="text-info-dark lh-sm">0.08 </td>
+                              <td class="lh-sm">0.07 </td>
+                              <td class="lh-sm">-0.035 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">7.65</td>
+                              <td class="text-info-dark lh-sm">8.05</td>
+                              <td class="lh-sm">7.80</td>
+                              <td class="lh-sm">0.937</td>
+                              <td class="lh-sm">0.024</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">172.5</td>
+                              <td class="text-info-dark lh-sm">0.12 </td>
+                              <td class="text-info-dark lh-sm">0.13 </td>
+                              <td class="lh-sm">0.12 </td>
+                              <td class="lh-sm">-0.064 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">5.30</td>
+                              <td class="text-info-dark lh-sm">5.45</td>
+                              <td class="lh-sm">5.35</td>
+                              <td class="lh-sm">0.871</td>
+                              <td class="lh-sm">0.034</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">175</td>
+                              <td class="text-info-dark lh-sm">0.26 </td>
+                              <td class="text-info-dark lh-sm">0.27 </td>
+                              <td class="lh-sm">0.27 </td>
+                              <td class="lh-sm">-0.130 </td>
+                              <td class="lh-sm">0.046 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">3.25</td>
+                              <td class="text-info-dark lh-sm">3.30</td>
+                              <td class="lh-sm">3.28</td>
+                              <td class="lh-sm">0.732</td>
+                              <td class="lh-sm">0.044</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">177.5</td>
+                              <td class="text-info-dark lh-sm">0.66 </td>
+                              <td class="text-info-dark lh-sm">0.67 </td>
+                              <td class="lh-sm">0.66 </td>
+                              <td class="lh-sm">-0.269 </td>
+                              <td class="lh-sm">0.078 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">180</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.65</td>
+                              <td class="text-info-dark lh-sm">0.66</td>
+                              <td class="lh-sm">0.65</td>
+                              <td class="lh-sm">0.487</td>
+                              <td class="lh-sm">0.063</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">182.5</td>
+                              <td class="text-info-dark lh-sm">3.10 </td>
+                              <td class="text-info-dark lh-sm">3.00 </td>
+                              <td class="lh-sm">3.10 </td>
+                              <td class="lh-sm">-0.431 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.22</td>
+                              <td class="text-info-dark lh-sm">0.23</td>
+                              <td class="lh-sm">0.23</td>
+                              <td class="lh-sm">0.234</td>
+                              <td class="lh-sm">0.072</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">185</td>
+                              <td class="text-info-dark lh-sm">5.05 </td>
+                              <td class="text-info-dark lh-sm">5.25 </td>
+                              <td class="lh-sm">5.15 </td>
+                              <td class="lh-sm">-0.987 </td>
+                              <td class="lh-sm">0.023 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.08</td>
+                              <td class="text-info-dark lh-sm">0.09</td>
+                              <td class="lh-sm">0.08</td>
+                              <td class="lh-sm">0.123</td>
+                              <td class="lh-sm">0.084</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">187.5</td>
+                              <td class="text-info-dark lh-sm">7.45 </td>
+                              <td class="text-info-dark lh-sm">7.70 </td>
+                              <td class="lh-sm">7.90 </td>
+                              <td class="lh-sm">-0.897 </td>
+                              <td class="lh-sm">0.087 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">0.04</td>
+                              <td class="text-info-dark lh-sm">0.05</td>
+                              <td class="lh-sm">0.04</td>
+                              <td class="lh-sm">0.012</td>
+                              <td class="lh-sm">0.088</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">190</td>
+                              <td class="text-info-dark lh-sm">9.90 </td>
+                              <td class="text-info-dark lh-sm">10.15 </td>
+                              <td class="lh-sm">10.05 </td>
+                              <td class="lh-sm">-0.988 </td>
+                              <td class="lh-sm">0.014 </td>
+                            </tr>
+                            <tr class="fs-9 fw-semibold">
+                              <td class="text-info-dark lh-sm">1.65</td>
+                              <td class="text-info-dark lh-sm">1.66</td>
+                              <td class="lh-sm">1.64</td>
+                              <td class="lh-sm">0.510</td>
+                              <td class="lh-sm">0.054</td>
+                              <td class="bg-body-highlight border-x border-translucent text-body-tertiary fw-bold lh-sm">192</td>
+                              <td class="text-info-dark lh-sm">1.53 </td>
+                              <td class="text-info-dark lh-sm">1.54 </td>
+                              <td class="lh-sm">1.54 </td>
+                              <td class="lh-sm">-0.498 </td>
+                              <td class="lh-sm">0.100 </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-body-emphasis py-5 border-y mb-7 mb-md-8 mb-lg-9">
+          <div class="row gy-5 gx-xl-7 gx-xxl-10">
+            <div class="col-xl-6">
+              <h2 class="mb-4">Top Gainers</h2>
+              <div id="topGainersTable" data-list='{"valueNames":["symbol","name","price","change"],"page":7,"pagination":true}'>
+                <div class="table-responsive scrollbar">
+                  <table class="table table-striped fs-9 mb-0">
+                    <thead>
+                      <tr class="bg-body-highlight border-top border-translucent">
+                        <th class="sort white-space-nowrap align-middle ps-4 text-uppercase" scope="col" data-sort="symbol" style="min-width: 8rem;">Symbol</th>
+                        <th class="sort align-middle pe-6 text-uppercase" scope="col" data-sort="name" style="min-width:10rem">Name</th>
+                        <th class="sort align-middle text-end text-uppercase" scope="col" data-sort="price" style="min-width: 9.5rem">Price</th>
+                        <th class="sort align-middle px-4 text-end text-uppercase" scope="col" data-sort="change" style="min-width: 8rem;">Change</th>
+                      </tr>
+                    </thead>
+                    <tbody class="list" id="top-gainers-table">
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">CHSN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Chanson International Holding</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$14.81</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 387.17%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">BENF</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Beneficient</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.89</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 58.82%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">FORD</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Forward Industries</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$5.38</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 52.41%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">ATGL</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Alpha Technology Group</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$7.20</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 36.11%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">TIGR</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">UP Fintech Holding</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$12.39</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 34.82%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">UXIN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Uxin Limited</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$7.35</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 33.88%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">BANL</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">CBL International</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.35</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 29.81%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">NVDA</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Nvidia Corporation</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$950.12</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 28.45%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">TSLA</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Tesla Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$205.32</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 26.78%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">AAPL</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Apple Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$187.56</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 25.43%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">AMD</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Advanced Micro Devices</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$152.74</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 23.91%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">GOOGL</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Alphabet Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$138.19</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 22.34%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">MSFT</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Microsoft Corporation</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$402.78</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 21.56%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">NFLX</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Netflix Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$462.83</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 20.67%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">META</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Meta Platforms Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$469.12</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 19.85%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">AMZN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Amazon.com Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$145.23</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 18.92%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">BABA</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Alibaba Group Holding</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$85.14</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 17.32%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">DIS</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Walt Disney Co.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$93.45</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 16.78%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">PYPL</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">PayPal Holdings</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$75.64</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 15.89%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">NIO</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Nio Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$9.56</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 14.92%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">PFE</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Pfizer Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$39.84</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-success"> 13.65%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row align-items-center justify-content-between pt-2 pe-0 fs-9 pagination-subtle">
+                  <div class="col-auto d-flex">
+                    <p class="mb-0 d-none d-sm-block me-3 fw-semibold text-body" data-list-info="data-list-info"></p><a class="fw-semibold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a class="fw-semibold d-none" href="#!" data-list-view="less">View Less<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                  </div>
+                  <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+                    <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <h2 class="mb-4">Top Losers</h2>
+              <div id="topLosersTable" data-list='{"valueNames":["symbol","name","price","change"],"page":7,"pagination":true}'>
+                <div class="table-responsive scrollbar">
+                  <table class="table table-striped fs-9 mb-0">
+                    <thead>
+                      <tr class="bg-body-highlight border-top border-translucent">
+                        <th class="sort white-space-nowrap align-middle ps-4 text-uppercase" scope="col" data-sort="symbol" style="min-width: 8rem;">Symbol</th>
+                        <th class="sort align-middle pe-6 text-uppercase" scope="col" data-sort="name" style="min-width:10rem">Name</th>
+                        <th class="sort align-middle text-end text-uppercase" scope="col" data-sort="price" style="min-width: 9.5rem">Price</th>
+                        <th class="sort align-middle px-4 text-end text-uppercase" scope="col" data-sort="change" style="min-width: 8rem;">Change</th>
+                      </tr>
+                    </thead>
+                    <tbody class="list" id="top-losers-table">
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">DUO</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Fangdd Network Group</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$2.53</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -32.89%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">XIN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Xinyuan Real Estate</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$4.17</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -27.23%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">UPXI</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Upexi</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$2.34</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -26.88%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">SPAI</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Safe Pro Group</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.93</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -25.19%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">SAVE</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Spirit Airlines</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.69</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -24.55%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">LASE</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Laser Photonics</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$7.06</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -23.09%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">IBO</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Impact BioMedical</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.27</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -23.02%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">SOUN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">SoundHound AI Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$3.12</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -21.56%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">FUBO</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">FuboTV Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$2.19</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -19.83%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">NKLA</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Nikola Corporation</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$0.95</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -18.92%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">RIVN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Rivian Automotive</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$10.78</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -17.65%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">PLUG</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Plug Power Inc.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$3.89</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -16.74%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">CVNA</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Carvana Co.</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$49.65</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -15.92%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">LCID</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Lucid Group</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$3.56</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -14.78%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">AFRM</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Affirm Holdings</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$27.34</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -14.23%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">COIN</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Coinbase Global</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$116.47</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -13.56%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">PTON</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Peloton Interactive</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$6.85</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -12.49%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">ZM</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Zoom Video Communications</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$64.23</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -11.92%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">RIDE</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Lordstown Motors</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.24</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -10.78%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">BBBYQ</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Bed Bath &amp; Beyond</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$0.09</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -9.86%</td>
+                      </tr>
+                      <tr>
+                        <td class="symbol align-middle white-space-nowrap py-2 ps-4 fs-9 text-body fw-semibold">TUP</td>
+                        <td class="name align-middle white-space-nowrap text-start text-body py-2">Tupperware Brands</td>
+                        <td class="price align-middle white-space-nowrap text-body py-2 text-end">$1.97</td>
+                        <td class="change align-middle white-space-nowrap fs-9 pe-4 fw-semibold text-end text-danger"> -8.99%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row align-items-center justify-content-between pt-2 pe-0 fs-9 pagination-subtle">
+                  <div class="col-auto d-flex">
+                    <p class="mb-0 d-none d-sm-block me-3 fw-semibold text-body" data-list-info="data-list-info"></p><a class="fw-semibold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a class="fw-semibold d-none" href="#!" data-list-view="less">View Less<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                  </div>
+                  <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+                    <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer position-absolute">
+          <div class="row g-0 justify-content-between align-items-center h-100">
+            <div class="col-12 col-sm-auto text-center">
+              <p class="mb-0 mt-2 mt-sm-0 text-body">Инвестиционный анализ</p>
+            </div>
+            <div class="col-12 col-sm-auto text-center">
+              <p class="mb-0 text-body-tertiary text-opacity-85">T-Invest Agent</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="modal fade" id="searchBoxModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-phoenix-modal="data-phoenix-modal" style="--phoenix-backdrop-opacity: 1;">
+        <div class="modal-dialog">
+          <div class="modal-content mt-15 rounded-pill">
+            <div class="modal-body p-0">
+              <div class="search-box navbar-top-search-box" data-list='{"valueNames":["title"]}' style="width: auto;">
+                <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input class="form-control search-input fuzzy-search rounded-pill form-control-lg" type="search" placeholder="Search..." aria-label="Search" />
+                  <span class="fas fa-search search-box-icon"></span>
+                </form>
+                <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none" data-bs-dismiss="search"><button class="btn btn-link p-0" aria-label="Close"></button></div>
+                <div class="dropdown-menu border start-0 py-0 overflow-hidden w-100">
+                  <div class="scrollbar-overlay" style="max-height: 30rem;">
+                    <div class="list pb-3">
+                      <h6 class="dropdown-header text-body-highlight fs-10 py-2">24 <span class="text-body-quaternary">results</span></h6>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Recently Searched </h6>
+                      <div class="py-2"><a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"><span class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span> Store Macbook</div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"> <span class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span> MacBook Air - 13″</div>
+                          </div>
+                        </a>
+                      </div>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Products</h6>
+                      <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="file-thumbnail me-2"><img class="h-100 w-100 object-fit-cover rounded-3" src="assets/img/products/60x60/3.png" alt="" /></div>
+                          <div class="flex-1">
+                            <h6 class="mb-0 text-body-highlight title">MacBook Air - 13″</h6>
+                            <p class="fs-10 mb-0 d-flex text-body-tertiary"><span class="fw-medium text-body-tertiary text-opactity-85">8GB Memory - 1.6GHz - 128GB Storage</span></p>
+                          </div>
+                        </a>
+                        <a class="dropdown-item py-2 d-flex align-items-center" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="file-thumbnail me-2"><img class="img-fluid" src="assets/img/products/60x60/3.png" alt="" /></div>
+                          <div class="flex-1">
+                            <h6 class="mb-0 text-body-highlight title">MacBook Pro - 13″</h6>
+                            <p class="fs-10 mb-0 d-flex text-body-tertiary"><span class="fw-medium text-body-tertiary text-opactity-85">30 Sep at 12:30 PM</span></p>
+                          </div>
+                        </a>
+                      </div>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Quick Links</h6>
+                      <div class="py-2"><a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"><span class="fa-solid fa-link text-body" data-fa-transform="shrink-2"></span> Support MacBook House</div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"> <span class="fa-solid fa-link text-body" data-fa-transform="shrink-2"></span> Store MacBook″</div>
+                          </div>
+                        </a>
+                      </div>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Files</h6>
+                      <div class="py-2"><a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"><span class="fa-solid fa-file-zipper text-body" data-fa-transform="shrink-2"></span> Library MacBook folder.rar</div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"> <span class="fa-solid fa-file-lines text-body" data-fa-transform="shrink-2"></span> Feature MacBook extensions.txt</div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"> <span class="fa-solid fa-image text-body" data-fa-transform="shrink-2"></span> MacBook Pro_13.jpg</div>
+                          </div>
+                        </a>
+                      </div>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Members</h6>
+                      <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
+                          <div class="avatar avatar-l status-online  me-2 text-body">
+                            <img class="rounded-circle " src="assets/img/team/40x40/10.webp" alt="" />
+                          </div>
+                          <div class="flex-1">
+                            <h6 class="mb-0 text-body-highlight title">Carry Anna</h6>
+                            <p class="fs-10 mb-0 d-flex text-body-tertiary">anna@technext.it</p>
+                          </div>
+                        </a>
+                        <a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
+                          <div class="avatar avatar-l  me-2 text-body">
+                            <img class="rounded-circle " src="assets/img/team/40x40/12.webp" alt="" />
+                          </div>
+                          <div class="flex-1">
+                            <h6 class="mb-0 text-body-highlight title">John Smith</h6>
+                            <p class="fs-10 mb-0 d-flex text-body-tertiary">smith@technext.it</p>
+                          </div>
+                        </a>
+                      </div>
+                      <hr class="my-0" />
+                      <h6 class="dropdown-header text-body-highlight fs-9 border-bottom border-translucent py-2 lh-sm">Related Searches</h6>
+                      <div class="py-2"><a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"><span class="fa-brands fa-firefox-browser text-body" data-fa-transform="shrink-2"></span> Search in the Web MacBook</div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
+                          <div class="d-flex align-items-center">
+                            <div class="fw-normal text-body-highlight title"> <span class="fa-brands fa-chrome text-body" data-fa-transform="shrink-2"></span> Store MacBook″</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <p class="fallback fw-bold fs-7 d-none">No Result Found.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="assets/vendors/popper/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/vendors/anchorjs/anchor.min.js"></script>
+    <script src="assets/vendors/is/is.min.js"></script>
+    <script src="assets/vendors/fontawesome/all.min.js"></script>
+    <script src="assets/vendors/lodash/lodash.min.js"></script>
+    <script src="assets/vendors/list.js/list.min.js"></script>
+    <script src="assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="assets/vendors/dayjs/dayjs.min.js"></script>
+    <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/phoenix.js"></script>
+    <script src="assets/vendors/echarts/echarts.min.js"></script>
+    <script src="assets/vendors/chart/chart.umd.js"></script>
+    <script src="assets/js/dashboards/stock-dashboard.js"></script>
+  </body>
+
+</html>
