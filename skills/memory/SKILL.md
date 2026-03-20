@@ -16,7 +16,7 @@ description: Память агента — хранение предпочтен
 **Шаг 1:** Показать профиль
 
 ```bash
-    php scripts/memory.php profile
+    php bin/agent memory
 ```
 
 Выводит текущий профиль пользователя или значения по умолчанию.
@@ -24,35 +24,35 @@ description: Память агента — хранение предпочтен
 **Шаг 2:** Получить значение
 
 ```bash
-    php scripts/memory.php get <key>
+    php bin/agent memory get <key>
 ```
 
 Примеры:
 
 ```bash
-    php scripts/memory.php get risk_tolerance
-    php scripts/memory.php get favorite_sectors
+    php bin/agent memory get risk_tolerance
+    php bin/agent memory get favorite_sectors
 ```
 
 **Шаг 3:** Установить значение
 
 ```bash
-    php scripts/memory.php set <key> <value>
+    php bin/agent memory set <key> <value>
 ```
 
 Примеры:
 
 ```bash
-    php scripts/memory.php set risk_tolerance moderate
-    php scripts/memory.php set horizon long-term
-    php scripts/memory.php set max_position_pct 15
-    php scripts/memory.php set favorite_sectors '["financial","energy"]'
+    php bin/agent memory set risk_tolerance moderate
+    php bin/agent memory set horizon long-term
+    php bin/agent memory set max_position_pct 15
+    php bin/agent memory set favorite_sectors '["financial","energy"]'
 ```
 
 **Шаг 4:** Обновить профиль
 
 ```bash
-    php scripts/memory.php update [--risk=...] [--horizon=...] [--style=...] [--sectors=...] [--max-pos=...]
+    php bin/agent memory update [--risk=...] [--horizon=...] [--style=...] [--sectors=...] [--max-pos=...]
 ```
 
 Опции:
@@ -68,28 +68,14 @@ description: Память агента — хранение предпочтен
 Примеры:
 
 ```bash
-    php scripts/memory.php update --risk=aggressive --horizon=short-term
-    php scripts/memory.php update --style=dividend --sectors=financial,energy --max-pos=15
+    php bin/agent memory update --risk=aggressive --horizon=short-term
+    php bin/agent memory update --style=dividend --sectors=financial,energy --max-pos=15
 ```
 
-**Шаг 5:** Синхронизировать позиции из портфеля
+**Шаг 5:** Очистить память
 
 ```bash
-    php scripts/memory.php sync-portfolio
-```
-
-Загружает тикеры из портфеля T-Invest и сохраняет в память.
-
-**Шаг 6:** Показать синхронизированные позиции
-
-```bash
-    php scripts/memory.php positions
-```
-
-**Шаг 7:** Очистить память
-
-```bash
-    php scripts/memory.php clear
+    php bin/agent memory clear
 ```
 
 ## Результат
@@ -106,8 +92,6 @@ description: Память агента — хранение предпочтен
 | favorite_sectors     | Избранные секторы                              | массив строк                        |
 | avoid_sectors        | Секторы для исключения                         | массив строк                        |
 | max_position_pct     | Максимальная доля одной позиции в портфеле     | число                               |
-| positions            | Тикеры из портфеля (синхронизация)             | массив строк                        |
-| positions_updated_at | Дата последней синхронизации портфеля          | ISO 8601                            |
 | updated_at           | Дата последнего обновления                     | ISO 8601                            |
 
 ## Значения по умолчанию
@@ -119,8 +103,7 @@ description: Память агента — хранение предпочтен
   "style": "value",
   "favorite_sectors": [],
   "avoid_sectors": [],
-  "max_position_pct": 10,
-  "positions": []
+  "max_position_pct": 10
 }
 ```
 
@@ -129,8 +112,7 @@ description: Память агента — хранение предпочтен
 **Перед анализом портфеля или рекомендациями:**
 
 ```bash
-    php scripts/memory.php profile
-    php scripts/memory.php positions
+    php bin/agent memory
 ```
 
 **Учёт профиля при рекомендациях:**

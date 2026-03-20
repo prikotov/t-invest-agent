@@ -1,4 +1,6 @@
 parameters:
+    memory_data_dir: '%kernel.project_dir%/data/memory'
+    memory_filename: 'user.json'
 
 services:
     _defaults:
@@ -11,3 +13,9 @@ services:
         resource: '../src/'
         exclude:
             - '../src/Kernel.php'
+
+    Memory\Core\Storage\StorageInterface:
+        class: Memory\Core\Storage\FilesystemStorage
+        arguments:
+            $dataDir: '%memory_data_dir%'
+            $filename: '%memory_filename%'

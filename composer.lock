@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d68ef7cce82dfa2c0c58f0522a50432b",
+    "content-hash": "62220b1cf89cb2acdebc32b78fdecc36",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -434,6 +434,93 @@
                 }
             ],
             "time": "2026-01-02T08:56:05+00:00"
+        },
+        {
+            "name": "prikotov/memory-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:prikotov/memory-core.git",
+                "reference": "45377ff4bbafa8821c14cce6969b9a7808f4c91a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prikotov/memory-core/zipball/45377ff4bbafa8821c14cce6969b9a7808f4c91a",
+                "reference": "45377ff4bbafa8821c14cce6969b9a7808f4c91a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^8.4",
+                "symfony/console": "^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^3.7",
+                "vimeo/psalm": "^5.0|^6.0"
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/memory"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Memory\\Core\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Memory\\Core\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "cs-check": [
+                    "phpcs --standard=devops/phpcs/MemoryCodingStandard/ruleset.xml src tests"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=devops/phpcs/MemoryCodingStandard/ruleset.xml src tests"
+                ],
+                "stan": [
+                    "phpstan analyse"
+                ],
+                "psalm": [
+                    "psalm"
+                ],
+                "post-install-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
+                ],
+                "post-update-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Prikotov",
+                    "email": "prikotov@gmail.com"
+                }
+            ],
+            "description": "Key-value storage library with filesystem and other backends",
+            "keywords": [
+                "cache",
+                "filesystem",
+                "key-value",
+                "memory",
+                "storage"
+            ],
+            "time": "2026-03-20T02:49:02+00:00"
         },
         {
             "name": "prikotov/moex-core",
@@ -7437,6 +7524,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "prikotov/memory-core": 20,
         "prikotov/moex-core": 20,
         "prikotov/news-core": 20,
         "prikotov/t-invest-core": 20
