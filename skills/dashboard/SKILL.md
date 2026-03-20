@@ -23,6 +23,38 @@ HTML-шаблоны для интерактивных дашбордов.
 | `watchlist.html`       | Список наблюдения: таблица тикеров с sparklines и метриками             |
 | `stock-dashboard.html` | Общий дашборд рынка: сводка, топы, графики                              |
 
+## Организация выходных данных
+
+**Базовый путь:** `data/reports/{report_name}/{subname}-YYYYMMDD/`
+
+```
+data/reports/{report_name}/{subname}-YYYYMMDD/
+├── raw/
+│   ├── portfolio.json          # Сырые данные портфеля
+│   ├── positions/              # Данные по позициям
+│   │   ├── SBER.json
+│   │   ├── GAZP.json
+│   │   └── ...
+│   ├── candles/                # Исторические цены
+│   ├── news/                   # Новости и сентимент
+│   └── events/                 # Корпоративные события
+├── analysis/
+│   ├── structure.json          # Анализ структуры портфеля
+│   ├── risk.json               # Метрики риска
+│   ├── performance.json        # Метрики доходности
+│   └── recommendations.json    # Практические рекомендации
+├── charts/                     # Данные для графиков
+└── report.html                 # Итоговый интерактивный дашборд
+```
+
+**Принципы:**
+- **Атомарная запись** — Сохранять инкрементально, не терять прогресс при прерывании
+- **Возобновляемость** — При прерывании пропускать уже собранные данные
+- **Свежие данные** — Всегда получать актуальные цены и метрики (без кэша)
+- **Разделение** — Сырые данные отдельно от анализа
+
+---
+
 ## Как использовать
 
 **Шаг 1:** Выбрать шаблон
@@ -33,24 +65,15 @@ HTML-шаблоны для интерактивных дашбордов.
 - Список отслеживаемых бумаг → `watchlist.html`
 - Общая аналитика рынка → `stock-dashboard.html`
 
-**Шаг 2:** Скопировать шаблон
+**Шаг 2:** Использовать шаблон
 
-```bash
-cp skills/dashboard/templates/<шаблон>.html <путь>/report.html
-```
+Взять HTML-шаблон из директории `templates/` skill и скопировать в директорию отчёта:
+- `templates/portfolio.html` → `data/reports/{report_name}/{subname}-YYYYMMDD/report.html`
 
-Примеры:
-
-```bash
-# Отчёт по портфелю
-cp skills/dashboard/templates/portfolio.html reports/my-portfolio.html
-
-# Анализ акции
-cp skills/dashboard/templates/stock-details.html reports/sber-analysis.html
-
-# Watchlist
-cp skills/dashboard/templates/watchlist.html reports/watchlist.html
-```
+Примеры имён файлов отчётов:
+- `data/reports/portfolio-analysis/full-20260320/report.html`
+- `data/reports/ticker-analysis/sber-20260320/report.html`
+- `data/reports/watchlist/weekly-20260320/report.html`
 
 **Шаг 3:** Заменить данные
 
@@ -74,18 +97,11 @@ cp skills/dashboard/templates/watchlist.html reports/watchlist.html
 
 **Шаг 4:** Открыть в браузере
 
-```bash
-# Прямое открытие
-firefox reports/my-portfolio.html
-
-# Или через локальный сервер (для избежания CORS)
-python -m http.server 8000 -d reports
-# Затем открыть http://localhost:8000/my-portfolio.html
-```
+Результат сохранить в `data/reports/{report_name}/{subname}-YYYYMMDD/report.html` и открыть в браузере.
 
 ## Результат
 
-**Файл:** `<путь>/report.html`
+**Файл:** `data/reports/{report_name}/{subname}-YYYYMMDD/report.html`
 
 **Содержит:**
 - HTML-разметка дашборда
@@ -214,7 +230,7 @@ python -m http.server 8000 -d reports
 ## Структура skill
 
 ```
-skills/dashboard/
+.
 ├── SKILL.md
 ├── README.md                  # Справочник по шаблонам
 └── templates/
@@ -258,7 +274,4 @@ skills/dashboard/
 | `heatmap-charts.html` | Heatmap, Heatmap single series                   |
 | `geo-map.html`        | World map, USA map                               |
 
-Открыть пример напрямую в браузере:
-```bash
-firefox skills/dashboard/templates/echarts-examples/line-charts.html
-```
+Примеры графиков находятся в `templates/echarts-examples/`.
