@@ -1,11 +1,11 @@
 ---
 name: dashboard
-description: Создание интерактивных HTML-дашбордов на основе Phoenix Theme с ECharts графиками для визуализации портфеля и котировок.
+description: Создание интерактивных HTML-дашбордов с ECharts графиками для визуализации портфеля и котировок.
 ---
 
 # Dashboard
 
-HTML-шаблоны для интерактивных дашбордов на основе Phoenix Theme.
+HTML-шаблоны для интерактивных дашбордов.
 
 ## Когда использовать
 
@@ -16,12 +16,12 @@ HTML-шаблоны для интерактивных дашбордов на о
 
 ## Шаблоны
 
-| Шаблон | Назначение |
-|--------|------------|
-| `portfolio.html` | Дашборд портфеля: сводка, график доходности, таблица активов, аллокация |
-| `stock-details.html` | Детальная страница акции: свечи, дивиденды, финансы, новости, профиль |
-| `watchlist.html` | Список наблюдения: таблица тикеров с sparklines и метриками |
-| `stock-dashboard.html` | Общий дашборд рынка: сводка, топы, графики |
+| Шаблон                 | Назначение                                                              |
+|------------------------|-------------------------------------------------------------------------|
+| `portfolio.html`       | Дашборд портфеля: сводка, график доходности, таблица активов, аллокация |
+| `stock-details.html`   | Детальная страница акции: свечи, дивиденды, финансы, новости, профиль   |
+| `watchlist.html`       | Список наблюдения: таблица тикеров с sparklines и метриками             |
+| `stock-dashboard.html` | Общий дашборд рынка: сводка, топы, графики                              |
 
 ## Как использовать
 
@@ -56,11 +56,11 @@ cp skills/dashboard/templates/watchlist.html reports/watchlist.html
 
 Найти и заменить placeholder-данные в HTML:
 
-| Placeholder | Описание | Пример |
-|-------------|----------|--------|
-| `Apple Inc. (AAPL)` | Название и тикер | `Сбербанк (SBER)` |
-| `$226.51` | Цена | `₽255.50` |
-| `+0.62 (0.27%)` | Изменение | `+5.20 (+2.1%)` |
+| Placeholder                     | Описание         | Пример             |
+|---------------------------------|------------------|--------------------|
+| `Apple Inc. (AAPL)`             | Название и тикер | `Сбербанк (SBER)`  |
+| `$226.51`                       | Цена             | `₽255.50`          |
+| `+0.62 (0.27%)`                 | Изменение        | `+5.20 (+2.1%)`    |
 | `data-echarts='{"data":[...]}'` | Данные sparkline | Реальные котировки |
 
 Для ECharts графиков заменить данные в JavaScript или использовать data-атрибуты:
@@ -105,33 +105,81 @@ python -m http.server 8000 -d reports
 
 ### Свечи (Candlestick)
 
-| Класс | Описание |
-|-------|----------|
-| `echart-basic-candlestick-chart-example` | Базовый |
+| Класс                                    | Описание      |
+|------------------------------------------|---------------|
+| `echart-basic-candlestick-chart-example` | Базовый       |
 | `echart-candlestick-mixed-chart-example` | Свечи + объём |
 
 ### Линейные
 
-| Класс | Описание |
-|-------|----------|
-| `echart-line-chart-example` | Базовый |
-| `echart-area-line-chart-example` | С заливкой |
-| `echart-stacked-line-chart-example` | Стековый |
+| Класс                               | Описание   |
+|-------------------------------------|------------|
+| `echart-line-chart-example`         | Базовый    |
+| `echart-area-line-chart-example`    | С заливкой |
+| `echart-stacked-line-chart-example` | Стековый   |
+
+### Bar
+
+| Класс                                   | Описание           |
+|-----------------------------------------|--------------------|
+| `echart-basic-bar-chart-example`        | Базовый            |
+| `echart-horizontal-bar-chart-example`   | Горизонтальный     |
+| `echart-stacked-bar-chart-example`      | Стековый           |
+| `echart-bar-race-chart-example`         | Анимированный race |
+| `echart-bar-gradient-chart-example`     | Градиент           |
 
 ### Pie / Doughnut
 
-| Класс | Описание |
-|-------|----------|
-| `echart-pie-chart-example` | Круговая |
-| `echart-doughnut-rounded-chart-example` | Кольцо |
+| Класс                                   | Описание |
+|-----------------------------------------|----------|
+| `echart-pie-chart-example`              | Круговая |
+| `echart-doughnut-rounded-chart-example` | Кольцо   |
+
+### Gauge
+
+| Класс                           | Описание    |
+|---------------------------------|-------------|
+| `echart-gauge-chart-example`    | Спидометр   |
+| `echart-multi-ring-gauge-chart-example` | Мульти-кольцо |
+
+### Radar
+
+| Класс                                   | Описание    |
+|-----------------------------------------|-------------|
+| `echart-radar-chart-example`            | Базовый     |
+| `echart-radar-customized-chart-example` | Кастомный   |
+| `echart-radar-multiple-chart-example`   | Мульти      |
+
+### Scatter
+
+| Класс                                      | Описание      |
+|--------------------------------------------|---------------|
+| `echart-basic-scatter-chart-example`       | Базовый       |
+| `echart-bubble-chart-example`              | Пузырьковый   |
+| `echart-quartet-scatter-chart-example`     | Quartet       |
+| `echart-single-axis-scatter-chart-example` | Single axis   |
+
+### Heatmap
+
+| Класс                                          | Описание        |
+|------------------------------------------------|-----------------|
+| `echart-heatmap-chart-example`                 | Базовый         |
+| `echart-heatmap-single-series-chart-example`   | Single series   |
+
+### Geo Map
+
+| Класс                              | Описание   | Требует            |
+|------------------------------------|------------|--------------------|
+| `echart-session-by-country-map`    | Карта мира | `assets/data/world.js` |
+| `echart-map-usa-example`           | Карта США  | `assets/data/usa.js`   |
 
 ### Sparkline (мини)
 
-| Класс | Цвет | Применение |
-|-------|------|------------|
-| `echart-stock-overview-chart` | Зелёный | Рост |
-| `echart-stock-overview-inverted-chart` | Красный | Падение |
-| `echart-stock-overview-mixed-chart` | Смешанный | Волатильность |
+| Класс                                  | Цвет      | Применение    |
+|----------------------------------------|-----------|---------------|
+| `echart-stock-overview-chart`          | Зелёный   | Рост          |
+| `echart-stock-overview-inverted-chart` | Красный   | Падение       |
+| `echart-stock-overview-mixed-chart`    | Смешанный | Волатильность |
 
 ```html
 <div class="echart-stock-overview-chart" 
@@ -146,19 +194,19 @@ python -m http.server 8000 -d reports
 
 ### Цвета
 
-| Класс | Применение |
-|-------|------------|
-| `text-success` / `badge-phoenix-success` | Рост |
-| `text-danger` / `badge-phoenix-danger` | Падение |
-| `text-body-tertiary` | Вторичный текст |
-| `bg-body-emphasis` | Акцентный фон |
+| Класс                                    | Применение      |
+|------------------------------------------|-----------------|
+| `text-success` / `badge-phoenix-success` | Рост            |
+| `text-danger` / `badge-phoenix-danger`   | Падение         |
+| `text-body-tertiary`                     | Вторичный текст |
+| `bg-body-emphasis`                       | Акцентный фон   |
 
 ### Размеры
 
-| Класс | Размер |
-|-------|--------|
-| `fs-7` | 1.5rem |
-| `fs-9` | 0.85rem |
+| Класс   | Размер  |
+|---------|---------|
+| `fs-7`  | 1.5rem  |
+| `fs-9`  | 0.85rem |
 | `fs-10` | 0.75rem |
 
 ---
@@ -168,16 +216,49 @@ python -m http.server 8000 -d reports
 ```
 skills/dashboard/
 ├── SKILL.md
-├── references/
-│   └── README.md
+├── README.md                  # Справочник по шаблонам
 └── templates/
-    ├── portfolio.html        # Дашборд портфеля
-    ├── stock-details.html    # Детальная страница акции
-    ├── watchlist.html        # Список наблюдения
-    ├── stock-dashboard.html  # Общий дашборд рынка
+    ├── portfolio.html         # Дашборд портфеля
+    ├── stock-details.html     # Детальная страница акции
+    ├── watchlist.html         # Список наблюдения
+    ├── stock-dashboard.html   # Общий дашборд рынка
+    ├── echarts-examples/      # Примеры ECharts графиков
+    │   ├── line-charts.html
+    │   ├── bar-charts.html
+    │   ├── candlestick-charts.html
+    │   ├── pie-charts.html
+    │   ├── gauge-chart.html
+    │   ├── radar-charts.html
+    │   ├── scatter-charts.html
+    │   ├── heatmap-charts.html
+    │   └── geo-map.html
     └── assets/
-        ├── css/              # Phoenix Theme CSS
-        ├── js/               # Phoenix JS + ECharts
-        ├── img/              # Изображения
-        └── vendors/          # Сторонние библиотеки
+        ├── css/               # CSS стили
+        ├── js/                # JS + ECharts
+        ├── img/               # Изображения
+        ├── data/              # GeoJSON данные (world.js, usa.js)
+        └── vendors/           # Сторонние библиотеки
+```
+
+---
+
+## ECharts Examples
+
+Готовые примеры графиков в `templates/echarts-examples/`:
+
+| Файл                  | Графики                                          |
+|-----------------------|--------------------------------------------------|
+| `line-charts.html`    | Line, Area, Stacked, Step, Gradient              |
+| `bar-charts.html`     | Basic, Horizontal, Stacked, Race, Gradient, etc. |
+| `candlestick-charts.html` | Basic, Mixed                                 |
+| `pie-charts.html`     | Pie, Doughnut, Rounded, Multiple                 |
+| `gauge-chart.html`    | Gauge/Спидометр                                  |
+| `radar-charts.html`   | Radar, Customized, Multiple                      |
+| `scatter-charts.html` | Basic, Bubble, Quartet, Single axis              |
+| `heatmap-charts.html` | Heatmap, Heatmap single series                   |
+| `geo-map.html`        | World map, USA map                               |
+
+Открыть пример напрямую в браузере:
+```bash
+firefox skills/dashboard/templates/echarts-examples/line-charts.html
 ```

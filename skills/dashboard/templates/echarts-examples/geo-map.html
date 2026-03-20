@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geo Map - ECharts Examples</title>
+    <script src="../assets/vendors/simplebar/simplebar.min.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="../assets/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href="../assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="../assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <style>.main, .content { width: 100% !important; max-width: 100% !important; margin-left: 0 !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; } body, html { overflow-x: hidden; } .navbar-top { background-color: var(--phoenix-emphasis-bg); border-bottom: 1px solid var(--phoenix-border-color); height: 4rem; padding: 0 1.5rem; display: flex !important; align-items: center; }</style>
+  </head>
+
+  <body>
+    <main class="main" id="top">
+      <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarTop">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse justify-content-end">
+            <div class="theme-control-toggle feather-icon-wait px-2">
+              <input class="form-check-input ms-0 theme-control-toggle-input" type="checkbox" data-theme-control="phoenixTheme" value="dark" id="themeControlToggle" />
+              <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Switch theme" style="height:32px;width:32px;">
+                <span class="icon" data-feather="moon"></span>
+              </label>
+              <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Switch theme" style="height:32px;width:32px;">
+                <span class="icon" data-feather="sun"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <h2 class="mb-2 lh-sm">Geo Map</h2>
+        <p class="text-body-tertiary lead mb-4">ECharts can uses geoJSON format as map outline.</p>
+        <div class="row g-4">
+          <div class="col-xl-6">
+            <div class="card shadow-none border">
+              <div class="card-header p-4 border-bottom bg-body">
+                <h4 class="text-body mb-0">World map</h4>
+              </div>
+              <div class="card-body p-4 position-relative">
+                <div class="position-absolute z-2" style="right:16px"><button class="btn btn-phoenix-secondary btn-sm session-by-country-map-reset"><span class="fas fa-sync-alt fs-9"></span></button></div>
+                <div class="echart-session-by-country-map" style="min-height: 400px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="card shadow-none border">
+              <div class="card-header p-4 border-bottom bg-body">
+                <h4 class="text-body mb-0">Usa map</h4>
+              </div>
+              <div class="card-body p-4 position-relative">
+                <div class="position-absolute z-2" style="right:16px"><button class="btn btn-phoenix-secondary btn-sm usa-map-reset"><span class="fas fa-sync-alt fs-9"></span></button></div>
+                <div class="echart-map-usa-example" style="min-height: 400px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../assets/vendors/popper/popper.min.js"></script>
+    <script src="../assets/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets/vendors/anchorjs/anchor.min.js"></script>
+    <script src="../assets/vendors/is/is.min.js"></script>
+    <script src="../assets/vendors/fontawesome/all.min.js"></script>
+    <script src="../assets/vendors/lodash/lodash.min.js"></script>
+    <script src="../assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="../assets/vendors/dayjs/dayjs.min.js"></script>
+    <script src="../assets/vendors/echarts/echarts.min.js"></script>
+    <script src="../assets/data/world.js"></script>
+    <script src="../assets/data/usa.js"></script>
+    <script src="../assets/js/phoenix.js"></script>
+    <script src="../assets/js/echarts-example.js"></script>
+  </body>
+</html>
