@@ -17,14 +17,14 @@ description: Получение исторических свечей (OHLCV) ч
 ## Как использовать
 
 ```bash
-t-invest market:candles <instrument> [options]
+t-invest market:candles <ticker> [options]
 ```
 
 Аргументы:
 
 | Аргумент | Описание |
 |----------|----------|
-| instrument | FIGI, instrumentUid или тикер |
+| ticker | Тикер акции (SBER, GAZP, LKOH и т.д.) |
 
 Опции:
 
@@ -51,8 +51,8 @@ t-invest market:candles <instrument> [options]
 ```bash
 t-invest market:candles SBER
 t-invest market:candles SBER --from=2024-01-01 --to=2024-01-31
-t-invest market:candles BBG004730N88 -i 1d -l 30
-t-invest market:candles GAZP -i 4h --from="-30 days"
+t-invest market:candles GAZP -i 1d -l 30
+t-invest market:candles LKOH -i 4h --from="-30 days"
 ```
 
 ## Результат
