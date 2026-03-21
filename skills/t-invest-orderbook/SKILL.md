@@ -18,7 +18,7 @@ description: Получение стакана (order book) через T-Invest 
 ## Как использовать
 
 ```bash
-t-invest market:orderbook <instrument> [options]
+./vendor/bin/t-invest market:orderbook <instrument> [options]
 ```
 
 Аргументы:
@@ -36,10 +36,10 @@ t-invest market:orderbook <instrument> [options]
 ### Примеры
 
 ```bash
-t-invest market:orderbook SBER
-t-invest market:orderbook SBER --depth=10
-t-invest market:orderbook GAZP -d 50
-t-invest market:orderbook LKOH -d 5
+./vendor/bin/t-invest market:orderbook SBER
+./vendor/bin/t-invest market:orderbook SBER --depth=10
+./vendor/bin/t-invest market:orderbook GAZP -d 50
+./vendor/bin/t-invest market:orderbook LKOH -d 5
 ```
 
 ## Результат
@@ -66,15 +66,15 @@ t-invest market:orderbook LKOH -d 5
 
 ### Быстрая оценка ликвидности
 ```bash
-t-invest market:orderbook SBER -d 5
+./vendor/bin/t-invest market:orderbook SBER -d 5
 ```
 
 ### Полный анализ стакана
 ```bash
-t-invest market:orderbook SBER -d 50
+./vendor/bin/t-invest market:orderbook SBER -d 50
 ```
 
 ### Поиск уровней (стены в стакане)
 ```bash
-t-invest market:orderbook GAZP -d 20
+./vendor/bin/t-invest market:orderbook GAZP -d 20
 ```

@@ -17,7 +17,7 @@ description: Получение исторических свечей (OHLCV) ч
 ## Как использовать
 
 ```bash
-t-invest market:candles [options]
+./vendor/bin/t-invest market:candles [options]
 ```
 
 Опции:
@@ -47,11 +47,11 @@ t-invest market:candles [options]
 ### Примеры
 
 ```bash
-t-invest market:candles --ticker=SBER
-t-invest market:candles -t SBER --from=2024-01-01 --to=2024-01-31
-t-invest market:candles -t GAZP -i 1d -l 30
-t-invest market:candles -t LKOH -i 4h --from="-30 days"
-t-invest market:candles --figi=BBG004730N88 -i 1d -l 10
+./vendor/bin/t-invest market:candles --ticker=SBER
+./vendor/bin/t-invest market:candles -t SBER --from=2024-01-01 --to=2024-01-31
+./vendor/bin/t-invest market:candles -t GAZP -i 1d -l 30
+./vendor/bin/t-invest market:candles -t LKOH -i 4h --from="-30 days"
+./vendor/bin/t-invest market:candles --figi=BBG004730N88 -i 1d -l 10
 ```
 
 ## Результат
@@ -71,15 +71,15 @@ t-invest market:candles --figi=BBG004730N88 -i 1d -l 10
 
 ### Анализ тренда (дневные свечи)
 ```bash
-t-invest market:candles -t SBER -i 1d -l 60
+./vendor/bin/t-invest market:candles -t SBER -i 1d -l 60
 ```
 
 ### Внутридневной анализ
 ```bash
-t-invest market:candles -t SBER -i 15m --from="-1 day"
+./vendor/bin/t-invest market:candles -t SBER -i 15m --from="-1 day"
 ```
 
 ### Расчёт MA50/MA200
 ```bash
-t-invest market:candles -t SBER -i 1d -l 200
+./vendor/bin/t-invest market:candles -t SBER -i 1d -l 200
 ```

@@ -30,7 +30,7 @@ description: Свежие финансовые новости из RSS-лент 
 **Шаг 1:** Получение свежих новостей
 
 ```bash
-news news:fetch [опции]
+./vendor/bin/news news:fetch [опции]
 ```
 
 Опции:
@@ -47,17 +47,17 @@ news news:fetch [опции]
 Примеры:
 
 ```bash
-news news:fetch --ticker SBER
-news news:fetch --source=interfax --source=tass
-news news:fetch --search "нефть" --search "ОПЕК+"
-news news:fetch --category "Экономика" --limit=10
-news news:fetch --ticker SBER --format=json
+./vendor/bin/news news:fetch --ticker SBER
+./vendor/bin/news news:fetch --source=interfax --source=tass
+./vendor/bin/news news:fetch --search "нефть" --search "ОПЕК+"
+./vendor/bin/news news:fetch --category "Экономика" --limit=10
+./vendor/bin/news news:fetch --ticker SBER --format=json
 ```
 
 **Шаг 2:** Кэширование новостей
 
 ```bash
-news news:cache [опции]
+./vendor/bin/news news:cache [опции]
 ```
 
 Опции:
@@ -70,15 +70,15 @@ news news:cache [опции]
 Примеры:
 
 ```bash
-news news:cache
-news news:cache --source=interfax
-news news:cache --clear=30
+./vendor/bin/news news:cache
+./vendor/bin/news news:cache --source=interfax
+./vendor/bin/news news:cache --clear=30
 ```
 
 **Шаг 3:** Поиск по кэшу
 
 ```bash
-news news:search <query> [опции]
+./vendor/bin/news news:search <query> [опции]
 ```
 
 Параметры:
@@ -98,16 +98,16 @@ news news:search <query> [опции]
 Примеры:
 
 ```bash
-news news:search "Сбербанк"
-news news:search "нефть" --category "Экономика"
-news news:search "" --source=interfax --days=3
+./vendor/bin/news news:search "Сбербанк"
+./vendor/bin/news news:search "нефть" --category "Экономика"
+./vendor/bin/news news:search "" --source=interfax --days=3
 ```
 
 **Шаг 4:** Информация о кэше
 
 ```bash
-news news:cache-stats
-news news:sources
+./vendor/bin/news news:cache-stats
+./vendor/bin/news news:sources
 ```
 
 ## Результат
@@ -141,7 +141,7 @@ news news:sources
 ### Новости по тикеру
 
 ```bash
-news news:fetch --ticker SBER
+./vendor/bin/news news:fetch --ticker SBER
 ```
 
 Автоматически расширяет: SBER → "Сбербанк", "Sber", "SBER"
@@ -149,13 +149,13 @@ news news:fetch --ticker SBER
 ### Новости по теме
 
 ```bash
-news news:fetch --search "нефть" --search "ОПЕК+"
+./vendor/bin/news news:fetch --search "нефть" --search "ОПЕК+"
 ```
 
 ### Поиск в архиве
 
 ```bash
-news news:search "Сбербанк" --days=7 --category "Экономика"
+./vendor/bin/news news:search "Сбербанк" --days=7 --category "Экономика"
 ```
 
 ## Интеграция
