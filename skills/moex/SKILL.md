@@ -68,7 +68,7 @@ moex security:trade-data LKOH
 **Шаг 3:** Итоги торгов
 
 ```bash
-moex security:aggregates <ticker>
+moex security:aggregates <ticker> [options]
 ```
 
 Параметры:
@@ -77,11 +77,22 @@ moex security:aggregates <ticker>
 |----------|-------------------|--------------|
 | ticker   | Тикер инструмента | обязателен   |
 
+Опции:
+
+| Опция    | Сокращение | Описание              | Значения        | По умолчанию |
+|----------|------------|-----------------------|-----------------|--------------|
+| --sort   | -s         | Сортировка            | volume, market  | volume       |
+| --order  | -o         | Порядок сортировки    | asc, desc       | desc         |
+| --limit  | -l         | Ограничить число строк| число           | 0 (все)      |
+| --format | -f         | Формат вывода         | table, json     | table        |
+
 Примеры:
 
 ```bash
 moex security:aggregates SBER
 moex security:aggregates GMKN
+moex security:aggregates SBER --sort=volume --order=desc --limit=3
+moex security:aggregates SBER --format=json
 ```
 
 **Шаг 4:** Индексы

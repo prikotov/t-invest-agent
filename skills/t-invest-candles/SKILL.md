@@ -17,14 +17,14 @@ description: Получение исторических свечей (OHLCV) ч
 ## Как использовать
 
 ```bash
-t-invest market:candles <ticker> [options]
+t-invest market:candles <instrument> [options]
 ```
 
 Аргументы:
 
-| Аргумент | Описание                              |
-|----------|---------------------------------------|
-| ticker   | Тикер акции (SBER, GAZP, LKOH и т.д.) |
+| Аргумент   | Описание                                    |
+|------------|---------------------------------------------|
+| instrument | Тикер или FIGI (SBER, GAZP, BBG004730N88)   |
 
 Опции:
 
