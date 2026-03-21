@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62220b1cf89cb2acdebc32b78fdecc36",
+    "content-hash": "cba5d52cbaa66e43524893a3f17322a0",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -440,13 +440,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:prikotov/memory-core.git",
-                "reference": "45377ff4bbafa8821c14cce6969b9a7808f4c91a"
+                "url": "https://github.com/prikotov/memory-core.git",
+                "reference": "f562e192ad766b63346e1fadada9fdbc94b397b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/memory-core/zipball/45377ff4bbafa8821c14cce6969b9a7808f4c91a",
-                "reference": "45377ff4bbafa8821c14cce6969b9a7808f4c91a",
+                "url": "https://api.github.com/repos/prikotov/memory-core/zipball/f562e192ad766b63346e1fadada9fdbc94b397b0",
+                "reference": "f562e192ad766b63346e1fadada9fdbc94b397b0",
                 "shasum": ""
             },
             "require": {
@@ -457,6 +457,7 @@
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^10.0",
+                "prikotov/coding-standard": "@dev",
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^5.0|^6.0"
             },
@@ -485,22 +486,16 @@
                     "phpunit"
                 ],
                 "cs-check": [
-                    "phpcs --standard=devops/phpcs/MemoryCodingStandard/ruleset.xml src tests"
+                    "phpcs"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=devops/phpcs/MemoryCodingStandard/ruleset.xml src tests"
+                    "phpcbf"
                 ],
                 "stan": [
                     "phpstan analyse"
                 ],
                 "psalm": [
                     "psalm"
-                ],
-                "post-install-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
-                ],
-                "post-update-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
                 ]
             },
             "license": [
@@ -520,7 +515,11 @@
                 "memory",
                 "storage"
             ],
-            "time": "2026-03-20T02:49:02+00:00"
+            "support": {
+                "source": "https://github.com/prikotov/memory-core/tree/master",
+                "issues": "https://github.com/prikotov/memory-core/issues"
+            },
+            "time": "2026-03-20T03:03:35+00:00"
         },
         {
             "name": "prikotov/moex-core",
@@ -528,12 +527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/moex-core.git",
-                "reference": "8244fb74749c53d38f099188a583a6e799f3b023"
+                "reference": "7b03970d0b75a4b4490505a017833f4259985cdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/8244fb74749c53d38f099188a583a6e799f3b023",
-                "reference": "8244fb74749c53d38f099188a583a6e799f3b023",
+                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/7b03970d0b75a4b4490505a017833f4259985cdc",
+                "reference": "7b03970d0b75a4b4490505a017833f4259985cdc",
                 "shasum": ""
             },
             "require": {
@@ -579,16 +578,22 @@
                     "phpunit"
                 ],
                 "cs-check": [
-                    "phpcs"
+                    "phpcs --standard=devops/phpcs/MoexCodingStandard/ruleset.xml src tests"
                 ],
                 "cs-fix": [
-                    "phpcbf"
+                    "phpcbf --standard=devops/phpcs/MoexCodingStandard/ruleset.xml src tests"
                 ],
                 "stan": [
                     "phpstan analyse"
                 ],
                 "psalm": [
                     "psalm"
+                ],
+                "post-install-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
+                ],
+                "post-update-cmd": [
+                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
                 ]
             },
             "license": [
@@ -615,7 +620,7 @@
                 "source": "https://github.com/prikotov/moex-core/tree/main",
                 "issues": "https://github.com/prikotov/moex-core/issues"
             },
-            "time": "2026-03-19T09:07:32+00:00"
+            "time": "2026-03-19T11:41:00+00:00"
         },
         {
             "name": "prikotov/news-core",
@@ -623,12 +628,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/news-core.git",
-                "reference": "5d94da31d4e7997fcf05d0d1db36ceddbab3dba4"
+                "reference": "711a7145d280e76eb18fccbd187d969c3ccbc0ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/news-core/zipball/5d94da31d4e7997fcf05d0d1db36ceddbab3dba4",
-                "reference": "5d94da31d4e7997fcf05d0d1db36ceddbab3dba4",
+                "url": "https://api.github.com/repos/prikotov/news-core/zipball/711a7145d280e76eb18fccbd187d969c3ccbc0ba",
+                "reference": "711a7145d280e76eb18fccbd187d969c3ccbc0ba",
                 "shasum": ""
             },
             "require": {
@@ -647,6 +652,7 @@
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^10.0",
+                "prikotov/coding-standard": "@dev",
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^5.0|^6.0"
             },
@@ -675,10 +681,10 @@
                     "phpunit"
                 ],
                 "cs-check": [
-                    "phpcs --standard=devops/phpcs/NewsCodingStandard/ruleset.xml src tests"
+                    "phpcs"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=devops/phpcs/NewsCodingStandard/ruleset.xml src tests"
+                    "phpcbf"
                 ],
                 "stan": [
                     "phpstan analyse"
@@ -712,20 +718,20 @@
                 "source": "https://github.com/prikotov/news-core/tree/master",
                 "issues": "https://github.com/prikotov/news-core/issues"
             },
-            "time": "2026-03-19T10:00:43+00:00"
+            "time": "2026-03-20T03:04:58+00:00"
         },
         {
             "name": "prikotov/t-invest-core",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "git@github.com:prikotov/t-invest-core.git",
-                "reference": "66b286d4b417765a976633050f793321fdd03f89"
+                "url": "https://github.com/prikotov/t-invest-core.git",
+                "reference": "5285d6b455c99a2bc198701da4f02bbae2979af2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/66b286d4b417765a976633050f793321fdd03f89",
-                "reference": "66b286d4b417765a976633050f793321fdd03f89",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/5285d6b455c99a2bc198701da4f02bbae2979af2",
+                "reference": "5285d6b455c99a2bc198701da4f02bbae2979af2",
                 "shasum": ""
             },
             "require": {
@@ -734,6 +740,7 @@
                 "monolog/monolog": "^3.5",
                 "php": "^8.4",
                 "psr/log": "^3.0",
+                "symfony/cache": "^8.0",
                 "symfony/config": "^8.0",
                 "symfony/console": "^8.0",
                 "symfony/dependency-injection": "^8.0",
@@ -741,8 +748,9 @@
                 "symfony/yaml": "^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^10.0",
+                "prikotov/coding-standard": "@dev",
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^5.0|^6.0"
             },
@@ -771,22 +779,16 @@
                     "phpunit"
                 ],
                 "cs-check": [
-                    "phpcs --standard=devops/phpcs/TInvestCodingStandard/ruleset.xml src tests"
+                    "phpcs"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=devops/phpcs/TInvestCodingStandard/ruleset.xml src tests"
+                    "phpcbf"
                 ],
                 "stan": [
                     "phpstan analyse"
                 ],
                 "psalm": [
                     "psalm"
-                ],
-                "post-install-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
-                ],
-                "post-update-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
                 ]
             },
             "license": [
@@ -810,7 +812,11 @@
                 "t-invest",
                 "trading"
             ],
-            "time": "2026-03-19T11:58:11+00:00"
+            "support": {
+                "source": "https://github.com/prikotov/t-invest-core/tree/main",
+                "issues": "https://github.com/prikotov/t-invest-core/issues"
+            },
+            "time": "2026-03-20T04:38:09+00:00"
         },
         {
             "name": "psr/cache",
@@ -6039,6 +6045,57 @@
             "time": "2026-01-27T05:48:37+00:00"
         },
         {
+            "name": "prikotov/coding-standard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prikotov/coding-standard.git",
+                "reference": "0aa9251114e5cb7640ffd37cf405935ce2a26295"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prikotov/coding-standard/zipball/0aa9251114e5cb7640ffd37cf405935ce2a26295",
+                "reference": "0aa9251114e5cb7640ffd37cf405935ce2a26295",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.4",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "default-branch": true,
+            "type": "phpcodesniffer-standard",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PrikotovCodingStandard\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Prikotov",
+                    "email": "prikotov@gmail.com"
+                }
+            ],
+            "description": "PHP CodeSniffer coding standard with custom sniffs",
+            "keywords": [
+                "coding-standard",
+                "phpcs",
+                "sniffs"
+            ],
+            "support": {
+                "source": "https://github.com/prikotov/coding-standard/tree/master",
+                "issues": "https://github.com/prikotov/coding-standard/issues"
+            },
+            "time": "2026-03-20T03:02:13+00:00"
+        },
+        {
             "name": "revolt/event-loop",
             "version": "v1.0.8",
             "source": {
@@ -7342,16 +7399,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "6.16.0",
+            "version": "6.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "7cf3e8b988edd75e0766963b0b9e671b220f5785"
+                "reference": "f1f5de594dc76faf8784e02d3dc4716c91c6f6ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/7cf3e8b988edd75e0766963b0b9e671b220f5785",
-                "reference": "7cf3e8b988edd75e0766963b0b9e671b220f5785",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/f1f5de594dc76faf8784e02d3dc4716c91c6f6ac",
+                "reference": "f1f5de594dc76faf8784e02d3dc4716c91c6f6ac",
                 "shasum": ""
             },
             "require": {
@@ -7456,7 +7513,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-03-17T11:15:56+00:00"
+            "time": "2026-03-19T10:56:09+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -7524,6 +7581,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "prikotov/coding-standard": 20,
         "prikotov/memory-core": 20,
         "prikotov/moex-core": 20,
         "prikotov/news-core": 20,
