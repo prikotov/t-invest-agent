@@ -725,13 +725,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "1e36c651691ce99af4ea9adae498dd170fade168"
+                "url": "git@github.com:prikotov/t-invest-core.git",
+                "reference": "7b4c36a1e8e19cf23161a2437c5892900c1d79cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/1e36c651691ce99af4ea9adae498dd170fade168",
-                "reference": "1e36c651691ce99af4ea9adae498dd170fade168",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/7b4c36a1e8e19cf23161a2437c5892900c1d79cf",
+                "reference": "7b4c36a1e8e19cf23161a2437c5892900c1d79cf",
                 "shasum": ""
             },
             "require": {
@@ -812,11 +812,7 @@
                 "t-invest",
                 "trading"
             ],
-            "support": {
-                "source": "https://github.com/prikotov/t-invest-core/tree/main",
-                "issues": "https://github.com/prikotov/t-invest-core/issues"
-            },
-            "time": "2026-03-21T04:04:49+00:00"
+            "time": "2026-03-21T04:07:18+00:00"
         },
         {
             "name": "psr/cache",
