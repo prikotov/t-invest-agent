@@ -30,7 +30,7 @@ description: Работа с Московской Биржей через MOEX I
 **Шаг 1:** Спецификация инструмента
 
 ```bash
-moex security:specification <ticker>
+./vendor/bin/moex security:specification <ticker>
 ```
 
 Параметры:
@@ -42,14 +42,14 @@ moex security:specification <ticker>
 Примеры:
 
 ```bash
-moex security:specification SBER
-moex security:specification GAZP
+./vendor/bin/moex security:specification SBER
+./vendor/bin/moex security:specification GAZP
 ```
 
 **Шаг 2:** Рыночные данные
 
 ```bash
-moex security:trade-data <ticker>
+./vendor/bin/moex security:trade-data <ticker>
 ```
 
 Параметры:
@@ -61,14 +61,14 @@ moex security:trade-data <ticker>
 Примеры:
 
 ```bash
-moex security:trade-data SBER
-moex security:trade-data LKOH
+./vendor/bin/moex security:trade-data SBER
+./vendor/bin/moex security:trade-data LKOH
 ```
 
 **Шаг 3:** Итоги торгов
 
 ```bash
-moex security:aggregates <ticker>
+./vendor/bin/moex security:aggregates <ticker> [options]
 ```
 
 Параметры:
@@ -77,17 +77,28 @@ moex security:aggregates <ticker>
 |----------|-------------------|--------------|
 | ticker   | Тикер инструмента | обязателен   |
 
+Опции:
+
+| Опция    | Сокращение | Описание              | Значения        | По умолчанию |
+|----------|------------|-----------------------|-----------------|--------------|
+| --sort   | -s         | Сортировка            | volume, market  | volume       |
+| --order  | -o         | Порядок сортировки    | asc, desc       | desc         |
+| --limit  | -l         | Ограничить число строк| число           | 0 (все)      |
+| --format | -f         | Формат вывода         | table, json     | table        |
+
 Примеры:
 
 ```bash
-moex security:aggregates SBER
-moex security:aggregates GMKN
+./vendor/bin/moex security:aggregates SBER
+./vendor/bin/moex security:aggregates GMKN
+./vendor/bin/moex security:aggregates SBER --sort=volume --order=desc --limit=3
+./vendor/bin/moex security:aggregates SBER --format=json
 ```
 
 **Шаг 4:** Индексы
 
 ```bash
-moex security:indices <ticker>
+./vendor/bin/moex security:indices <ticker>
 ```
 
 Параметры:
@@ -99,26 +110,26 @@ moex security:indices <ticker>
 Примеры:
 
 ```bash
-moex security:indices SBER
-moex security:indices ROSN
+./vendor/bin/moex security:indices SBER
+./vendor/bin/moex security:indices ROSN
 ```
 
 **Шаг 5:** Полный анализ бумаги
 
 ```bash
-moex security:specification <ticker>
-moex security:trade-data <ticker>
-moex security:indices <ticker>
-moex security:aggregates <ticker>
+./vendor/bin/moex security:specification <ticker>
+./vendor/bin/moex security:trade-data <ticker>
+./vendor/bin/moex security:indices <ticker>
+./vendor/bin/moex security:aggregates <ticker>
 ```
 
 Примеры:
 
 ```bash
-moex security:specification SBER
-moex security:trade-data SBER
-moex security:indices SBER
-moex security:aggregates SBER
+./vendor/bin/moex security:specification SBER
+./vendor/bin/moex security:trade-data SBER
+./vendor/bin/moex security:indices SBER
+./vendor/bin/moex security:aggregates SBER
 ```
 
 ## Результат
@@ -170,7 +181,7 @@ moex security:aggregates SBER
 ### Оценка ликвидности
 
 ```bash
-moex security:aggregates SBER
+./vendor/bin/moex security:aggregates SBER
 ```
 
 | Объём в день | Ликвидность | Действие               |
@@ -182,7 +193,7 @@ moex security:aggregates SBER
 ### Проверка индексной значимости
 
 ```bash
-moex security:indices SBER
+./vendor/bin/moex security:indices SBER
 ```
 
 - Входит в IMOEX → низкий риск ликвидности

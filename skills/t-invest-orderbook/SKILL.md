@@ -18,28 +18,26 @@ description: Получение стакана (order book) через T-Invest 
 ## Как использовать
 
 ```bash
-t-invest market:orderbook <ticker> [options]
+./vendor/bin/t-invest market:orderbook [options]
 ```
-
-Аргументы:
-
-| Аргумент | Описание                              |
-|----------|---------------------------------------|
-| ticker   | Тикер акции (SBER, GAZP, LKOH и т.д.) |
 
 Опции:
 
-| Опция   | Сокращение | Описание        | Значения | По умолчанию |
-|---------|------------|-----------------|----------|--------------|
-| --depth | -d         | Глубина стакана | 1-50     | 20           |
+| Опция   | Сокращение | Описание                    | По умолчанию |
+|---------|------------|-----------------------------|--------------|
+| --ticker| -t         | Тикер инструмента (SBER)    | —            |
+| --figi  |            | FIGI инструмента            | —            |
+| --depth | -d         | Глубина стакана             | 20           |
+
+> Требуется `--ticker` или `--figi`. Если указаны оба, проверяется соответствие.
 
 ### Примеры
 
 ```bash
-t-invest market:orderbook SBER
-t-invest market:orderbook SBER --depth=10
-t-invest market:orderbook GAZP -d 50
-t-invest market:orderbook LKOH -d 5
+./vendor/bin/t-invest market:orderbook --ticker=SBER
+./vendor/bin/t-invest market:orderbook -t SBER --depth=10
+./vendor/bin/t-invest market:orderbook -t GAZP -d 50
+./vendor/bin/t-invest market:orderbook --figi=BBG004730N88 -d 20
 ```
 
 ## Результат
@@ -66,15 +64,15 @@ t-invest market:orderbook LKOH -d 5
 
 ### Быстрая оценка ликвидности
 ```bash
-t-invest market:orderbook SBER -d 5
+./vendor/bin/t-invest market:orderbook -t SBER -d 5
 ```
 
 ### Полный анализ стакана
 ```bash
-t-invest market:orderbook SBER -d 50
+./vendor/bin/t-invest market:orderbook -t SBER -d 50
 ```
 
 ### Поиск уровней (стены в стакане)
 ```bash
-t-invest market:orderbook GAZP -d 20
+./vendor/bin/t-invest market:orderbook -t GAZP -d 20
 ```

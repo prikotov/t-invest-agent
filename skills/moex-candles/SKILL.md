@@ -23,7 +23,7 @@ description: Получение исторических свечей (OHLCV) ч
 ## Как использовать
 
 ```bash
-moex security:candles <ticker> [options]
+./vendor/bin/moex security:candles <ticker> [options]
 ```
 
 Аргументы:
@@ -55,10 +55,10 @@ moex security:candles <ticker> [options]
 ### Примеры
 
 ```bash
-moex security:candles SBER
-moex security:candles SBER --from=2024-01-01 --to=2024-01-31
-moex security:candles GAZP -i 24 -l 30
-moex security:candles SBER -i 60 --from=2024-03-01 --to=2024-03-15
+./vendor/bin/moex security:candles SBER
+./vendor/bin/moex security:candles SBER --from=2024-01-01 --to=2024-01-31
+./vendor/bin/moex security:candles GAZP -i 24 -l 30
+./vendor/bin/moex security:candles SBER -i 60 --from=2024-03-01 --to=2024-03-15
 ```
 
 ## Результат
@@ -78,15 +78,15 @@ moex security:candles SBER -i 60 --from=2024-03-01 --to=2024-03-15
 
 ### Анализ тренда (дневные свечи)
 ```bash
-moex security:candles SBER -i 24 -l 60
+./vendor/bin/moex security:candles SBER -i 24 -l 60
 ```
 
 ### Внутридневной анализ
 ```bash
-moex security:candles SBER -i 10 --from=2024-03-15
+./vendor/bin/moex security:candles SBER -i 10 --from=2024-03-15
 ```
 
 ### Расчёт MA50/MA200
 ```bash
-moex security:candles SBER -i 24 -l 200
+./vendor/bin/moex security:candles SBER -i 24 -l 200
 ```
