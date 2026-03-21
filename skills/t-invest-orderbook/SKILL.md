@@ -18,28 +18,26 @@ description: Получение стакана (order book) через T-Invest 
 ## Как использовать
 
 ```bash
-./vendor/bin/t-invest market:orderbook <instrument> [options]
+./vendor/bin/t-invest market:orderbook [options]
 ```
-
-Аргументы:
-
-| Аргумент   | Описание                                    |
-|------------|---------------------------------------------|
-| instrument | Тикер или FIGI (SBER, GAZP, BBG004730N88)   |
 
 Опции:
 
-| Опция   | Сокращение | Описание        | Значения | По умолчанию |
-|---------|------------|-----------------|----------|--------------|
-| --depth | -d         | Глубина стакана | 1-50     | 20           |
+| Опция   | Сокращение | Описание                    | По умолчанию |
+|---------|------------|-----------------------------|--------------|
+| --ticker| -t         | Тикер инструмента (SBER)    | —            |
+| --figi  |            | FIGI инструмента            | —            |
+| --depth | -d         | Глубина стакана             | 20           |
+
+> Требуется `--ticker` или `--figi`. Если указаны оба, проверяется соответствие.
 
 ### Примеры
 
 ```bash
-./vendor/bin/t-invest market:orderbook SBER
-./vendor/bin/t-invest market:orderbook SBER --depth=10
-./vendor/bin/t-invest market:orderbook GAZP -d 50
-./vendor/bin/t-invest market:orderbook LKOH -d 5
+./vendor/bin/t-invest market:orderbook --ticker=SBER
+./vendor/bin/t-invest market:orderbook -t SBER --depth=10
+./vendor/bin/t-invest market:orderbook -t GAZP -d 50
+./vendor/bin/t-invest market:orderbook --figi=BBG004730N88 -d 20
 ```
 
 ## Результат
@@ -66,15 +64,15 @@ description: Получение стакана (order book) через T-Invest 
 
 ### Быстрая оценка ликвидности
 ```bash
-./vendor/bin/t-invest market:orderbook SBER -d 5
+./vendor/bin/t-invest market:orderbook -t SBER -d 5
 ```
 
 ### Полный анализ стакана
 ```bash
-./vendor/bin/t-invest market:orderbook SBER -d 50
+./vendor/bin/t-invest market:orderbook -t SBER -d 50
 ```
 
 ### Поиск уровней (стены в стакане)
 ```bash
-./vendor/bin/t-invest market:orderbook GAZP -d 20
+./vendor/bin/t-invest market:orderbook -t GAZP -d 20
 ```
