@@ -726,12 +726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "5285d6b455c99a2bc198701da4f02bbae2979af2"
+                "reference": "1e36c651691ce99af4ea9adae498dd170fade168"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/5285d6b455c99a2bc198701da4f02bbae2979af2",
-                "reference": "5285d6b455c99a2bc198701da4f02bbae2979af2",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/1e36c651691ce99af4ea9adae498dd170fade168",
+                "reference": "1e36c651691ce99af4ea9adae498dd170fade168",
                 "shasum": ""
             },
             "require": {
@@ -816,7 +816,7 @@
                 "source": "https://github.com/prikotov/t-invest-core/tree/main",
                 "issues": "https://github.com/prikotov/t-invest-core/issues"
             },
-            "time": "2026-03-20T04:38:09+00:00"
+            "time": "2026-03-21T04:04:49+00:00"
         },
         {
             "name": "psr/cache",
