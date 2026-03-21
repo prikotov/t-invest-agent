@@ -17,23 +17,21 @@ description: Получение исторических свечей (OHLCV) ч
 ## Как использовать
 
 ```bash
-t-invest market:candles <instrument> [options]
+t-invest market:candles [options]
 ```
-
-Аргументы:
-
-| Аргумент   | Описание                                    |
-|------------|---------------------------------------------|
-| instrument | Тикер или FIGI (SBER, GAZP, BBG004730N88)   |
 
 Опции:
 
-| Опция      | Сокращение | Описание       | Значения           | По умолчанию |
-|------------|------------|----------------|--------------------|--------------|
-| --from     | -f         | Начало периода | Y-m-d или relative | -7 days      |
-| --to       | -t         | Конец периода  | Y-m-d или relative | now          |
-| --interval | -i         | Интервал свечи | см. ниже           | 1h           |
-| --limit    | -l         | Макс. свечей   | число              | 100          |
+| Опция      | Сокращение | Описание                          | Значения           | По умолчанию |
+|------------|------------|-----------------------------------|--------------------|--------------|
+| --ticker   | -t         | Тикер инструмента (SBER, GAZP)    |                    |              |
+| --figi     |            | FIGI инструмента                  | BBG...             |              |
+| --from     | -f         | Начало периода                    | Y-m-d или relative | -7 days      |
+| --to       |            | Конец периода                     | Y-m-d или relative | now          |
+| --interval | -i         | Интервал свечи                    | см. ниже           | 1h           |
+| --limit    | -l         | Макс. свечей                      | число              | 100          |
+
+> Требуется `--ticker` или `--figi`. Если указаны оба, проверяется соответствие.
 
 ### Интервалы
 
@@ -49,10 +47,11 @@ t-invest market:candles <instrument> [options]
 ### Примеры
 
 ```bash
-t-invest market:candles SBER
-t-invest market:candles SBER --from=2024-01-01 --to=2024-01-31
-t-invest market:candles GAZP -i 1d -l 30
-t-invest market:candles LKOH -i 4h --from="-30 days"
+t-invest market:candles --ticker=SBER
+t-invest market:candles -t SBER --from=2024-01-01 --to=2024-01-31
+t-invest market:candles -t GAZP -i 1d -l 30
+t-invest market:candles -t LKOH -i 4h --from="-30 days"
+t-invest market:candles --figi=BBG004730N88 -i 1d -l 10
 ```
 
 ## Результат
@@ -72,15 +71,15 @@ t-invest market:candles LKOH -i 4h --from="-30 days"
 
 ### Анализ тренда (дневные свечи)
 ```bash
-t-invest market:candles SBER -i 1d -l 60
+t-invest market:candles -t SBER -i 1d -l 60
 ```
 
 ### Внутридневной анализ
 ```bash
-t-invest market:candles SBER -i 15m --from="-1 day"
+t-invest market:candles -t SBER -i 15m --from="-1 day"
 ```
 
 ### Расчёт MA50/MA200
 ```bash
-t-invest market:candles SBER -i 1d -l 200
+t-invest market:candles -t SBER -i 1d -l 200
 ```
