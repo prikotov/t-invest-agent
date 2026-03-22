@@ -89,10 +89,8 @@ mkdir -p data/t-invest-portfolio-analysis/results/2026-03-22
 |-----------|------------|---------------------|---------------------|--------------|
 | --source  | -s         | Фильтр по источнику | interfax, tass, ... | все          |
 | --category|            | Фильтр по категории | Экономика, Финансы  | все          |
-| --days    | -d         | За последние N дней | число               | 7            |
 | --limit   | -l         | Лимит записей       | число               | 50           |
 | --format  | -f         | Формат вывода       | md, json, csv, text | md           |
-| --no-fetch|            | Только поиск в кэше | флаг                | выкл         |
 
 ### t-invest instruments:fundamentals
 
