@@ -143,7 +143,7 @@ mkdir -p data/moex-ticker-analysis/results/2026-03-22
 
 ### news news:search
 
-Новости по тикеру. Используется для получения контекста и оценки новостного фона.
+Свежие новости по тикеру из RSS-лент. Используется для оценки текущего новостного фона.
 
 ```bash
 mkdir -p data/moex-ticker-analysis/results/2026-03-22
