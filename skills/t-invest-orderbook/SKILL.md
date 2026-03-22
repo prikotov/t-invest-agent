@@ -17,6 +17,17 @@ description: Получение стакана (order book) через T-Invest 
 
 ## Как использовать
 
+**Паттерн сохранения результатов:**
+
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
+```
+
+```bash
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook --ticker=SBER --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-2026-03-22_14-30-00.json
+```
+
 ```bash
 ./vendor/bin/t-invest market:orderbook [options]
 ```
@@ -28,16 +39,25 @@ description: Получение стакана (order book) через T-Invest 
 | --ticker| -t         | Тикер инструмента (SBER)    | —            |
 | --figi  |            | FIGI инструмента            | —            |
 | --depth | -d         | Глубина стакана             | 20           |
+| --format| -f         | Формат вывода               | md           |
 
 > Требуется `--ticker` или `--figi`. Если указаны оба, проверяется соответствие.
 
 ### Примеры
 
 ```bash
-./vendor/bin/t-invest market:orderbook --ticker=SBER
-./vendor/bin/t-invest market:orderbook -t SBER --depth=10
-./vendor/bin/t-invest market:orderbook -t GAZP -d 50
-./vendor/bin/t-invest market:orderbook --figi=BBG004730N88 -d 20
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook --ticker=SBER --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook -t SBER -d 10 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-10-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook -t GAZP -d 50 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-gazp-50-2026-03-22_14-30-00.json
 ```
 
 ## Результат
@@ -63,16 +83,22 @@ description: Получение стакана (order book) через T-Invest 
 ## Типовые сценарии
 
 ### Быстрая оценка ликвидности
+
 ```bash
-./vendor/bin/t-invest market:orderbook -t SBER -d 5
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook -t SBER -d 5 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-5-2026-03-22_14-30-00.json
 ```
 
 ### Полный анализ стакана
+
 ```bash
-./vendor/bin/t-invest market:orderbook -t SBER -d 50
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook -t SBER -d 50 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-50-2026-03-22_14-30-00.json
 ```
 
 ### Поиск уровней (стены в стакане)
+
 ```bash
-./vendor/bin/t-invest market:orderbook -t GAZP -d 20
+mkdir -p data/t-invest-orderbook/results/2026-03-22
+./vendor/bin/t-invest market:orderbook -t GAZP -d 20 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-gazp-20-2026-03-22_14-30-00.json
 ```

@@ -14,13 +14,17 @@ description: Календарь корпоративных событий T-Inve
 
 ## Как использовать
 
+**Паттерн сохранения результатов:**
+
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
+```
+
 **Шаг 1:** Дивиденды по инструменту
 
 ```bash
-./vendor/bin/t-invest events:dividends --ticker=SBER
-./vendor/bin/t-invest events:dividends --figi=BBG004730N88
-./vendor/bin/t-invest events:dividends --ticker=SBER --from=2025-01-01 --to=2025-12-31
-./vendor/bin/t-invest events:dividends --ticker=SBER --order=asc --limit=5
+mkdir -p data/t-invest-corporate-events/results/2026-03-22
+./vendor/bin/t-invest events:dividends --ticker=SBER --format=json > data/t-invest-corporate-events/results/2026-03-22/dividends-sber-2026-03-22_14-30-00.json
 ```
 
 Опции:
@@ -34,6 +38,7 @@ description: Календарь корпоративных событий T-Inve
 | --sort  | -s         | Поле сортировки (date, yield, amount) | date |
 | --order | -o         | Порядок сортировки (asc, desc) | desc      |
 | --limit | -l         | Ограничить число записей    | 0 (все)      |
+| --format| -f         | Формат вывода               | md           |
 
 **Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
 
@@ -51,10 +56,8 @@ description: Календарь корпоративных событий T-Inve
 **Шаг 2:** Календарь отчётностей
 
 ```bash
-./vendor/bin/t-invest events:reports --ticker=SBER
-./vendor/bin/t-invest events:reports --figi=BBG004730N88
-./vendor/bin/t-invest events:reports --ticker=GAZP --from=2025-01-01 --to=2025-12-31
-./vendor/bin/t-invest events:reports --ticker=SBER --order=asc --limit=3
+mkdir -p data/t-invest-corporate-events/results/2026-03-22
+./vendor/bin/t-invest events:reports --ticker=SBER --format=json > data/t-invest-corporate-events/results/2026-03-22/reports-sber-2026-03-22_14-30-00.json
 ```
 
 Опции:
@@ -67,6 +70,7 @@ description: Календарь корпоративных событий T-Inve
 | --to    |            | Конец периода     | —            |
 | --order | -o         | Порядок сортировки по дате (asc, desc) | desc |
 | --limit | -l         | Ограничить число записей | 0 (все) |
+| --format| -f         | Формат вывода     | md           |
 
 **Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
 
@@ -82,10 +86,8 @@ description: Календарь корпоративных событий T-Inve
 **Шаг 3:** События по облигациям
 
 ```bash
-./vendor/bin/t-invest events:bonds --ticker=SU26238RMFS
-./vendor/bin/t-invest events:bonds --figi=BBG004730N88
-./vendor/bin/t-invest events:bonds --ticker=RU000A1038V6 --type=CPN
-./vendor/bin/t-invest events:bonds --ticker=SU26238RMFS --order=asc --limit=10
+mkdir -p data/t-invest-corporate-events/results/2026-03-22
+./vendor/bin/t-invest events:bonds --ticker=SU26238RMFS --format=json > data/t-invest-corporate-events/results/2026-03-22/bonds-su26238-2026-03-22_14-30-00.json
 ```
 
 Опции:
@@ -100,6 +102,7 @@ description: Календарь корпоративных событий T-Inve
 | --sort  | -s         | Поле сортировки (date, amount) | date |
 | --order | -o         | Порядок сортировки (asc, desc) | desc |
 | --limit | -l         | Ограничить число записей | 0 (все) |
+| --format| -f         | Формат вывода     | md           |
 
 **Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
 

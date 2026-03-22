@@ -27,142 +27,105 @@ description: Свежие финансовые новости из RSS-лент 
 
 ## Как использовать
 
-**Шаг 1:** Получение свежих новостей
+**Паттерн сохранения результатов:**
 
-```bash
-./vendor/bin/news news:fetch [опции]
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
-Опции:
-
-| Опция | Описание | Значения | По умолчанию |
-|-------|----------|----------|--------------|
-| --ticker | Фильтр по тикеру | SBER, GAZP, ... | все |
-| --source | Источник | interfax, tass, rbc, ... | все |
-| --search | Поиск по тексту | строка | — |
-| --category | Категория | Экономика, Финансы, ... | все |
-| --limit | Лимит записей | число | 20 |
-| --format | Формат вывода | table, json | table |
-
-Примеры:
-
 ```bash
-./vendor/bin/news news:fetch --ticker SBER
-./vendor/bin/news news:fetch --source=interfax --source=tass
-./vendor/bin/news news:fetch --search "нефть" --search "ОПЕК+"
-./vendor/bin/news news:fetch --category "Экономика" --limit=10
-./vendor/bin/news news:fetch --ticker SBER --format=json
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "SBER" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
 
-**Шаг 2:** Кэширование новостей
-
 ```bash
-./vendor/bin/news news:cache [опции]
-```
-
-Опции:
-
-| Опция | Описание | Значения | По умолчанию |
-|-------|----------|----------|--------------|
-| --source | Источник | interfax, tass, ... | все |
-| --clear | Очистить старше N дней | число | — |
-
-Примеры:
-
-```bash
-./vendor/bin/news news:cache
-./vendor/bin/news news:cache --source=interfax
-./vendor/bin/news news:cache --clear=30
-```
-
-**Шаг 3:** Поиск по кэшу
-
-```bash
-./vendor/bin/news news:search <query> [опции]
+./vendor/bin/news news:search [query] [опции]
 ```
 
 Параметры:
 
 | Параметр | Описание |
 |----------|----------|
-| query | Поисковый запрос |
+| query | Поисковые термины (аргумент) |
 
 Опции:
 
 | Опция | Описание | Значения | По умолчанию |
 |-------|----------|----------|--------------|
-| --source | Источник | interfax, tass, ... | все |
-| --category | Категория | строка | все |
-| --days | За последние N дней | число | 7 |
+| --source, -s | Фильтр по источнику | interfax, tass, rbc, ... | все |
+| --category | Фильтр по категории | Экономика, Финансы, ... | все |
+| --days, -d | За последние N дней | число | 7 |
+| --limit, -l | Лимит записей | число | 50 |
+| --format, -f | Формат вывода | md, json, csv, text | md |
+| --no-fetch | Только поиск в кэше | флаг | выкл |
 
-Примеры:
+### Примеры
 
 ```bash
-./vendor/bin/news news:search "Сбербанк"
-./vendor/bin/news news:search "нефть" --category "Экономика"
-./vendor/bin/news news:search "" --source=interfax --days=3
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "Сбербанк" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
 
-**Шаг 4:** Информация о кэше
+```bash
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "нефть" --no-fetch --format=json > data/news-rss/results/2026-03-22/search-oil-2026-03-22_14-30-00.json
+```
 
 ```bash
-./vendor/bin/news news:cache-stats
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search --source=interfax --source=tass --format=json > data/news-rss/results/2026-03-22/search-sources-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "ОПЕК" --category "Экономика" --format=json > data/news-rss/results/2026-03-22/search-opek-2026-03-22_14-30-00.json
+```
+
+## Дополнительные команды
+
+```bash
 ./vendor/bin/news news:sources
 ```
 
 ## Результат
 
-### news:fetch / news:search
-
 Поля:
 
 | Поле | Описание |
 |------|----------|
-| title | Заголовок |
-| source | Источник |
-| category | Категория |
-| published | Дата публикации |
-| link | Ссылка на статью |
-| tickers | Найденные тикеры |
-
-### news:cache-stats
-
-Поля:
-
-| Поле | Описание |
-|------|----------|
-| total | Всего записей |
-| by_source | По источникам |
-| oldest | Самая старая запись |
-| newest | Самая новая запись |
+| Date | Дата публикации |
+| Source | Источник |
+| Category | Категория |
+| Title | Заголовок |
+| Link | Ссылка на статью |
 
 ## Типовые сценарии
 
 ### Новости по тикеру
 
 ```bash
-./vendor/bin/news news:fetch --ticker SBER
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "Сбербанк" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
-
-Автоматически расширяет: SBER → "Сбербанк", "Sber", "SBER"
 
 ### Новости по теме
 
 ```bash
-./vendor/bin/news news:fetch --search "нефть" --search "ОПЕК+"
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "нефть" "ОПЕК+" --format=json > data/news-rss/results/2026-03-22/search-oil-opek-2026-03-22_14-30-00.json
 ```
 
-### Поиск в архиве
+### Поиск в архиве без обновления
 
 ```bash
-./vendor/bin/news news:search "Сбербанк" --days=7 --category "Экономика"
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "Сбербанк" --no-fetch --days=7 --format=json > data/news-rss/results/2026-03-22/search-sber-archive-2026-03-22_14-30-00.json
 ```
 
-## Интеграция
+## Кэширование
 
-```bash
-./vendor/bin/news news:fetch --ticker SBER
-```
+- Структура: `{project}/data/news-rss/cache/YYYY/MM/DD/Source/`
+- При каждом вызове `news:search` (без `--no-fetch`) кэш обновляется из RSS
 
 ## Поддерживаемые тикеры
 

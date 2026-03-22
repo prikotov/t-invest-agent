@@ -22,6 +22,17 @@ description: Получение исторических свечей (OHLCV) ч
 
 ## Как использовать
 
+**Паттерн сохранения результатов:**
+
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
+```
+
+```bash
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER --format=json > data/moex-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
+```
+
 ```bash
 ./vendor/bin/moex security:candles <ticker> [options]
 ```
@@ -40,6 +51,7 @@ description: Получение исторических свечей (OHLCV) ч
 | --to       | -t         | Конец периода           | Y-m-d                | нет          |
 | --interval | -i         | Интервал свечи (минуты) | 1, 10, 60, 24, 7, 31 | 60           |
 | --limit    | -l         | Макс. свечей            | число                | 100          |
+| --format   |            | Формат вывода           | md, json, csv, text  | md           |
 
 ### Интервалы
 
@@ -55,10 +67,18 @@ description: Получение исторических свечей (OHLCV) ч
 ### Примеры
 
 ```bash
-./vendor/bin/moex security:candles SBER
-./vendor/bin/moex security:candles SBER --from=2024-01-01 --to=2024-01-31
-./vendor/bin/moex security:candles GAZP -i 24 -l 30
-./vendor/bin/moex security:candles SBER -i 60 --from=2024-03-01 --to=2024-03-15
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER --format=json > data/moex-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER --from=2024-01-01 --to=2024-01-31 --format=json > data/moex-candles/results/2026-03-22/candles-sber-jan-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles GAZP -i 24 -l 30 --format=json > data/moex-candles/results/2026-03-22/candles-gazp-daily-2026-03-22_14-30-00.json
 ```
 
 ## Результат
@@ -77,16 +97,22 @@ description: Получение исторических свечей (OHLCV) ч
 ## Типовые сценарии
 
 ### Анализ тренда (дневные свечи)
+
 ```bash
-./vendor/bin/moex security:candles SBER -i 24 -l 60
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER -i 24 -l 60 --format=json > data/moex-candles/results/2026-03-22/candles-sber-daily-2026-03-22_14-30-00.json
 ```
 
 ### Внутридневной анализ
+
 ```bash
-./vendor/bin/moex security:candles SBER -i 10 --from=2024-03-15
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER -i 10 --from=2024-03-15 --format=json > data/moex-candles/results/2026-03-22/candles-sber-intraday-2026-03-22_14-30-00.json
 ```
 
 ### Расчёт MA50/MA200
+
 ```bash
-./vendor/bin/moex security:candles SBER -i 24 -l 200
+mkdir -p data/moex-candles/results/2026-03-22
+./vendor/bin/moex security:candles SBER -i 24 -l 200 --format=json > data/moex-candles/results/2026-03-22/candles-sber-ma200-2026-03-22_14-30-00.json
 ```

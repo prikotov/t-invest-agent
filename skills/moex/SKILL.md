@@ -27,110 +27,106 @@ description: Работа с Московской Биржей через MOEX I
 
 ## Как использовать
 
-**Шаг 1:** Спецификация инструмента
+**Паттерн сохранения результатов:**
 
-```bash
-./vendor/bin/moex security:specification <ticker>
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
-Параметры:
-
-| Параметр | Описание          | По умолчанию |
-|----------|-------------------|--------------|
-| ticker   | Тикер инструмента | обязателен   |
-
-Примеры:
+### security:specification
 
 ```bash
-./vendor/bin/moex security:specification SBER
-./vendor/bin/moex security:specification GAZP
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:specification SBER --format=json > data/moex/results/2026-03-22/spec-sber-2026-03-22_14-30-00.json
 ```
-
-**Шаг 2:** Рыночные данные
 
 ```bash
-./vendor/bin/moex security:trade-data <ticker>
+./vendor/bin/moex security:specification <ticker> [options]
 ```
 
-Параметры:
+Аргументы:
 
-| Параметр | Описание          | По умолчанию |
-|----------|-------------------|--------------|
-| ticker   | Тикер инструмента | обязателен   |
+| Аргумент | Описание                   |
+|----------|----------------------------|
+| ticker   | Тикер инструмента (SBER)   |
 
-Примеры:
+Опции:
+
+| Опция    | Описание       | Значения            | По умолчанию |
+|----------|----------------|---------------------|--------------|
+| --format | Формат вывода  | md, json, csv, text | md           |
+
+### security:trade-data
 
 ```bash
-./vendor/bin/moex security:trade-data SBER
-./vendor/bin/moex security:trade-data LKOH
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:trade-data SBER --format=json > data/moex/results/2026-03-22/trade-data-sber-2026-03-22_14-30-00.json
 ```
 
-**Шаг 3:** Итоги торгов
+```bash
+./vendor/bin/moex security:trade-data <ticker> [options]
+```
+
+Аргументы:
+
+| Аргумент | Описание                   |
+|----------|----------------------------|
+| ticker   | Тикер инструмента (SBER)   |
+
+Опции:
+
+| Опция    | Описание       | Значения            | По умолчанию |
+|----------|----------------|---------------------|--------------|
+| --format | Формат вывода  | md, json, csv, text | md           |
+
+### security:aggregates
+
+```bash
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:aggregates SBER --format=json > data/moex/results/2026-03-22/aggregates-sber-2026-03-22_14-30-00.json
+```
 
 ```bash
 ./vendor/bin/moex security:aggregates <ticker> [options]
 ```
 
-Параметры:
+Аргументы:
 
-| Параметр | Описание          | По умолчанию |
-|----------|-------------------|--------------|
-| ticker   | Тикер инструмента | обязателен   |
+| Аргумент | Описание                   |
+|----------|----------------------------|
+| ticker   | Тикер инструмента (SBER)   |
 
 Опции:
 
-| Опция    | Сокращение | Описание              | Значения        | По умолчанию |
-|----------|------------|-----------------------|-----------------|--------------|
-| --sort   | -s         | Сортировка            | volume, market  | volume       |
-| --order  | -o         | Порядок сортировки    | asc, desc       | desc         |
-| --limit  | -l         | Ограничить число строк| число           | 0 (все)      |
-| --format | -f         | Формат вывода         | table, json     | table        |
+| Опция    | Сокращение | Описание               | Значения            | По умолчанию |
+|----------|------------|------------------------|---------------------|--------------|
+| --sort   | -s         | Сортировка             | volume, market       | volume       |
+| --order  | -o         | Порядок сортировки     | asc, desc           | desc         |
+| --limit  | -l         | Ограничить число строк | число               | 0 (все)      |
+| --format |            | Формат вывода          | md, json, csv, text | md           |
 
-Примеры:
-
-```bash
-./vendor/bin/moex security:aggregates SBER
-./vendor/bin/moex security:aggregates GMKN
-./vendor/bin/moex security:aggregates SBER --sort=volume --order=desc --limit=3
-./vendor/bin/moex security:aggregates SBER --format=json
-```
-
-**Шаг 4:** Индексы
+### security:indices
 
 ```bash
-./vendor/bin/moex security:indices <ticker>
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:indices SBER --format=json > data/moex/results/2026-03-22/indices-sber-2026-03-22_14-30-00.json
 ```
-
-Параметры:
-
-| Параметр | Описание          | По умолчанию |
-|----------|-------------------|--------------|
-| ticker   | Тикер инструмента | обязателен   |
-
-Примеры:
 
 ```bash
-./vendor/bin/moex security:indices SBER
-./vendor/bin/moex security:indices ROSN
+./vendor/bin/moex security:indices <ticker> [options]
 ```
 
-**Шаг 5:** Полный анализ бумаги
+Аргументы:
 
-```bash
-./vendor/bin/moex security:specification <ticker>
-./vendor/bin/moex security:trade-data <ticker>
-./vendor/bin/moex security:indices <ticker>
-./vendor/bin/moex security:aggregates <ticker>
-```
+| Аргумент | Описание                   |
+|----------|----------------------------|
+| ticker   | Тикер инструмента (SBER)   |
 
-Примеры:
+Опции:
 
-```bash
-./vendor/bin/moex security:specification SBER
-./vendor/bin/moex security:trade-data SBER
-./vendor/bin/moex security:indices SBER
-./vendor/bin/moex security:aggregates SBER
-```
+| Опция    | Описание       | Значения            | По умолчанию |
+|----------|----------------|---------------------|--------------|
+| --format | Формат вывода  | md, json, csv, text | md           |
 
 ## Результат
 
@@ -176,12 +172,13 @@ description: Работа с Московской Биржей через MOEX I
 | from  | Дата включения              |
 | till  | Дата исключения (если есть) |
 
-## Сценарии
+## Типовые сценарии
 
 ### Оценка ликвидности
 
 ```bash
-./vendor/bin/moex security:aggregates SBER
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:aggregates SBER --format=json > data/moex/results/2026-03-22/aggregates-sber-2026-03-22_14-30-00.json
 ```
 
 | Объём в день | Ликвидность | Действие               |
@@ -193,12 +190,20 @@ description: Работа с Московской Биржей через MOEX I
 ### Проверка индексной значимости
 
 ```bash
-./vendor/bin/moex security:indices SBER
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:indices SBER --format=json > data/moex/results/2026-03-22/indices-sber-2026-03-22_14-30-00.json
 ```
 
 - Входит в IMOEX → низкий риск ликвидности
-- `Till` дата в прошлом → исключена из индекса
+- `till` дата в прошлом → исключена из индекса
 
-## Справочник
+### Полный анализ бумаги
 
-MOEX ISS API: https://iss.moex.com/iss/reference/
+```bash
+mkdir -p data/moex/results/2026-03-22
+./vendor/bin/moex security:specification SBER --format=json > data/moex/results/2026-03-22/spec-sber-2026-03-22_14-30-00.json
+./vendor/bin/moex security:trade-data SBER --format=json > data/moex/results/2026-03-22/trade-data-sber-2026-03-22_14-30-00.json
+./vendor/bin/moex security:indices SBER --format=json > data/moex/results/2026-03-22/indices-sber-2026-03-22_14-30-00.json
+./vendor/bin/moex security:aggregates SBER --format=json > data/moex/results/2026-03-22/aggregates-sber-2026-03-22_14-30-00.json
+```
+

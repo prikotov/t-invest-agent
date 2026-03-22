@@ -21,30 +21,49 @@ description: Торговый календарь через MOEX ISS API.
 
 ## Как использовать
 
+**Паттерн сохранения результатов:**
+
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
+```
+
 ```bash
-./vendor/bin/moex schedule [--engine=stock] [--market=shares]
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
 ```
 
-| Опция    | Описание                              | По умолчанию |
-|----------|---------------------------------------|--------------|
-| --engine | Движок (stock, currency, futures)     | stock        |
-| --market | Рынок (shares, bonds, currency)       | —            |
-
-## Вывод
-
-```
-MOEX Trading Schedule
-
-STOCK / Акции
-  Main session: 10:00 - 18:40
-  Clearing: 18:40 - 18:50
-  Evening session: 19:00 - 23:50
-
-STOCK / Облигации
-  Main session: 10:00 - 18:40
+```bash
+./vendor/bin/moex schedule [options]
 ```
 
-## Поля ответа
+Опции:
+
+| Опция    | Сокращение | Описание                          | Значения                   | По умолчанию |
+|----------|------------|-----------------------------------|----------------------------|--------------|
+| --engine |            | Торговый движок                   | stock, currency, futures   | stock        |
+| --market |            | Рынок                             | shares, bonds, currency    | —            |
+| --format |            | Формат вывода                     | md, json, csv, text        | md           |
+
+### Примеры
+
+```bash
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --engine=stock --market=shares --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-shares-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --engine=futures --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-futures-2026-03-22_14-30-00.json
+```
+
+## Результат
+
+Поля:
 
 | Поле          | Описание                    |
 |---------------|-----------------------------|
@@ -65,27 +84,20 @@ STOCK / Облигации
 ### Расписание рынка акций
 
 ```bash
-./vendor/bin/moex schedule --engine=stock --market=shares
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --engine=stock --market=shares --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-shares-2026-03-22_14-30-00.json
 ```
 
 ### Все рынки
 
 ```bash
-./vendor/bin/moex schedule
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
 ```
 
 ### Фьючерсы
 
 ```bash
-./vendor/bin/moex schedule --engine=futures
+mkdir -p data/moex-trading-calendar/results/2026-03-22
+./vendor/bin/moex schedule --engine=futures --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-futures-2026-03-22_14-30-00.json
 ```
-
-## Результат
-
-**{ENGINE} / {MARKET}**
-
-- Main session: HH:MM - HH:MM
-- Evening session: HH:MM - HH:MM (если есть)
-- Clearing: HH:MM - HH:MM (если есть)
-
-{ENGINE} {MARKET}

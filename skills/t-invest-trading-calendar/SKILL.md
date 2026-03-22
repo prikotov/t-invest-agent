@@ -15,37 +15,54 @@ description: Торговый календарь через T-Invest API.
 
 ## Как использовать
 
+**Паттерн сохранения результатов:**
+
+```
+data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
+```
+
 ```bash
-./vendor/bin/t-invest schedule [--exchange=MOEX] [--date=YYYY-MM-DD] [--days=7]
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
 ```
 
-| Опция      | Описание                    | По умолчанию |
-|------------|-----------------------------|--------------|
-| --exchange | Код биржи (MOEX)            | MOEX         |
-| --date     | Дата начала (YYYY-MM-DD)    | сегодня      |
-| --days     | Количество дней             | 7            |
-
-## Вывод
-
-```
-Trading Schedule: MOEX
-
-2024-03-18 (Mon): Trading Day
-  Morning auction: 09:50 - 10:00
-  Main session: 10:00 - 18:40
-  Clearing: 18:40 - 18:50
-  Evening session: 19:00 - 23:50
-
-2024-03-19 (Tue): Trading Day
-  ...
-
-2024-03-23 (Sat): NON-TRADING DAY
+```bash
+./vendor/bin/t-invest schedule [options]
 ```
 
-## Поля ответа
+Опции:
+
+| Опция      | Сокращение | Описание                    | Значения            | По умолчанию |
+|------------|------------|-----------------------------|---------------------|--------------|
+| --exchange |            | Код биржи                   | MOEX                | MOEX         |
+| --date     |            | Дата начала (YYYY-MM-DD)    | 2026-03-22          | сегодня      |
+| --days     |            | Количество дней             | 1-365               | 7            |
+| --format   |            | Формат вывода               | md, json, csv, text | md           |
+
+### Примеры
+
+```bash
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --date=2026-03-22 --days=1 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-today-2026-03-22_14-30-00.json
+```
+
+```bash
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --days=7 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-week-2026-03-22_14-30-00.json
+```
+
+## Результат
+
+Поля:
 
 | Поле            | Описание                       |
 |-----------------|--------------------------------|
+| date            | Дата                           |
 | is_trading_day  | Торговый день / выходной       |
 | start_time      | Начало основной сессии         |
 | end_time        | Конец основной сессии          |
@@ -59,7 +76,8 @@ Trading Schedule: MOEX
 ### Проверка "сегодня торги?"
 
 ```bash
-./vendor/bin/t-invest schedule --date=$(date +%Y-%m-%d) --days=1
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --date=$(date +%Y-%m-%d) --days=1 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-today-2026-03-22_14-30-00.json
 ```
 
 - `is_trading_day=false` → не торговать
@@ -68,18 +86,9 @@ Trading Schedule: MOEX
 ### Планирование на неделю
 
 ```bash
-./vendor/bin/t-invest schedule --days=7
+mkdir -p data/t-invest-trading-calendar/results/2026-03-22
+./vendor/bin/t-invest schedule --days=7 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-week-2026-03-22_14-30-00.json
 ```
 
 - Определить ближайшие торговые дни
 - Учесть праздники
-
-## Результат
-
-**{DATE}: [TRADING / NON-TRADING]**
-
-- Основная сессия: HH:MM - HH:MM
-- Вечерняя сессия: HH:MM - HH:MM (если есть)
-- Клиринг: HH:MM - HH:MM (если есть)
-
-{EXCHANGE}
