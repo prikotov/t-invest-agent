@@ -22,6 +22,10 @@ description: Получение исторических свечей (OHLCV) ч
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### market:candles
+
+Исторические свечи OHLCV в реальном времени. Используется для технического анализа, расчёта индикаторов, поиска трендов.
+
 ```bash
 mkdir -p data/t-invest-candles/results/2026-03-22
 ./vendor/bin/t-invest market:candles --ticker=SBER --format=json > data/t-invest-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
@@ -55,28 +59,6 @@ mkdir -p data/t-invest-candles/results/2026-03-22
 | 1d, day                       | Дневной   |
 | 1w, week                      | Недельный |
 | 1M, month                     | Месячный  |
-
-### Примеры
-
-```bash
-mkdir -p data/t-invest-candles/results/2026-03-22
-./vendor/bin/t-invest market:candles --ticker=SBER --format=json > data/t-invest-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-candles/results/2026-03-22
-./vendor/bin/t-invest market:candles -t SBER --from=2024-01-01 --to=2024-01-31 --format=json > data/t-invest-candles/results/2026-03-22/candles-sber-jan-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-candles/results/2026-03-22
-./vendor/bin/t-invest market:candles -t GAZP -i 1d -l 30 --format=json > data/t-invest-candles/results/2026-03-22/candles-gazp-daily-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-candles/results/2026-03-22
-./vendor/bin/t-invest market:candles -t LKOH -i 4h --from="-30 days" --format=json > data/t-invest-candles/results/2026-03-22/candles-lkoh-4h-2026-03-22_14-30-00.json
-```
 
 ## Результат
 

@@ -15,7 +15,9 @@ data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 
 ## Команды
 
-### Портфель
+### portfolio:show
+
+Позиции портфеля: тикеры, количество, средняя цена, текущая цена, доходность. Используется для обзора портфеля и мониторинга позиций.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
@@ -34,60 +36,68 @@ mkdir -p data/tinvest/results/2026-03-22
 
 Возвращает: позиции, количество, средняя цена, текущая цена, доходность (%).
 
-### Счета
+### accounts:list
+
+Список счетов с ID и статусом. Используется для выбора счёта при работе с API.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest accounts:list --format=json > data/tinvest/results/2026-03-22/accounts-2026-03-22_14-30-00.json
 ```
 
-Возвращает: список счетов с ID и статусом
+### market:prices
 
-### Рыночные данные
+Текущие рыночные цены по списку тикеров. Используется для быстрого получения актуальных цен.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest market:prices SBER GAZP LKOH --format=json > data/tinvest/results/2026-03-22/prices-2026-03-22_14-30-00.json
 ```
 
+### market:candles
+
+Исторические свечи OHLCV. Используется для технического анализа и расчёта индикаторов.
+
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest market:candles --ticker=SBER --from="-7 days" --format=json > data/tinvest/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
 ```
+
+### market:orderbook
+
+Стакан заявок для анализа ликвидности и спреда.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest market:orderbook SBER --depth=20 --format=json > data/tinvest/results/2026-03-22/orderbook-sber-2026-03-22_14-30-00.json
 ```
 
-Возвращает: текущие цены, исторические свечи, стакан заявок.
+### instruments:fundamentals
 
-### Фундаментальные данные
+Фундаментальные метрики: P/E, P/B, ROE, дивидендная доходность. Используется для оценки инвестиционной привлекательности.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest instruments:fundamentals SBER GAZP --format=json > data/tinvest/results/2026-03-22/fundamentals-2026-03-22_14-30-00.json
 ```
 
-Возвращает: P/E, P/B, ROE, дивидендная доходность
+### operations:history
 
-### История операций
+История операций за период. Используется для анализа сделок и налогового учёта.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest operations:history --from=2024-01-01 --to=2024-01-31 --format=json > data/tinvest/results/2026-03-22/operations-2026-03-22_14-30-00.json
 ```
 
-Возвращает: список операций за период
+### instruments:resolve
 
-### Резолв инструментов
+Резолв FIGI в тикер и обратно: FIGI, тикер, UID, ISIN, имя, classCode, currency, lot.
 
 ```bash
 mkdir -p data/tinvest/results/2026-03-22
 ./vendor/bin/t-invest instruments:resolve BBG004730N88 --format=json > data/tinvest/results/2026-03-22/resolve-2026-03-22_14-30-00.json
 ```
-
-Возвращает: FIGI, тикер, UID, ISIN, имя, classCode, currency, lot
 
 ## Типовые сценарии
 

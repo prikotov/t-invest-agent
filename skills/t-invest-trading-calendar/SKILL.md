@@ -21,6 +21,10 @@ description: Торговый календарь через T-Invest API.
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### schedule
+
+Торговый календарь: рабочие/выходные дни, часы торгов, праздники. Используется для проверки доступности рынка перед сделкой.
+
 ```bash
 mkdir -p data/t-invest-trading-calendar/results/2026-03-22
 ./vendor/bin/t-invest schedule --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
@@ -38,23 +42,6 @@ mkdir -p data/t-invest-trading-calendar/results/2026-03-22
 | --date     |            | Дата начала (YYYY-MM-DD)    | 2026-03-22          | сегодня      |
 | --days     |            | Количество дней             | 1-365               | 7            |
 | --format   |            | Формат вывода               | md, json, csv, text | md           |
-
-### Примеры
-
-```bash
-mkdir -p data/t-invest-trading-calendar/results/2026-03-22
-./vendor/bin/t-invest schedule --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-trading-calendar/results/2026-03-22
-./vendor/bin/t-invest schedule --date=2026-03-22 --days=1 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-today-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-trading-calendar/results/2026-03-22
-./vendor/bin/t-invest schedule --days=7 --format=json > data/t-invest-trading-calendar/results/2026-03-22/schedule-week-2026-03-22_14-30-00.json
-```
 
 ## Результат
 

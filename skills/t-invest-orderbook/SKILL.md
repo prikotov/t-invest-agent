@@ -23,6 +23,10 @@ description: Получение стакана (order book) через T-Invest 
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### market:orderbook
+
+Стакан заявок (order book) для анализа ликвидности, спреда и дисбаланса спроса/предложения. Используется перед входом в позицию для оценки глубины рынка.
+
 ```bash
 mkdir -p data/t-invest-orderbook/results/2026-03-22
 ./vendor/bin/t-invest market:orderbook --ticker=SBER --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-2026-03-22_14-30-00.json
@@ -42,23 +46,6 @@ mkdir -p data/t-invest-orderbook/results/2026-03-22
 | --format| -f         | Формат вывода               | md           |
 
 > Требуется `--ticker` или `--figi`. Если указаны оба, проверяется соответствие.
-
-### Примеры
-
-```bash
-mkdir -p data/t-invest-orderbook/results/2026-03-22
-./vendor/bin/t-invest market:orderbook --ticker=SBER --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-orderbook/results/2026-03-22
-./vendor/bin/t-invest market:orderbook -t SBER -d 10 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-sber-10-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/t-invest-orderbook/results/2026-03-22
-./vendor/bin/t-invest market:orderbook -t GAZP -d 50 --format=json > data/t-invest-orderbook/results/2026-03-22/orderbook-gazp-50-2026-03-22_14-30-00.json
-```
 
 ## Результат
 

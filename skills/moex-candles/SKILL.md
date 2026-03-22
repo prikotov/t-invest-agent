@@ -28,6 +28,10 @@ description: Получение исторических свечей (OHLCV) ч
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### security:candles
+
+Исторические свечи OHLCV для технического анализа. Данные с задержкой ~20 минут. Используется для расчёта индикаторов, поиска трендов и паттернов.
+
 ```bash
 mkdir -p data/moex-candles/results/2026-03-22
 ./vendor/bin/moex security:candles SBER --format=json > data/moex-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
@@ -63,23 +67,6 @@ mkdir -p data/moex-candles/results/2026-03-22
 | 24       | 1 день   |
 | 7        | 1 неделя |
 | 31       | 1 месяц  |
-
-### Примеры
-
-```bash
-mkdir -p data/moex-candles/results/2026-03-22
-./vendor/bin/moex security:candles SBER --format=json > data/moex-candles/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/moex-candles/results/2026-03-22
-./vendor/bin/moex security:candles SBER --from=2024-01-01 --to=2024-01-31 --format=json > data/moex-candles/results/2026-03-22/candles-sber-jan-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/moex-candles/results/2026-03-22
-./vendor/bin/moex security:candles GAZP -i 24 -l 30 --format=json > data/moex-candles/results/2026-03-22/candles-gazp-daily-2026-03-22_14-30-00.json
-```
 
 ## Результат
 

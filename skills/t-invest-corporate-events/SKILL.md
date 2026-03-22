@@ -20,7 +20,9 @@ description: Календарь корпоративных событий T-Inve
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
-**Шаг 1:** Дивиденды по инструменту
+### events:dividends
+
+Дивиденды по инструменту: размер, дата отсечки, дата выплаты, доходность. Используется для планирования покупок под дивиденды.
 
 ```bash
 mkdir -p data/t-invest-corporate-events/results/2026-03-22
@@ -40,7 +42,7 @@ mkdir -p data/t-invest-corporate-events/results/2026-03-22
 | --limit | -l         | Ограничить число записей    | 0 (все)      |
 | --format| -f         | Формат вывода               | md           |
 
-**Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
+> Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
 
 Поля:
 
@@ -53,7 +55,9 @@ mkdir -p data/t-invest-corporate-events/results/2026-03-22
 | dividendType | Тип (Regular, Special)        |
 | yieldValue   | Доходность (%)                |
 
-**Шаг 2:** Календарь отчётностей
+### events:reports
+
+Календарь отчётностей эмитента: дата публикации, квартал, год. Используется для планирования вокруг публикации отчётов.
 
 ```bash
 mkdir -p data/t-invest-corporate-events/results/2026-03-22
@@ -72,7 +76,7 @@ mkdir -p data/t-invest-corporate-events/results/2026-03-22
 | --limit | -l         | Ограничить число записей | 0 (все) |
 | --format| -f         | Формат вывода     | md           |
 
-**Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
+> Укажите `--ticker` или `--figi`.
 
 Поля:
 
@@ -83,7 +87,9 @@ mkdir -p data/t-invest-corporate-events/results/2026-03-22
 | periodYear | Год отчётного периода        |
 | periodType | Тип (Q1, Q2, Q3, Q4, Annual) |
 
-**Шаг 3:** События по облигациям
+### events:bonds
+
+События по облигациям: купоны, погашения, оферты. Используется для отслеживания выплат и планирования реинвестирования.
 
 ```bash
 mkdir -p data/t-invest-corporate-events/results/2026-03-22
@@ -104,7 +110,7 @@ mkdir -p data/t-invest-corporate-events/results/2026-03-22
 | --limit | -l         | Ограничить число записей | 0 (все) |
 | --format| -f         | Формат вывода     | md           |
 
-**Примечание:** Укажите `--ticker` или `--figi` (или оба — тогда проверяется что FIGI резолвится в указанный тикер).
+> Укажите `--ticker` или `--figi`.
 
 Типы событий (--type):
 

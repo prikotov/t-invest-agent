@@ -27,6 +27,10 @@ description: Торговый календарь через MOEX ISS API.
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### schedule
+
+Расписание торговых сессий по рынкам: часы торгов, клиринг, вечерняя сессия. Используется для планирования сделок и проверки доступности рынка.
+
 ```bash
 mkdir -p data/moex-trading-calendar/results/2026-03-22
 ./vendor/bin/moex schedule --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
@@ -43,23 +47,6 @@ mkdir -p data/moex-trading-calendar/results/2026-03-22
 | --engine |            | Торговый движок                   | stock, currency, futures   | stock        |
 | --market |            | Рынок                             | shares, bonds, currency    | —            |
 | --format |            | Формат вывода                     | md, json, csv, text        | md           |
-
-### Примеры
-
-```bash
-mkdir -p data/moex-trading-calendar/results/2026-03-22
-./vendor/bin/moex schedule --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/moex-trading-calendar/results/2026-03-22
-./vendor/bin/moex schedule --engine=stock --market=shares --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-shares-2026-03-22_14-30-00.json
-```
-
-```bash
-mkdir -p data/moex-trading-calendar/results/2026-03-22
-./vendor/bin/moex schedule --engine=futures --format=json > data/moex-trading-calendar/results/2026-03-22/schedule-futures-2026-03-22_14-30-00.json
-```
 
 ## Результат
 

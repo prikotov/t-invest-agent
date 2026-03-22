@@ -25,15 +25,14 @@ description: Фундаментальный анализ отдельной ак
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
-**Шаг 1:** Рыночные данные
+### moex security:trade-data
+
+Рыночные данные MOEX: цены OHLC, объём. Используется для оценки текущей ценовой картины.
 
 ```bash
 mkdir -p data/moex-ticker-analysis/results/2026-03-22
 ./vendor/bin/moex security:trade-data SBER --format=json > data/moex-ticker-analysis/results/2026-03-22/trade-data-sber-2026-03-22_14-30-00.json
-./vendor/bin/moex security:specification SBER --format=json > data/moex-ticker-analysis/results/2026-03-22/spec-sber-2026-03-22_14-30-00.json
 ```
-
-`moex security:trade-data:`
 
 | Аргумент | Описание                        |
 |----------|---------------------------------|
@@ -55,7 +54,14 @@ mkdir -p data/moex-ticker-analysis/results/2026-03-22
 | low          | Минимум        |
 | volume       | Объём торгов   |
 
-`moex security:specification:`
+### moex security:specification
+
+Спецификация инструмента: ISIN, тип, уровень списка. Используется для идентификации и проверки статуса бумаги.
+
+```bash
+mkdir -p data/moex-ticker-analysis/results/2026-03-22
+./vendor/bin/moex security:specification SBER --format=json > data/moex-ticker-analysis/results/2026-03-22/spec-sber-2026-03-22_14-30-00.json
+```
 
 | Аргумент | Описание                        |
 |----------|---------------------------------|
@@ -76,14 +82,14 @@ mkdir -p data/moex-ticker-analysis/results/2026-03-22
 | list_level | Уровень списка  |
 | issue_size | Размер выпуска  |
 
-**Шаг 2:** Фундаментальный анализ
+### t-invest instruments:fundamentals
+
+Фундаментальные метрики: P/E, P/B, ROE, дивидендная доходность. Используется для оценки инвестиционной привлекательности.
 
 ```bash
 mkdir -p data/moex-ticker-analysis/results/2026-03-22
 ./vendor/bin/t-invest instruments:fundamentals SBER --format=json > data/moex-ticker-analysis/results/2026-03-22/fundamentals-sber-2026-03-22_14-30-00.json
 ```
-
-`t-invest instruments:fundamentals:`
 
 | Аргумент | Описание                           |
 |----------|------------------------------------|
@@ -104,14 +110,14 @@ mkdir -p data/moex-ticker-analysis/results/2026-03-22
 | roe            | Return on Equity       |
 | dividend_yield | Дивидендная доходность |
 
-**Шаг 3:** Исторические данные
+### t-invest market:candles
+
+Исторические свечи OHLCV. Используется для технического анализа и расчёта индикаторов.
 
 ```bash
 mkdir -p data/moex-ticker-analysis/results/2026-03-22
 ./vendor/bin/t-invest market:candles --ticker=SBER --from=2024-01-01 --format=json > data/moex-ticker-analysis/results/2026-03-22/candles-sber-2026-03-22_14-30-00.json
 ```
-
-`t-invest market:candles:`
 
 Опции:
 
@@ -135,14 +141,14 @@ mkdir -p data/moex-ticker-analysis/results/2026-03-22
 | Close  | Цена закрытия        |
 | Volume | Объём                |
 
-**Шаг 4:** Новости
+### news news:search
+
+Новости по тикеру. Используется для получения контекста и оценки новостного фона.
 
 ```bash
 mkdir -p data/moex-ticker-analysis/results/2026-03-22
 ./vendor/bin/news news:search "SBER" --format=json > data/moex-ticker-analysis/results/2026-03-22/news-sber-2026-03-22_14-30-00.json
 ```
-
-`news news:search:`
 
 | Аргумент | Описание            |
 |----------|---------------------|
