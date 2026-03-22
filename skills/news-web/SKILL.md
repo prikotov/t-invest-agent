@@ -228,8 +228,8 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 
 ## Ограничения
 
-- Прямой поиск: Interfax, Kommersant, RIA, PRIME — работают через webfetch
-- RBC: прямой поиск не работает (JS), DuckDuckGo блокирует
-- TASS: webfetch и curl не работают (JavaScript-защита)
-- DuckDuckGo HTML: блокирует ботов капчей — ненадёжно
-- Interfax — лучший архив (10+ лет, фильтр по датам)
+- **Работает через webfetch:** Interfax, Kommersant, RIA, PRIME
+- **TASS:** JavaScript + капча — прямой доступ невозможен
+- **RBC:** JS-защита, DuckDuckGo блокирует ботов
+- **DuckDuckGo HTML:** ненадёжно, часто блокирует капчей
+- **Interfax** — лучший архив (10+ лет, точные даты)
