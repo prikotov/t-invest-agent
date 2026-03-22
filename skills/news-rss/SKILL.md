@@ -5,14 +5,13 @@ description: Свежие финансовые новости из RSS-лент 
 
 # News RSS
 
-Агрегация свежих финансовых новостей из RSS-лент в реальном времени.
+Поиск свежих финансовых новостей из RSS-лент.
 
 ## Когда использовать
 
 - Получение свежих новостей по тикеру
-- Мониторинг новостей по теме или категории
+- Мониторинг свежих новостей по теме
 - Быстрый обзор рыночных событий
-- Поиск релевантных новостей в архиве
 
 ## Источники
 
@@ -35,7 +34,7 @@ data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 
 ### news:search
 
-Поиск новостей по ключевым словам с фильтрами. Опционально обновляет кэш из RSS. Используется для получения контекста по тикеру или теме.
+Поиск свежих новостей по ключевым словам.
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
@@ -58,10 +57,8 @@ mkdir -p data/news-rss/results/2026-03-22
 |------------|------------|-----------------------|-----------------------|--------------|
 | --source   | -s         | Фильтр по источнику   | interfax, tass, rbc, ... | все       |
 | --category |            | Фильтр по категории   | Экономика, Финансы, ... | все       |
-| --days     | -d         | За последние N дней   | число                 | 7            |
 | --limit    | -l         | Лимит записей         | число                 | 50           |
 | --format   | -f         | Формат вывода         | md, json, csv, text   | md           |
-| --no-fetch |            | Только поиск в кэше   | флаг                  | выкл         |
 
 ### news:sources
 
@@ -107,25 +104,18 @@ mkdir -p data/news-rss/results/2026-03-22
 
 ## Типовые сценарии
 
-### Новости по тикеру
+### Последние новости по тикеру
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "Сбербанк" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
 
-### Новости по нескольким темам
+### Последние новости по нескольким темам
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "нефть" "ОПЕК+" --format=json > data/news-rss/results/2026-03-22/search-oil-opek-2026-03-22_14-30-00.json
-```
-
-### Поиск в архиве без обновления
-
-```bash
-mkdir -p data/news-rss/results/2026-03-22
-./vendor/bin/news news:search "Сбербанк" --no-fetch --days=7 --format=json > data/news-rss/results/2026-03-22/search-sber-archive-2026-03-22_14-30-00.json
 ```
 
 ### Фильтр по источникам
@@ -141,11 +131,6 @@ mkdir -p data/news-rss/results/2026-03-22
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "ОПЕК" --category "Экономика" --format=json > data/news-rss/results/2026-03-22/search-opek-category-2026-03-22_14-30-00.json
 ```
-
-## Кэширование
-
-- Структура: `{project}/data/news-rss/cache/YYYY/MM/DD/Source/`
-- При каждом вызове `news:search` (без `--no-fetch`) кэш обновляется из RSS
 
 ## Поддерживаемые тикеры
 

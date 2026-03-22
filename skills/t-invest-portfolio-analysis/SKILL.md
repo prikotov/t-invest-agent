@@ -72,7 +72,7 @@ mkdir -p data/t-invest-portfolio-analysis/results/2026-03-22
 
 ### news news:search
 
-Новости по тикеру. Используется для получения контекста по крупным позициям.
+Свежие новости по тикеру из RSS-лент. Используется для оценки новостного фона по крупным позициям.
 
 ```bash
 mkdir -p data/t-invest-portfolio-analysis/results/2026-03-22
@@ -89,10 +89,8 @@ mkdir -p data/t-invest-portfolio-analysis/results/2026-03-22
 |-----------|------------|---------------------|---------------------|--------------|
 | --source  | -s         | Фильтр по источнику | interfax, tass, ... | все          |
 | --category|            | Фильтр по категории | Экономика, Финансы  | все          |
-| --days    | -d         | За последние N дней | число               | 7            |
 | --limit   | -l         | Лимит записей       | число               | 50           |
 | --format  | -f         | Формат вывода       | md, json, csv, text | md           |
-| --no-fetch|            | Только поиск в кэше | флаг                | выкл         |
 
 ### t-invest instruments:fundamentals
 

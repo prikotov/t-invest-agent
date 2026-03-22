@@ -623,12 +623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/news-core.git",
-                "reference": "72b636996eca0a6083438f03b762a3cbda4f4c91"
+                "reference": "bec87fefdf307219f0baba8e8e1d8f4c287df517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/news-core/zipball/72b636996eca0a6083438f03b762a3cbda4f4c91",
-                "reference": "72b636996eca0a6083438f03b762a3cbda4f4c91",
+                "url": "https://api.github.com/repos/prikotov/news-core/zipball/bec87fefdf307219f0baba8e8e1d8f4c287df517",
+                "reference": "bec87fefdf307219f0baba8e8e1d8f4c287df517",
                 "shasum": ""
             },
             "require": {
@@ -713,7 +713,7 @@
                 "source": "https://github.com/prikotov/news-core/tree/master",
                 "issues": "https://github.com/prikotov/news-core/issues"
             },
-            "time": "2026-03-22T02:06:08+00:00"
+            "time": "2026-03-22T08:21:46+00:00"
         },
         {
             "name": "prikotov/t-invest-core",
