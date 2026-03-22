@@ -37,8 +37,13 @@ description: Глубокий поиск новостей по архивам н
 | Источник | URL |
 |----------|-----|
 | RBC | `https://duckduckgo.com/html/?q=site%3Arbc.ru+{query}` |
-| TASS | `https://duckduckgo.com/html/?q=site%3Atass.ru+{query}` |
 | Любой сайт | `https://duckduckgo.com/html/?q=site%3A{domain}+{query}` |
+
+### Только через браузер (требуют JS-челлендж)
+
+| Источник | URL | Особенности |
+|----------|-----|-------------|
+| TASS | `https://tass.ru/search?search={query}&from_date={from}&to_date={to}` | Даты в ISO формате с Z: `2026-02-28T17:00:00.000Z` |
 
 ## Как использовать
 
@@ -229,7 +234,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ## Ограничения
 
 - **Работает через webfetch:** Interfax, Kommersant, RIA, PRIME
-- **TASS:** JavaScript + капча — прямой доступ невозможен
+- **TASS:** JS-челлендж через servicepipe.ru — требует реальный браузер, curl/webfetch не работают
 - **RBC:** JS-защита, DuckDuckGo блокирует ботов
 - **DuckDuckGo HTML:** ненадёжно, часто блокирует капчей
 - **Interfax** — лучший архив (10+ лет, точные даты)
