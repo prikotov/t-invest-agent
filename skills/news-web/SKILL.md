@@ -7,22 +7,30 @@ description: Поиск новостей по новостным сайтам д
 
 Поиск новостей по новостным сайтам для анализа новостного фона компании.
 
-**Источники:**
-- **Interfax** — основной, работает через webfetch
-- **Kommersant** — деловые новости, работает через webfetch  
-- **RIA** — API endpoint, работает через webfetch
-- **PRIME** — экономические новости, API endpoint
-- **TASS** — требует headless Chrome (JS-челлендж)
-- **RBC** — недоступен (блокирует curl и headless Chrome, сильная защита от ботов)
+## Источники (в порядке полезности)
+
+| Приоритет | Источник | Ценность | Особенности |
+|-----------|----------|----------|-------------|
+| 1 | **Kommersant** | Высокая | Отраслевые статьи, интервью, комментарии экспертов, бизнес-аналитика |
+| 2 | **RIA** | Средняя | Прямые новости, широкий охват, стабильный API |
+| 3 | **SmartLab** | Средняя | Корпоративные раскрытия, сообщения компаний, форум инвесторов |
+| 4 | **Interfax** | Низкая | 80%+ результатов — шум (рыночные сводки), нужен жёсткий фильтр |
+| 5 | **PRIME** | Низкая | Почти только рыночные сводки, мало прямых новостей |
+| - | **TASS** | — | Требует headless Chrome (JS-челлендж) |
+| - | **RBC** | — | Недоступен (блокирует ботов) |
+
+**Рекомендация:** Для компаний 2-го эшелона (SGZH, NKNC и т.д.) новостные сайты часто не дают прямых новостей. В этом случае **SmartLab — лучший источник**: корпоративные раскрытия, сообщения эмитента, обсуждения инвесторов.
 
 ## Прямой доступ (webfetch)
 
-| Источник | URL | Особенности |
-|----------|-----|-------------|
-| Interfax | `https://www.interfax.ru/search/?df={from}&dt={to}&phrase={query}` | Глубокий архив, поиск по всем разделам |
-| Kommersant | `https://www.kommersant.ru/Search/Results?search_query={query}` | Деловые новости |
-| RIA | `https://ria.ru/services/search/getmore/?query={query}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date` | API возвращает JSON-подобный формат |
-| PRIME | `https://1prime.ru/services/search/getmore/?tags_limit=20&date_from={from}&date_to={to}&query={query}` | API с датами в формате YYYY-MM-DD |
+**ВАЖНО: Все источники требуют `format=html` + извлечение ссылок через grep!**
+
+| Источник | URL | Формат запроса |
+|----------|-----|----------------|
+| Kommersant | `https://www.kommersant.ru/Search/Results?search_query={query}` | `format=html` → grep ID → `/doc/{ID}` |
+| RIA | `https://ria.ru/services/search/getmore/?query={query}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date` | `format=html` → grep `.html` ссылок |
+| Interfax | `https://www.interfax.ru/search/?df={from}&dt={to}&phrase={query}` | `format=html` → grep ссылок |
+| PRIME | `https://1prime.ru/services/search/getmore/?tags_limit=20&date_from={from}&date_to={to}&query={query}` | `format=html` → grep ссылок |
 
 ## Только через браузер (требуют JS-челлендж)
 
@@ -59,6 +67,7 @@ grep -oP 'NonMediaMaterialCardLayout_text__nc9M6">\K[^<]+' tass.html
 |----------|------|--------------|
 | **Interfax** | Финансы, назначения, облигации | Прямые новости компании, пресс-релизы |
 | **Kommersant** | Отраслевая аналитика, интервью | Бизнес-статьи, комментарии экспертов |
+| **SmartLab** | Корпоративные раскрытия | Сообщения эмитента, раскрытие информации |
 | **PRIME** | Экономика, макро | Рыночные обзоры, макроэкономика |
 | **RIA** | Общие новости | Краткие новости, широкое покрытие |
 
@@ -178,20 +187,38 @@ https://www.kommersant.ru/Search/Results?search_query={QUERY}
 - Бизнес-аналитика
 - Эксклюзивные материалы
 
-**Извлечение ссылок:**
+**Извлечение ID статей:**
 
-Формат ссылки в результатах:
-```
-https://www.kommersant.ru/doc/8400650
-https://www.kommersant.ru/doc/8234973
+```bash
+webfetch format=html "https://www.kommersant.ru/Search/Results?search_query=Сегежа"
+grep -oP 'href="/doc/\d+' page.html | grep -oP '\d+'
 ```
 
-Полный URL = `https://www.kommersant.ru/doc/{ID}` из атрибута href
+**Открытие статей:**
+
+После извлечения ID открыть статью напрямую:
+```
+https://www.kommersant.ru/doc/{ID}
+```
+
+Примеры рабочих ссылок:
+```
+https://www.kommersant.ru/doc/8516012  # Совкомстаканчик (20.03.2026)
+https://www.kommersant.ru/doc/8514351  # Аудиторов позвали на природу (18.03.2026)
+https://www.kommersant.ru/doc/8440351  # Размещают не спеша (19.02.2026)
+```
 
 ### Шаг 5: Поиск через RIA
 
 ```
 https://ria.ru/services/search/getmore/?query={QUERY}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date
+```
+
+**Извлечение ссылок:**
+
+```bash
+webfetch format=html "https://ria.ru/services/search/getmore/..."
+grep -oP 'href="https://ria.ru/\d{8}/[^"]+\.html"' result.html
 ```
 
 Параметры:
@@ -206,6 +233,12 @@ https://ria.ru/services/search/getmore/?query={QUERY}&tags_limit=20&interval%5B%
 ```
 https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date
 https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA&tags_limit=50&interval%5B%5D=all&sort%5B%5D=date
+```
+
+Пример найденной статьи:
+```
+https://ria.ru/20250825/muz-2037555331.html
+# Новый вице-президент по финансам и инвестициям назначен в Segezha Group (25.08.2025)
 ```
 
 ### Шаг 6: Поиск через PRIME
@@ -228,7 +261,47 @@ https://1prime.ru/services/search/getmore/?tags_limit=20&date_from=2026-03-01&da
 https://1prime.ru/services/search/getmore/?tags_limit=50&date_from=2025-01-01&date_to=2026-03-22&query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA
 ```
 
-### Шаг 7: Чтение полных статей
+### Шаг 7: Поиск через SmartLab
+
+**URL форума по тикеру:**
+```
+https://smart-lab.ru/forum/{TICKER}/
+```
+
+Примеры:
+```
+https://smart-lab.ru/forum/SGZH/
+https://smart-lab.ru/forum/SBER/
+https://smart-lab.ru/forum/GAZP/
+```
+
+**Что искать на SmartLab:**
+
+| Тип контента | Где искать | Ценность |
+|--------------|------------|----------|
+| Сообщения эмитента | Топик "Сообщения эмитента" | Высокая — официальные раскрытия |
+| Существенные факты | Отдельные топики | Высокая — события компании |
+| Обсуждения инвесторов | Основная лента | Средняя — мнения, аналитика |
+| Фундаментальные метрики | Правая колонка | Справочная |
+
+**Извлечение ссылок на сообщения эмитента:**
+
+```bash
+# Сохранить страницу форума
+webfetch format=html "https://smart-lab.ru/forum/SGZH/"
+
+# Найти ссылки на сообщения эмитента
+grep -oP 'href="/forum/topic/\d+"' page.html
+```
+
+**Когда использовать SmartLab:**
+- Компании 2-го эшелона (мало освещения в СМИ)
+- Поиск корпоративных раскрытий (облигации, отчётность, факты)
+- Нет прямых новостей на Interfax/Kommersant
+
+**Особенность:** SmartLab содержит как форум (мнения инвесторов), так и официальные сообщения компаний. Для новостного анализа фокусироваться на **сообщениях эмитента** и **существенных фактах**.
+
+### Шаг 8: Чтение полных статей
 
 Для релевантных статей открыть полный текст по ссылке и извлечь:
 - Дату публикации
@@ -242,7 +315,7 @@ https://1prime.ru/services/search/getmore/?tags_limit=50&date_from=2025-01-01&da
 2. Отраслевые статьи с комментариями компании
 3. Интервью с руководством
 
-### Шаг 8: Агрегация и дедупликация
+### Шаг 9: Агрегация и дедупликация
 
 **После получения результатов от всех источников:**
 
@@ -271,7 +344,7 @@ https://1prime.ru/services/search/getmore/?tags_limit=50&date_from=2025-01-01&da
 - Формат ссылки: `[Название источника](URL)`
 - URL должен быть полным (с https://)
 
-### Шаг 9: Структурировать результаты
+### Шаг 10: Структурировать результаты
 
 Сгруппировать новости по темам:
 
