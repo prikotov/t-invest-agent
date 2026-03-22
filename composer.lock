@@ -527,12 +527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/moex-core.git",
-                "reference": "9093340d5bcd12c0d7607bf41c646ad3af81fb67"
+                "reference": "9c85ed5306a4c695c71fe6bb0efb07f1d5c5397b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/9093340d5bcd12c0d7607bf41c646ad3af81fb67",
-                "reference": "9093340d5bcd12c0d7607bf41c646ad3af81fb67",
+                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/9c85ed5306a4c695c71fe6bb0efb07f1d5c5397b",
+                "reference": "9c85ed5306a4c695c71fe6bb0efb07f1d5c5397b",
                 "shasum": ""
             },
             "require": {
@@ -615,7 +615,7 @@
                 "source": "https://github.com/prikotov/moex-core/tree/main",
                 "issues": "https://github.com/prikotov/moex-core/issues"
             },
-            "time": "2026-03-21T03:34:38+00:00"
+            "time": "2026-03-21T12:19:08+00:00"
         },
         {
             "name": "prikotov/news-core",
@@ -721,12 +721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/t-invest-core.git",
-                "reference": "ee7c80cbd668c75fa9ded0b3ec047d12c979f673"
+                "reference": "9100ee0628eae17415bfa086cf85710ee8164cf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/ee7c80cbd668c75fa9ded0b3ec047d12c979f673",
-                "reference": "ee7c80cbd668c75fa9ded0b3ec047d12c979f673",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/9100ee0628eae17415bfa086cf85710ee8164cf5",
+                "reference": "9100ee0628eae17415bfa086cf85710ee8164cf5",
                 "shasum": ""
             },
             "require": {
@@ -811,7 +811,7 @@
                 "source": "https://github.com/prikotov/t-invest-core/tree/main",
                 "issues": "https://github.com/prikotov/t-invest-core/issues"
             },
-            "time": "2026-03-21T04:36:43+00:00"
+            "time": "2026-03-21T12:19:10+00:00"
         },
         {
             "name": "psr/cache",
