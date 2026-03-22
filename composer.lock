@@ -527,12 +527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/moex-core.git",
-                "reference": "7b03970d0b75a4b4490505a017833f4259985cdc"
+                "reference": "9093340d5bcd12c0d7607bf41c646ad3af81fb67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/7b03970d0b75a4b4490505a017833f4259985cdc",
-                "reference": "7b03970d0b75a4b4490505a017833f4259985cdc",
+                "url": "https://api.github.com/repos/prikotov/moex-core/zipball/9093340d5bcd12c0d7607bf41c646ad3af81fb67",
+                "reference": "9093340d5bcd12c0d7607bf41c646ad3af81fb67",
                 "shasum": ""
             },
             "require": {
@@ -548,8 +548,9 @@
                 "symfony/yaml": "^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^10.0",
+                "prikotov/coding-standard": "@dev",
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^5.0|^6.0"
             },
@@ -578,22 +579,16 @@
                     "phpunit"
                 ],
                 "cs-check": [
-                    "phpcs --standard=devops/phpcs/MoexCodingStandard/ruleset.xml src tests"
+                    "phpcs"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=devops/phpcs/MoexCodingStandard/ruleset.xml src tests"
+                    "phpcbf"
                 ],
                 "stan": [
                     "phpstan analyse"
                 ],
                 "psalm": [
                     "psalm"
-                ],
-                "post-install-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
-                ],
-                "post-update-cmd": [
-                    "@php vendor/bin/phpcs --config-set installed_paths $(pwd)/devops/phpcs"
                 ]
             },
             "license": [
@@ -620,7 +615,7 @@
                 "source": "https://github.com/prikotov/moex-core/tree/main",
                 "issues": "https://github.com/prikotov/moex-core/issues"
             },
-            "time": "2026-03-19T11:41:00+00:00"
+            "time": "2026-03-21T03:34:38+00:00"
         },
         {
             "name": "prikotov/news-core",
@@ -628,12 +623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prikotov/news-core.git",
-                "reference": "711a7145d280e76eb18fccbd187d969c3ccbc0ba"
+                "reference": "72b636996eca0a6083438f03b762a3cbda4f4c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/news-core/zipball/711a7145d280e76eb18fccbd187d969c3ccbc0ba",
-                "reference": "711a7145d280e76eb18fccbd187d969c3ccbc0ba",
+                "url": "https://api.github.com/repos/prikotov/news-core/zipball/72b636996eca0a6083438f03b762a3cbda4f4c91",
+                "reference": "72b636996eca0a6083438f03b762a3cbda4f4c91",
                 "shasum": ""
             },
             "require": {
@@ -718,20 +713,20 @@
                 "source": "https://github.com/prikotov/news-core/tree/master",
                 "issues": "https://github.com/prikotov/news-core/issues"
             },
-            "time": "2026-03-20T03:04:58+00:00"
+            "time": "2026-03-22T02:06:08+00:00"
         },
         {
             "name": "prikotov/t-invest-core",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "git@github.com:prikotov/t-invest-core.git",
-                "reference": "1b15c9aaf107c2d6314dff1b1f257b90c15bb4c4"
+                "url": "https://github.com/prikotov/t-invest-core.git",
+                "reference": "ee7c80cbd668c75fa9ded0b3ec047d12c979f673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/1b15c9aaf107c2d6314dff1b1f257b90c15bb4c4",
-                "reference": "1b15c9aaf107c2d6314dff1b1f257b90c15bb4c4",
+                "url": "https://api.github.com/repos/prikotov/t-invest-core/zipball/ee7c80cbd668c75fa9ded0b3ec047d12c979f673",
+                "reference": "ee7c80cbd668c75fa9ded0b3ec047d12c979f673",
                 "shasum": ""
             },
             "require": {
@@ -812,7 +807,11 @@
                 "t-invest",
                 "trading"
             ],
-            "time": "2026-03-21T04:16:38+00:00"
+            "support": {
+                "source": "https://github.com/prikotov/t-invest-core/tree/main",
+                "issues": "https://github.com/prikotov/t-invest-core/issues"
+            },
+            "time": "2026-03-21T04:36:43+00:00"
         },
         {
             "name": "psr/cache",
