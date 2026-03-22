@@ -8,6 +8,7 @@ skills:
     - t-invest-portfolio-analysis
     - t-invest-candles
     - t-invest-orderbook
+    - moex-ticker-resolver
     - moex-ticker-analysis
     - calculations
     - t-invest-trading-calendar
@@ -27,6 +28,7 @@ skills:
     - t-invest-trading-calendar
     - t-invest-corporate-events
     - moex
+    - moex-ticker-resolver
     - moex-ticker-analysis
     - moex-candles
     - moex-trading-calendar
@@ -60,12 +62,14 @@ skills:
     - t-invest-orderbook
     - calculations
     - t-invest-portfolio-analysis
+    - moex-ticker-resolver
     - moex-candles
     - moex-ticker-analysis
     - dashboard
 
   # News monitoring
   news:
+    - moex-ticker-resolver
     - news-rss
     - news-web
     - moex-ticker-analysis
@@ -78,6 +82,7 @@ skills:
     - news-web
     - social-sentiment
     - t-invest-portfolio-analysis
+    - moex-ticker-resolver
     - moex-ticker-analysis
     - t-invest-corporate-events
     - dashboard
