@@ -28,7 +28,7 @@ description: Глубокий поиск новостей по архивам н
 | Interfax | `https://www.interfax.ru/search/?df={from}&dt={to}&phrase={query}` | Глубокий архив, поиск по всем разделам |
 | Kommersant | `https://www.kommersant.ru/Search/Results?search_query={query}` | Деловые новости |
 | RIA | `https://ria.ru/services/search/getmore/?query={query}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date` | API возвращает JSON-подобный формат |
-| PRIME | `https://1prime.ru/search/?query={query}` | Экономические новости |
+| PRIME | `https://1prime.ru/services/search/getmore/?tags_limit=20&date_from={from}&date_to={to}&query={query}` | API с датами в формате YYYY-MM-DD |
 
 ### Через DuckDuckGo HTML (site:)
 
@@ -116,7 +116,27 @@ https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%
 https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA&tags_limit=50&interval%5B%5D=all&sort%5B%5D=date
 ```
 
-### Шаг 5: Дополнительные источники через DuckDuckGo
+### Шаг 4.1: Поиск через PRIME
+
+```
+https://1prime.ru/services/search/getmore/?tags_limit=20&date_from={FROM}&date_to={TO}&query={QUERY}
+```
+
+Параметры:
+| Параметр | Описание |
+|----------|----------|
+| query | Поисковая фраза (URL-encoded) |
+| tags_limit | Лимит результатов |
+| date_from | Дата начала (YYYY-MM-DD) |
+| date_to | Дата окончания (YYYY-MM-DD) |
+
+Примеры:
+```
+https://1prime.ru/services/search/getmore/?tags_limit=20&date_from=2026-03-01&date_to=2026-03-21&query=%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0
+https://1prime.ru/services/search/getmore/?tags_limit=50&date_from=2025-01-01&date_to=2026-03-22&query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA
+```
+
+### Шаг 6: Дополнительные источники через DuckDuckGo
 
 Для RBC, TASS, RIA использовать DuckDuckGo HTML:
 
@@ -131,7 +151,7 @@ https://duckduckgo.com/html/?q=site%3Arbc.ru+Сбербанк
 https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ```
 
-### Шаг 6: Чтение полных статей
+### Шаг 7: Чтение полных статей
 
 Для важных статей открыть полный текст по ссылке и извлечь:
 - Дату публикации
@@ -140,7 +160,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 - Финансовые прогнозы
 - Связанные события
 
-### Шаг 7: Структурировать результаты
+### Шаг 8: Структурировать результаты
 
 Сгруппировать новости по темам:
 
