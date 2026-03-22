@@ -24,16 +24,7 @@ description: Поиск новостей по новостным сайтам д
 | RIA | `https://ria.ru/services/search/getmore/?query={query}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date` | API возвращает JSON-подобный формат |
 | PRIME | `https://1prime.ru/services/search/getmore/?tags_limit=20&date_from={from}&date_to={to}&query={query}` | API с датами в формате YYYY-MM-DD |
 
-### Через DuckDuckGo HTML (site:)
-
-**Важно:** DuckDuckGo блокирует ботов капчей. Поиск через DDG может не работать.
-
-| Источник | URL |
-|----------|-----|
-| RBC | `https://duckduckgo.com/html/?q=site%3Arbc.ru+{query}` |
-| Любой сайт | `https://duckduckgo.com/html/?q=site%3A{domain}+{query}` |
-
-### Только через браузер (требуют JS-челлендж)
+## Только через браузер (требуют JS-челлендж)
 
 | Источник | URL | Особенности |
 |----------|-----|-------------|
@@ -158,22 +149,7 @@ https://1prime.ru/services/search/getmore/?tags_limit=20&date_from=2026-03-01&da
 https://1prime.ru/services/search/getmore/?tags_limit=50&date_from=2025-01-01&date_to=2026-03-22&query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA
 ```
 
-### Шаг 6: Дополнительные источники через DuckDuckGo
-
-Для RBC, TASS, RIA использовать DuckDuckGo HTML:
-
-```
-https://duckduckgo.com/html/?q=site%3Arbc.ru+{QUERY}
-https://duckduckgo.com/html/?q=site%3Atass.ru+{QUERY}
-```
-
-Примеры:
-```
-https://duckduckgo.com/html/?q=site%3Arbc.ru+Сбербанк
-https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
-```
-
-### Шаг 7: Чтение полных статей
+### Шаг 5: Чтение полных статей
 
 Для важных статей открыть полный текст по ссылке и извлечь:
 - Дату публикации
@@ -216,7 +192,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 
 ```
 1. Interfax: phrase=компания%20(суд|проверка|скандал)
-2. DuckDuckGo: site:rbc.ru "компания" скандал
+2. Kommersant: "компания" + (суд|проверка|скандал)
 3. Оценить серьёзность и текущий статус
 ```
 
@@ -251,7 +227,6 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ## Ограничения
 
 - **Работает через webfetch:** Interfax, Kommersant, RIA, PRIME
-- **TASS:** JS-челлендж через servicepipe.ru — требует реальный браузер, curl/webfetch не работают
-- **RBC:** JS-защита, DuckDuckGo блокирует ботов
-- **DuckDuckGo HTML:** ненадёжно, часто блокирует капчей
+- **TASS:** требует headless Chrome с флагом `--disable-blink-features=AutomationControlled`
+- **RBC:** недоступен (блокирует все автоматические запросы)
 - **Interfax** — лучший архив (10+ лет, точные даты)
