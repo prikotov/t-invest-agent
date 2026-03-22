@@ -5,23 +5,17 @@ description: Поиск новостей по новостным сайтам д
 
 # News Web Search
 
-Поиск новостей в архивах новостных сайтов. В отличие от news-rss (свежие новости из лент), этот skill ищет по веб-архивам для понимания:
-- Траектории развития компании
-- Озвученных планов и их выполнения
-- Прошлых проблем и кризисов
-- Сравнения обещаний с реальностью
+Поиск новостей по новостным сайтам для анализа новостного фона компании.
 
-## Когда использовать
+**Источники:**
+- **Interfax** — основной, работает через webfetch
+- **Kommersant** — деловые новости, работает через webfetch  
+- **RIA** — API endpoint, работает через webfetch
+- **PRIME** — экономические новости, API endpoint
+- **TASS** — требует headless Chrome (JS-челлендж)
+- **RBC** — недоступен (JS-защита + DuckDuckGo блокирует)
 
-- Анализ новой компании перед инвестицией
-- Проверка истории заявлений руководства
-- Поиск прошлых кризисов и скандалов
-- Понимание долгосрочной стратегии
-- Сравнение обещаний vs реальные результаты
-
-## Источники
-
-### Прямой доступ (работает через webfetch)
+## Прямой доступ (webfetch)
 
 | Источник | URL | Особенности |
 |----------|-----|-------------|
@@ -66,27 +60,6 @@ google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationCo
 ```bash
 grep -oP 'MaterialCardLayout_text__LnYk4">\K[^<]+' tass.html
 grep -oP 'NonMediaMaterialCardLayout_text__nc9M6">\K[^<]+' tass.html
-```
-
-**TASS через headless Chrome:**
-
-```bash
-google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationControlled \
-  --window-size=1920,1080 \
-  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
-  --dump-dom --timeout=30000 \
-  'https://tass.ru/search?search={QUERY}&from_date={FROM}&to_date={TO}' > output.html
-```
-
-Ключевой флаг: `--disable-blink-features=AutomationControlled` — обходит детекцию бота.
-
-Пример:
-```bash
-google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationControlled \
-  --window-size=1920,1080 \
-  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
-  --dump-dom --timeout=30000 \
-  'https://tass.ru/search?search=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA&from_date=2026-02-28T17%3A00%3A00.000Z&to_date=2026-03-20T16%3A59%3A59.000Z' > tass.html
 ```
 
 ## Как использовать
