@@ -25,9 +25,9 @@ description: Глубокий поиск новостей по архивам н
 
 | Источник | URL | Особенности |
 |----------|-----|-------------|
-| Interfax | `https://www.interfax.ru/search/?searchtxt={query}&period={period}` | Глубокий архив, фильтр по датам |
+| Interfax | `https://www.interfax.ru/search/?df={from}&dt={to}&phrase={query}` | Глубокий архив, поиск по всем разделам |
 | Kommersant | `https://www.kommersant.ru/Search/Results?search_query={query}` | Деловые новости |
-| RIA | `https://ria.ru/search/?query={query}` | 30061+ материалов по Сбербанку |
+| RIA | `https://ria.ru/services/search/getmore/?query={query}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date` | API возвращает JSON-подобный формат |
 | PRIME | `https://1prime.ru/search/?query={query}` | Экономические новости |
 
 ### Через DuckDuckGo HTML (site:)
@@ -56,28 +56,29 @@ description: Глубокий поиск новостей по архивам н
 
 ### Шаг 2: Поиск через Interfax (основной источник)
 
-**Шаг 2.1:** Выбрать период
+**Шаг 2.1:** Сформировать URL
 
-| Период | Код | Для чего |
-|--------|-----|----------|
-| Неделя | `week` | Свежие события |
-| Месяц | `month` | Текущий контекст |
-| Квартал | `quarter` | Квартальные итоги |
-| Полгода | `halfyear` | Среднесрочные тренды |
-| Год | `year` | Годовая история |
-| Всё время | `all` | Полная история |
+Формат URL с датами:
+```
+https://www.interfax.ru/search/?df={FROM}&dt={TO}&phrase={QUERY}
+```
+
+Параметры:
+| Параметр | Описание | Пример |
+|----------|----------|--------|
+| df | Дата начала | `01.03.2021` |
+| dt | Дата окончания | `21.03.2026` |
+| phrase | Поисковая фраза (URL-encoded) | `%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0` |
 
 **Шаг 2.2:** Выполнить запрос
 
-```
-https://www.interfax.ru/search/?searchtxt={QUERY}&period={PERIOD}
-```
-
 Примеры:
 ```
-https://www.interfax.ru/search/?searchtxt=Сбербанк&period=year
-https://www.interfax.ru/search/?searchtxt=Газпром&period=quarter
+https://www.interfax.ru/search/?df=01.03.2021&dt=21.03.2026&phrase=%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0
+https://www.interfax.ru/search/?df=01.01.2025&dt=21.03.2026&phrase=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA
 ```
+
+Примечание: Русский текст нужно URL-encode (Сегежа → %D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0)
 
 **Шаг 2.3:** Извлечь результаты
 
@@ -95,7 +96,27 @@ https://www.kommersant.ru/Search/Results?search_query={QUERY}
 
 Подходит для деловой аналитики, интервью с руководством.
 
-### Шаг 4: Дополнительные источники через DuckDuckGo
+### Шаг 4: Поиск через RIA
+
+```
+https://ria.ru/services/search/getmore/?query={QUERY}&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date
+```
+
+Параметры:
+| Параметр | Описание |
+|----------|----------|
+| query | Поисковая фраза (URL-encoded) |
+| tags_limit | Лимит результатов |
+| interval[] | Период: `year`, `month`, `week`, `all` |
+| sort[] | Сортировка: `date`, `relevance` |
+
+Примеры:
+```
+https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B5%D0%B3%D0%B5%D0%B6%D0%B0&tags_limit=20&interval%5B%5D=year&sort%5B%5D=date
+https://ria.ru/services/search/getmore/?query=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA&tags_limit=50&interval%5B%5D=all&sort%5B%5D=date
+```
+
+### Шаг 5: Дополнительные источники через DuckDuckGo
 
 Для RBC, TASS, RIA использовать DuckDuckGo HTML:
 
@@ -110,7 +131,7 @@ https://duckduckgo.com/html/?q=site%3Arbc.ru+Сбербанк
 https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ```
 
-### Шаг 5: Чтение полных статей
+### Шаг 6: Чтение полных статей
 
 Для важных статей открыть полный текст по ссылке и извлечь:
 - Дату публикации
@@ -119,7 +140,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 - Финансовые прогнозы
 - Связанные события
 
-### Шаг 6: Структурировать результаты
+### Шаг 7: Структурировать результаты
 
 Сгруппировать новости по темам:
 
@@ -136,7 +157,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ### Анализ новой компании
 
 ```
-1. Interfax: "Название компании" period=year
+1. Interfax: df=01.01.2024&dt=сегодня&phrase=Название
 2. Извлечь: стратегия, планы, риски
 3. Сравнить обещания год назад vs текущее состояние
 ```
@@ -144,7 +165,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ### Проверка заявлений CEO
 
 ```
-1. Interfax: "Фамилия CEO" period=halfyear
+1. Interfax: phrase=Фамилия%20CEO&df=полгода&dt=сегодня
 2. Kommersant: "Фамилия CEO" (интервью)
 3. Сверить с реальными результатами
 ```
@@ -152,7 +173,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ### Поиск риск-факторов
 
 ```
-1. Interfax: "компания" + (суд|проверка|скандал|санкции)
+1. Interfax: phrase=компания%20(суд|проверка|скандал)
 2. DuckDuckGo: site:rbc.ru "компания" скандал
 3. Оценить серьёзность и текущий статус
 ```
@@ -160,7 +181,7 @@ https://duckduckgo.com/html/?q=site%3Atass.ru+Газпром
 ### Дивидендная история
 
 ```
-1. Interfax: "компания дивиденды" period=all
+1. Interfax: phrase=компания%20дивиденды&df=5%20лет&dt=сегодня
 2. Извлечь: заявленные vs выплаченные
 ```
 
