@@ -35,6 +35,8 @@ data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 
 ### news:search
 
+Поиск новостей по ключевым словам с фильтрами. Опционально обновляет кэш из RSS. Используется для получения контекста по тикеру или теме.
+
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "SBER" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
@@ -62,6 +64,8 @@ mkdir -p data/news-rss/results/2026-03-22
 | --no-fetch |            | Только поиск в кэше   | флаг                  | выкл         |
 
 ### news:sources
+
+Список доступных RSS-источников с URL лент. Используется для справки и фильтрации по источникам.
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22

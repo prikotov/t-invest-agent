@@ -35,6 +35,8 @@ data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 
 ### security:specification
 
+Спецификация инструмента: ISIN, тип, уровень списка, размер эмиссии. Используется для идентификации бумаги и проверки её статуса на бирже.
+
 ```bash
 mkdir -p data/moex/results/2026-03-22
 ./vendor/bin/moex security:specification SBER --format=json > data/moex/results/2026-03-22/spec-sber-2026-03-22_14-30-00.json
@@ -58,6 +60,8 @@ mkdir -p data/moex/results/2026-03-22
 
 ### security:trade-data
 
+Рыночные данные: цены OHLC, объём торгов, время последней сделки. Данные с задержкой ~20 минут — для оценки общей динамики, не для торговли.
+
 ```bash
 mkdir -p data/moex/results/2026-03-22
 ./vendor/bin/moex security:trade-data SBER --format=json > data/moex/results/2026-03-22/trade-data-sber-2026-03-22_14-30-00.json
@@ -80,6 +84,8 @@ mkdir -p data/moex/results/2026-03-22
 | --format | -f         | Формат вывода | table, json, csv, md | table        |
 
 ### security:aggregates
+
+Агрегированные итоги торгов по рынкам: объём в деньгах и штуках, число сделок. Используется для оценки ликвидности инструмента.
 
 ```bash
 mkdir -p data/moex/results/2026-03-22
@@ -107,6 +113,8 @@ mkdir -p data/moex/results/2026-03-22
 | --format | -f         | Формат вывода           | table, json, csv, md      | table        |
 
 ### security:indices
+
+Индексы МосБиржи, в которые входит инструмент: IMOEX, MOEXBC и др. Дата включения и исключения. Используется для оценки индексной значимости и ликвидности.
 
 ```bash
 mkdir -p data/moex/results/2026-03-22
