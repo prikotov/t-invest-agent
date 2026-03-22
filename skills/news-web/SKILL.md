@@ -45,6 +45,50 @@ description: Глубокий поиск новостей по архивам н
 |----------|-----|-------------|
 | TASS | `https://tass.ru/search?search={query}&from_date={from}&to_date={to}` | Даты в ISO формате с Z: `2026-02-28T17:00:00.000Z` |
 
+**TASS через headless Chrome:**
+
+```bash
+google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationControlled \
+  --window-size=1920,1080 \
+  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
+  --dump-dom --timeout=30000 \
+  'https://tass.ru/search?search={QUERY}&from_date={FROM}&to_date={TO}' > tass.html
+```
+
+Параметры:
+| Параметр | Описание |
+|----------|----------|
+| search | Поисковая фраза (URL-encoded) |
+| from_date | Дата начала (ISO: `2026-02-28T17:00:00.000Z`) |
+| to_date | Дата окончания (ISO: `2026-03-20T16:59:59.000Z`) |
+
+Извлечение заголовков из HTML:
+```bash
+grep -oP 'MaterialCardLayout_text__LnYk4">\K[^<]+' tass.html
+grep -oP 'NonMediaMaterialCardLayout_text__nc9M6">\K[^<]+' tass.html
+```
+
+**TASS через headless Chrome:**
+
+```bash
+google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationControlled \
+  --window-size=1920,1080 \
+  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
+  --dump-dom --timeout=30000 \
+  'https://tass.ru/search?search={QUERY}&from_date={FROM}&to_date={TO}' > output.html
+```
+
+Ключевой флаг: `--disable-blink-features=AutomationControlled` — обходит детекцию бота.
+
+Пример:
+```bash
+google-chrome --headless=new --disable-gpu --disable-blink-features=AutomationControlled \
+  --window-size=1920,1080 \
+  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
+  --dump-dom --timeout=30000 \
+  'https://tass.ru/search?search=%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA&from_date=2026-02-28T17%3A00%3A00.000Z&to_date=2026-03-20T16%3A59%3A59.000Z' > tass.html
+```
+
 ## Как использовать
 
 ### Шаг 1: Определить поисковые термины
