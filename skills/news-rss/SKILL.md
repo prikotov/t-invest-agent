@@ -16,14 +16,14 @@ description: Свежие финансовые новости из RSS-лент 
 
 ## Источники
 
-| Источник | Тип |
-|----------|-----|
-| Interfax | Новости |
-| TASS | Новости |
-| RIA Novosti | Новости |
-| PRIME | Экономика |
-| RBC | Финансы |
-| Kommersant | Бизнес |
+| Источник    | Тип       |
+|-------------|-----------|
+| Interfax    | Новости   |
+| TASS        | Новости   |
+| RIA Novosti | Новости   |
+| PRIME       | Экономика |
+| RBC         | Финансы   |
+| Kommersant  | Бизнес    |
 
 ## Как использовать
 
@@ -33,71 +33,73 @@ description: Свежие финансовые новости из RSS-лент 
 data/{skill}/results/{YYYY-MM-DD}/{operation}-{YYYY-MM-DD}_{HH-II-SS}.{format}
 ```
 
+### news:search
+
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "SBER" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
 
 ```bash
-./vendor/bin/news news:search [query] [опции]
+./vendor/bin/news news:search [query] [options]
 ```
 
-Параметры:
+Аргументы:
 
-| Параметр | Описание |
-|----------|----------|
-| query | Поисковые термины (аргумент) |
+| Аргумент | Описание                     |
+|----------|------------------------------|
+| query    | Поисковые термины (опционально) |
 
 Опции:
 
-| Опция | Описание | Значения | По умолчанию |
-|-------|----------|----------|--------------|
-| --source, -s | Фильтр по источнику | interfax, tass, rbc, ... | все |
-| --category | Фильтр по категории | Экономика, Финансы, ... | все |
-| --days, -d | За последние N дней | число | 7 |
-| --limit, -l | Лимит записей | число | 50 |
-| --format, -f | Формат вывода | md, json, csv, text | md |
-| --no-fetch | Только поиск в кэше | флаг | выкл |
+| Опция      | Сокращение | Описание              | Значения              | По умолчанию |
+|------------|------------|-----------------------|-----------------------|--------------|
+| --source   | -s         | Фильтр по источнику   | interfax, tass, rbc, ... | все       |
+| --category |            | Фильтр по категории   | Экономика, Финансы, ... | все       |
+| --days     | -d         | За последние N дней   | число                 | 7            |
+| --limit    | -l         | Лимит записей         | число                 | 50           |
+| --format   | -f         | Формат вывода         | md, json, csv, text   | md           |
+| --no-fetch |            | Только поиск в кэше   | флаг                  | выкл         |
 
-### Примеры
-
-```bash
-mkdir -p data/news-rss/results/2026-03-22
-./vendor/bin/news news:search "Сбербанк" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
-```
+### news:sources
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
-./vendor/bin/news news:search "нефть" --no-fetch --format=json > data/news-rss/results/2026-03-22/search-oil-2026-03-22_14-30-00.json
+./vendor/bin/news news:sources --format=json > data/news-rss/results/2026-03-22/sources-2026-03-22_14-30-00.json
 ```
 
 ```bash
-mkdir -p data/news-rss/results/2026-03-22
-./vendor/bin/news news:search --source=interfax --source=tass --format=json > data/news-rss/results/2026-03-22/search-sources-2026-03-22_14-30-00.json
+./vendor/bin/news news:sources [options]
 ```
 
-```bash
-mkdir -p data/news-rss/results/2026-03-22
-./vendor/bin/news news:search "ОПЕК" --category "Экономика" --format=json > data/news-rss/results/2026-03-22/search-opek-2026-03-22_14-30-00.json
-```
+Опции:
 
-## Дополнительные команды
-
-```bash
-./vendor/bin/news news:sources
-```
+| Опция    | Сокращение | Описание      | Значения            | По умолчанию |
+|----------|------------|---------------|---------------------|--------------|
+| --format | -f         | Формат вывода | md, json, csv, text | md           |
 
 ## Результат
 
+### news:search
+
 Поля:
 
-| Поле | Описание |
-|------|----------|
-| Date | Дата публикации |
-| Source | Источник |
-| Category | Категория |
-| Title | Заголовок |
-| Link | Ссылка на статью |
+| Поле     | Описание            |
+|----------|---------------------|
+| Date     | Дата публикации     |
+| Source   | Источник            |
+| Category | Категория           |
+| Title    | Заголовок           |
+| Link     | Ссылка на статью    |
+
+### news:sources
+
+Поля:
+
+| Поле   | Описание        |
+|--------|-----------------|
+| Name   | Название источника |
+| URL    | URL RSS-ленты   |
 
 ## Типовые сценарии
 
@@ -108,7 +110,7 @@ mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "Сбербанк" --format=json > data/news-rss/results/2026-03-22/search-sber-2026-03-22_14-30-00.json
 ```
 
-### Новости по теме
+### Новости по нескольким темам
 
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
@@ -120,6 +122,20 @@ mkdir -p data/news-rss/results/2026-03-22
 ```bash
 mkdir -p data/news-rss/results/2026-03-22
 ./vendor/bin/news news:search "Сбербанк" --no-fetch --days=7 --format=json > data/news-rss/results/2026-03-22/search-sber-archive-2026-03-22_14-30-00.json
+```
+
+### Фильтр по источникам
+
+```bash
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "ОПЕК" --source=interfax --source=tass --format=json > data/news-rss/results/2026-03-22/search-opek-sources-2026-03-22_14-30-00.json
+```
+
+### Фильтр по категории
+
+```bash
+mkdir -p data/news-rss/results/2026-03-22
+./vendor/bin/news news:search "ОПЕК" --category "Экономика" --format=json > data/news-rss/results/2026-03-22/search-opek-category-2026-03-22_14-30-00.json
 ```
 
 ## Кэширование
