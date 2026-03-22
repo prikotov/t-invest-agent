@@ -13,7 +13,7 @@ description: Поиск новостей по новостным сайтам д
 - **RIA** — API endpoint, работает через webfetch
 - **PRIME** — экономические новости, API endpoint
 - **TASS** — требует headless Chrome (JS-челлендж)
-- **RBC** — недоступен (JS-защита + DuckDuckGo блокирует)
+- **RBC** — недоступен (блокирует curl и headless Chrome, сильная защита от ботов)
 
 ## Прямой доступ (webfetch)
 
