@@ -26,7 +26,7 @@ class DisableCommand extends Command
     {
         $this
             ->addArgument('skills', InputArgument::IS_ARRAY, 'Skill names to disable')
-            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, all', 'opencode');
+            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, kilo, all', 'opencode');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

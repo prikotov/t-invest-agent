@@ -27,7 +27,7 @@ class ListCommand extends Command
             'target',
             't',
             InputOption::VALUE_REQUIRED,
-            'Target agent: opencode, kilocode, all',
+            'Target agent: opencode, kilocode, kilo, all',
             'opencode'
         );
     }

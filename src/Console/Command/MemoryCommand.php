@@ -16,7 +16,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand('memory', 'Manage user memory and profile')]
 class MemoryCommand extends Command
 {
-    private const LABELS = [
+    /** @var array<string, string> */
+    private const array LABELS = [
         'risk_tolerance' => 'Risk Tolerance',
         'horizon' => 'Investment Horizon',
         'style' => 'Investment Style',
