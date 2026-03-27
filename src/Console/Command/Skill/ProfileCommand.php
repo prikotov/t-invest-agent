@@ -28,7 +28,7 @@ class ProfileCommand extends Command
     {
         $this
             ->addArgument('profile', InputArgument::OPTIONAL, 'Profile name to apply')
-            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, all', 'opencode')
+            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, kilo, all', 'opencode')
             ->setDescription('Apply a skill profile or list available profiles');
     }
 
@@ -99,7 +99,7 @@ class ProfileCommand extends Command
         }
 
         $table->render();
-        $output->writeln("\nUsage: <info>skill:profile <profile_name> [--target=opencode|kilocode|all]</info>");
+        $output->writeln("\nUsage: <info>skill:profile <profile_name> [--target=opencode|kilocode|kilo|all]</info>");
 
         return Command::SUCCESS;
     }

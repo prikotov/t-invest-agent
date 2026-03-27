@@ -10,7 +10,6 @@
 >
     <projectFiles>
         <directory name="src"/>
-        <directory name="tests"/>
         <ignoreFiles>
             <directory name="vendor"/>
         </ignoreFiles>
@@ -18,25 +17,13 @@
     <issueHandlers>
         <ClassMustBeFinal errorLevel="suppress"/>
         <MissingOverrideAttribute errorLevel="suppress"/>
-        <PropertyNotSetInConstructor errorLevel="suppress">
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </PropertyNotSetInConstructor>
+        <PropertyNotSetInConstructor errorLevel="suppress"/>
         <UndefinedInterfaceMethod errorLevel="suppress"/>
         <UndefinedDocblockClass errorLevel="suppress"/>
         <PossiblyFalseIterator errorLevel="suppress"/>
         <PossiblyFalseArgument errorLevel="suppress"/>
-        <ForbiddenCode errorLevel="suppress">
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </ForbiddenCode>
-        <RiskyTruthyFalsyComparison errorLevel="suppress">
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </RiskyTruthyFalsyComparison>
+        <ForbiddenCode errorLevel="suppress"/>
+        <RiskyTruthyFalsyComparison errorLevel="suppress"/>
         <MixedArgument errorLevel="suppress"/>
         <MixedArrayAccess errorLevel="suppress"/>
         <MixedAssignment errorLevel="suppress"/>

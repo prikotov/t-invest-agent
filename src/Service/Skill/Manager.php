@@ -9,12 +9,15 @@ use Symfony\Component\Filesystem\Path;
 
 class Manager
 {
-    public const TARGET_OPENCODE = 'opencode';
-    public const TARGET_KILOCODE = 'kilocode';
+    public const string TARGET_OPENCODE = 'opencode';
+    public const string TARGET_KILOCODE = 'kilocode';
+    public const string TARGET_KILO = 'kilo';
 
-    private const TARGET_DIRS = [
+    /** @var array<string, string> */
+    private const array TARGET_DIRS = [
         self::TARGET_OPENCODE => '.agents/skills',
         self::TARGET_KILOCODE => '.kilocode/skills',
+        self::TARGET_KILO => '.kilo/skills',
     ];
 
     private string $skillsSourceDir;
@@ -169,7 +172,7 @@ class Manager
 
     public static function getValidTargets(): array
     {
-        return [self::TARGET_OPENCODE, self::TARGET_KILOCODE];
+        return [self::TARGET_OPENCODE, self::TARGET_KILOCODE, self::TARGET_KILO];
     }
 
     public static function isValidTarget(string $target): bool

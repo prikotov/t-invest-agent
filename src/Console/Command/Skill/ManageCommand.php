@@ -32,7 +32,7 @@ final class ManageCommand extends Command
             ->addOption('disable', 'd', InputOption::VALUE_OPTIONAL, 'Disable specific skills (comma-separated)')
             ->addOption('all', 'a', InputOption::VALUE_NONE, 'Enable all skills')
             ->addOption('none', null, InputOption::VALUE_NONE, 'Disable all skills')
-            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, all', 'opencode');
+            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, kilo, all', 'opencode');
     }
 
     #[Override]
