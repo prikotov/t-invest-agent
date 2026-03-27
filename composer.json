@@ -72,7 +72,10 @@
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "stan": "phpstan analyse",
-        "psalm": "psalm"
+        "psalm": "psalm",
+        "skills:install": "php bin/agent skill:profile default --target=all",
+        "skills:install:opencode": "php bin/agent skill:profile default --target=opencode",
+        "skills:install:kilocode": "php bin/agent skill:profile default --target=kilocode"
     },
     "conflict": {
         "symfony/symfony": "*"

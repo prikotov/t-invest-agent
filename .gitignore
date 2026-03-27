@@ -1,4 +1,5 @@
 /.agents/
+/.kilocode/
 .phpunit.result.cache
 .idea/
 /data/
