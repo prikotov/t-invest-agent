@@ -357,6 +357,25 @@ composer install
 composer skills:install
 ```
 
+`composer skills:install` устанавливает скилы для всех поддерживаемых агентов (opencode + kilocode).
+
+Доступные варианты:
+
+```bash
+composer skills:install              # Установить для всех агентов
+composer skills:install:opencode     # Только для OpenCode (.agents/skills/)
+composer skills:install:kilocode     # Только для KiloCode (.kilocode/skills/)
+```
+
+Управление скилами вручную:
+
+```bash
+php bin/agent skill:list                           # Список скилов
+php bin/agent skill:profile default --target=all   # Применить профиль для всех
+php bin/agent skill:profile trading --target=kilocode  # Профиль для KiloCode
+php bin/agent skill:enable memory --target=opencode    # Включить конкретный скил
+```
+
 ---
 
 ## Использование с AI-ассистентами
@@ -368,11 +387,16 @@ cd t-invest-agent
 opencode
 ```
 
+Скилы устанавливаются в `.agents/skills/`.
+
+### KiloCode
+
+```bash
+cd t-invest-agent
+# Запустите KiloCode (VS Code Extension или CLI)
 ```
-> Проанализируй мой портфель
-> Какие новости по Сбербанку?
-> Что думаешь про GAZP?
-```
+
+Скилы устанавливаются в `.kilocode/skills/`.
 
 ### Claude Code
 
@@ -381,7 +405,7 @@ cd t-invest-agent
 claude
 ```
 
-### Codex CLI / Gemini CLI / Qwen CLI / KiloCode
+### Codex CLI / Gemini CLI / Qwen CLI
 
 Аналогично — запустите CLI в папке проекта.
 

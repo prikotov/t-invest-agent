@@ -9,15 +9,21 @@ use Symfony\Component\Filesystem\Path;
 
 class Manager
 {
+    public const TARGET_OPENCODE = 'opencode';
+    public const TARGET_KILOCODE = 'kilocode';
+
+    private const TARGET_DIRS = [
+        self::TARGET_OPENCODE => '.agents/skills',
+        self::TARGET_KILOCODE => '.kilocode/skills',
+    ];
+
     private string $skillsSourceDir;
-    private string $skillsTargetDir;
     private Filesystem $fs;
 
     public function __construct(
         private readonly string $projectDir
     ) {
         $this->skillsSourceDir = $projectDir . '/skills';
-        $this->skillsTargetDir = $projectDir . '/.agents/skills';
         $this->fs = new Filesystem();
     }
 
@@ -41,18 +47,19 @@ class Manager
         return $skills;
     }
 
-    public function getEnabledSkills(): array
+    public function getEnabledSkills(string $target = self::TARGET_OPENCODE): array
     {
-        if (!is_dir($this->skillsTargetDir)) {
+        $targetDir = $this->getTargetDir($target);
+        if (!is_dir($targetDir)) {
             return [];
         }
 
         $enabled = [];
-        foreach (scandir($this->skillsTargetDir) as $entry) {
+        foreach (scandir($targetDir) as $entry) {
             if ($entry === '.' || $entry === '..') {
                 continue;
             }
-            $link = $this->skillsTargetDir . '/' . $entry;
+            $link = $targetDir . '/' . $entry;
             if (is_link($link)) {
                 $enabled[basename($link)] = true;
             }
@@ -61,18 +68,19 @@ class Manager
         return $enabled;
     }
 
-    public function cleanupBrokenSymlinks(): int
+    public function cleanupBrokenSymlinks(string $target = self::TARGET_OPENCODE): int
     {
-        if (!is_dir($this->skillsTargetDir)) {
+        $targetDir = $this->getTargetDir($target);
+        if (!is_dir($targetDir)) {
             return 0;
         }
 
         $removed = 0;
-        foreach (scandir($this->skillsTargetDir) as $entry) {
+        foreach (scandir($targetDir) as $entry) {
             if ($entry === '.' || $entry === '..') {
                 continue;
             }
-            $link = $this->skillsTargetDir . '/' . $entry;
+            $link = $targetDir . '/' . $entry;
             if (is_link($link) && !file_exists($link)) {
                 $this->fs->remove($link);
                 $removed++;
@@ -101,18 +109,19 @@ class Manager
         return str_starts_with($realTarget, $this->skillsSourceDir);
     }
 
-    public function getManagedEnabledSkills(): array
+    public function getManagedEnabledSkills(string $target = self::TARGET_OPENCODE): array
     {
-        if (!is_dir($this->skillsTargetDir)) {
+        $targetDir = $this->getTargetDir($target);
+        if (!is_dir($targetDir)) {
             return [];
         }
 
         $enabled = [];
-        foreach (scandir($this->skillsTargetDir) as $entry) {
+        foreach (scandir($targetDir) as $entry) {
             if ($entry === '.' || $entry === '..') {
                 continue;
             }
-            $link = $this->skillsTargetDir . '/' . $entry;
+            $link = $targetDir . '/' . $entry;
             if (is_link($link) && $this->isManagedSymlink($link)) {
                 $enabled[basename($link)] = true;
             }
@@ -121,40 +130,62 @@ class Manager
         return $enabled;
     }
 
-    public function enable(string $skillName): bool
+    public function enable(string $skillName, string $target = self::TARGET_OPENCODE): bool
     {
         $skills = $this->getAvailableSkills();
         if (!isset($skills[$skillName])) {
             return false;
         }
 
-        $this->fs->mkdir($this->skillsTargetDir);
+        $targetDir = $this->getTargetDir($target);
+        $this->fs->mkdir($targetDir);
 
         $source = $skills[$skillName]['path'];
-        $target = $this->skillsTargetDir . '/' . $skillName;
+        $link = $targetDir . '/' . $skillName;
 
-        if ($this->fs->exists($target)) {
-            $this->fs->remove($target);
+        if ($this->fs->exists($link)) {
+            $this->fs->remove($link);
         }
 
         $this->fs->symlink(
-            Path::makeRelative($source, dirname($target)),
-            $target
+            Path::makeRelative($source, dirname($link)),
+            $link
         );
 
         return true;
     }
 
-    public function disable(string $skillName): bool
+    public function disable(string $skillName, string $target = self::TARGET_OPENCODE): bool
     {
-        $target = $this->skillsTargetDir . '/' . $skillName;
+        $link = $this->getTargetDir($target) . '/' . $skillName;
 
-        if (!$this->fs->exists($target)) {
+        if (!$this->fs->exists($link)) {
             return false;
         }
 
-        $this->fs->remove($target);
+        $this->fs->remove($link);
         return true;
+    }
+
+    public static function getValidTargets(): array
+    {
+        return [self::TARGET_OPENCODE, self::TARGET_KILOCODE];
+    }
+
+    public static function isValidTarget(string $target): bool
+    {
+        return isset(self::TARGET_DIRS[$target]);
+    }
+
+    private function getTargetDir(string $target): string
+    {
+        if (!isset(self::TARGET_DIRS[$target])) {
+            throw new \InvalidArgumentException(
+                sprintf('Invalid target "%s". Valid targets: %s', $target, implode(', ', self::getValidTargets()))
+            );
+        }
+
+        return $this->projectDir . '/' . self::TARGET_DIRS[$target];
     }
 
     private function parseDescription(string $skillFile): string

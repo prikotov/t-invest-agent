@@ -9,6 +9,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -23,7 +24,9 @@ class DisableCommand extends Command
 
     protected function configure(): void
     {
-        $this->addArgument('skills', InputArgument::IS_ARRAY, 'Skill names to disable');
+        $this
+            ->addArgument('skills', InputArgument::IS_ARRAY, 'Skill names to disable')
+            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, all', 'opencode');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -36,11 +39,16 @@ class DisableCommand extends Command
             return Command::FAILURE;
         }
 
-        foreach ($skills as $name) {
-            if ($this->manager->disable($name)) {
-                $io->writeln(sprintf('✓ <info>%s</info> disabled', $name));
-            } else {
-                $io->writeln(sprintf('✗ <comment>%s</comment> not enabled', $name));
+        $target = $input->getOption('target');
+        $targets = $target === 'all' ? Manager::getValidTargets() : [$target];
+
+        foreach ($targets as $t) {
+            foreach ($skills as $name) {
+                if ($this->manager->disable($name, $t)) {
+                    $io->writeln(sprintf('[%s] <info>%s</info> disabled', $t, $name));
+                } else {
+                    $io->writeln(sprintf('[%s] <comment>%s</comment> not enabled', $t, $name));
+                }
             }
         }
 

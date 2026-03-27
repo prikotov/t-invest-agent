@@ -28,32 +28,32 @@ final class ProfileManager
         return $this->config['skills'][$profile] ?? null;
     }
 
-    public function applyProfile(string $profile): array
+    public function applyProfile(string $profile, string $target = Manager::TARGET_OPENCODE): array
     {
         $skills = $this->getProfileSkills($profile);
         if ($skills === null) {
             return ['error' => "Profile '{$profile}' not found"];
         }
 
-        $this->manager->cleanupBrokenSymlinks();
+        $this->manager->cleanupBrokenSymlinks($target);
 
         $results = ['enabled' => [], 'disabled' => [], 'errors' => []];
         $available = array_keys($this->manager->getAvailableSkills());
 
         foreach ($skills as $skillName) {
-            if (!in_array($skillName, $available)) {
+            if (!in_array($skillName, $available, true)) {
                 $results['errors'][] = "Skill '{$skillName}' not available";
                 continue;
             }
-            if ($this->manager->enable($skillName)) {
+            if ($this->manager->enable($skillName, $target)) {
                 $results['enabled'][] = $skillName;
             }
         }
 
-        $enabled = array_keys($this->manager->getManagedEnabledSkills());
+        $enabled = array_keys($this->manager->getManagedEnabledSkills($target));
         foreach ($enabled as $skillName) {
-            if (!in_array($skillName, $skills)) {
-                $this->manager->disable($skillName);
+            if (!in_array($skillName, $skills, true)) {
+                $this->manager->disable($skillName, $target);
                 $results['disabled'][] = $skillName;
             }
         }

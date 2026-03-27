@@ -31,7 +31,8 @@ final class ManageCommand extends Command
             ->addOption('enable', 'e', InputOption::VALUE_OPTIONAL, 'Enable specific skills (comma-separated)')
             ->addOption('disable', 'd', InputOption::VALUE_OPTIONAL, 'Disable specific skills (comma-separated)')
             ->addOption('all', 'a', InputOption::VALUE_NONE, 'Enable all skills')
-            ->addOption('none', null, InputOption::VALUE_NONE, 'Disable all skills');
+            ->addOption('none', null, InputOption::VALUE_NONE, 'Disable all skills')
+            ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Target agent: opencode, kilocode, all', 'opencode');
     }
 
     #[Override]
@@ -39,31 +40,47 @@ final class ManageCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $target = $input->getOption('target');
+        $targets = $this->resolveTargets($target, $io);
+
+        if ($targets === null) {
+            return Command::FAILURE;
+        }
+
         $skills = $this->manager->getAvailableSkills();
-        $enabled = $this->manager->getEnabledSkills();
 
         if (empty($skills)) {
             $io->comment('No skills found in skills/ directory.');
             return Command::SUCCESS;
         }
 
-        if ($input->getOption('all')) {
-            return $this->enableAll($io, $skills);
+        foreach ($targets as $t) {
+            $enabled = $this->manager->getEnabledSkills($t);
+
+            if ($input->getOption('all')) {
+                $this->enableAll($io, $skills, $t);
+                continue;
+            }
+
+            if ($input->getOption('none')) {
+                $this->disableAll($io, $enabled, $t);
+                continue;
+            }
+
+            if ($input->getOption('enable')) {
+                $this->enableSelected($io, $input->getOption('enable'), $t);
+                continue;
+            }
+
+            if ($input->getOption('disable')) {
+                $this->disableSelected($io, $input->getOption('disable'), $t);
+                continue;
+            }
+
+            $this->interactive($input, $output, $io, $skills, $enabled, $t);
         }
 
-        if ($input->getOption('none')) {
-            return $this->disableAll($io, $enabled);
-        }
-
-        if ($input->getOption('enable')) {
-            return $this->enableSelected($io, $input->getOption('enable'));
-        }
-
-        if ($input->getOption('disable')) {
-            return $this->disableSelected($io, $input->getOption('disable'));
-        }
-
-        return $this->interactive($input, $output, $io, $skills, $enabled);
+        return Command::SUCCESS;
     }
 
     private function interactive(
@@ -72,6 +89,7 @@ final class ManageCommand extends Command
         SymfonyStyle $io,
         array $skills,
         array $enabled,
+        string $target,
     ): int {
         $choices = [];
         $defaults = [];
@@ -85,6 +103,7 @@ final class ManageCommand extends Command
         }
 
         $io->newLine();
+        $io->writeln(sprintf('Target: <info>%s</info>', $target));
         $io->writeln('Select skills to enable (space to toggle, enter to confirm):');
         $io->newLine();
 
@@ -100,11 +119,11 @@ final class ManageCommand extends Command
 
         foreach (array_keys($skills) as $name) {
             if (in_array($name, $selected, true)) {
-                if ($this->manager->enable($name)) {
+                if ($this->manager->enable($name, $target)) {
                     $enabledCount++;
                 }
             } else {
-                if ($this->manager->disable($name)) {
+                if ($this->manager->disable($name, $target)) {
                     $disabledCount++;
                 }
             }
@@ -116,53 +135,67 @@ final class ManageCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function enableAll(SymfonyStyle $io, array $skills): int
+    private function enableAll(SymfonyStyle $io, array $skills, string $target): void
     {
         $count = 0;
         foreach ($skills as $name => $skill) {
-            if ($this->manager->enable($name)) {
+            if ($this->manager->enable($name, $target)) {
                 $count++;
             }
         }
-        $io->success(sprintf('Enabled %d skill(s)', $count));
-        return Command::SUCCESS;
+        $io->success(sprintf('[%s] Enabled %d skill(s)', $target, $count));
     }
 
-    private function disableAll(SymfonyStyle $io, array $enabled): int
+    private function disableAll(SymfonyStyle $io, array $enabled, string $target): void
     {
         $count = 0;
         foreach (array_keys($enabled) as $name) {
-            if ($this->manager->disable($name)) {
+            if ($this->manager->disable($name, $target)) {
                 $count++;
             }
         }
-        $io->success(sprintf('Disabled %d skill(s)', $count));
-        return Command::SUCCESS;
+        $io->success(sprintf('[%s] Disabled %d skill(s)', $target, $count));
     }
 
-    private function enableSelected(SymfonyStyle $io, string $list): int
+    private function enableSelected(SymfonyStyle $io, string $list, string $target): void
     {
         $skills = array_map('trim', explode(',', $list));
         $count = 0;
         foreach ($skills as $name) {
-            if ($this->manager->enable($name)) {
+            if ($this->manager->enable($name, $target)) {
                 $count++;
             }
         }
-        $io->success(sprintf('Enabled %d skill(s)', $count));
-        return Command::SUCCESS;
+        $io->success(sprintf('[%s] Enabled %d skill(s)', $target, $count));
     }
 
-    private function disableSelected(SymfonyStyle $io, string $list): int
+    private function disableSelected(SymfonyStyle $io, string $list, string $target): void
     {
         $skills = array_map('trim', explode(',', $list));
         $count = 0;
         foreach ($skills as $name) {
-            if ($this->manager->disable($name)) {
+            if ($this->manager->disable($name, $target)) {
                 $count++;
             }
         }
-        $io->success(sprintf('Disabled %d skill(s)', $count));
-        return Command::SUCCESS;
+        $io->success(sprintf('[%s] Disabled %d skill(s)', $target, $count));
+    }
+
+    private function resolveTargets(string $target, SymfonyStyle $io): ?array
+    {
+        if ($target === 'all') {
+            return Manager::getValidTargets();
+        }
+
+        if (!Manager::isValidTarget($target)) {
+            $io->error(sprintf(
+                'Invalid target "%s". Valid targets: %s',
+                $target,
+                implode(', ', Manager::getValidTargets())
+            ));
+            return null;
+        }
+
+        return [$target];
     }
 }
