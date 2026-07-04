@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cba5d52cbaa66e43524893a3f17322a0",
+    "content-hash": "c649ec0ad03315c543d8cf8c6a6dc4b1",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -6091,6 +6091,55 @@
             "time": "2026-03-20T03:02:13+00:00"
         },
         {
+            "name": "prikotov/todo-md",
+            "version": "v0.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prikotov/todo-md.git",
+                "reference": "f235345f46c207234faea24f1ff6bf4867677aad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prikotov/todo-md/zipball/f235345f46c207234faea24f1ff6bf4867677aad",
+                "reference": "f235345f46c207234faea24f1ff6bf4867677aad",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.4"
+            },
+            "bin": [
+                "bin/todo-md-init",
+                "bin/todo-md-validate"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Prikotov",
+                    "email": "prikotov@gmail.com"
+                }
+            ],
+            "description": "File-based kanban board for managing tasks in markdown files",
+            "keywords": [
+                "kanban",
+                "markdown",
+                "task-management",
+                "todo"
+            ],
+            "support": {
+                "source": "https://github.com/prikotov/todo-md/tree/v0.0.7",
+                "issues": "https://github.com/prikotov/todo-md/issues"
+            },
+            "time": "2026-06-04T03:45:19+00:00"
+        },
+        {
             "name": "revolt/event-loop",
             "version": "v1.0.8",
             "source": {
@@ -7580,7 +7629,8 @@
         "prikotov/memory-core": 20,
         "prikotov/moex-core": 20,
         "prikotov/news-core": 20,
-        "prikotov/t-invest-core": 20
+        "prikotov/t-invest-core": 20,
+        "prikotov/todo-md": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
